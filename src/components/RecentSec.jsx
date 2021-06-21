@@ -2,6 +2,8 @@ import "./RecentSec.css";
 import { FaHashtag } from "react-icons/fa";
 import { FaLayerGroup } from "react-icons/fa";
 import { IoIosArrowDown } from "react-icons/io";
+import { FiPlus } from "react-icons/fi";
+
 const RecentSec = () => {
   return (
     <div className="recentSec">
@@ -24,7 +26,7 @@ const RecentSec = () => {
         </small>
       </div>
       <div className="groups">
-        <h6>Groups</h6>
+        <h6 style={{ color: "rgb(6, 6, 165)" }}>Groups</h6>
         <div className="group">
           <small className="d-flex align-items-center mb-2">
             <FaLayerGroup className="mr-2" />
@@ -44,10 +46,13 @@ const RecentSec = () => {
         </div>
       </div>
       <div className="events">
-        <div className="event d-flex align-items-center justify-content-space-between">
-          <h6>Events</h6>
+        <div className="event mb-3 d-flex align-items-center justify-content-space-between">
+          <h6 className="mb-0 mr-2" style={{ color: "rgb(6, 6, 165)" }}>
+            Events
+          </h6>
+          <FiPlus />
         </div>
-        <h6>Follow Hashtags</h6>
+        <h6 style={{ color: "rgb(6, 6, 165)" }}>Follow Hashtags</h6>
         <div className="tags">
           <small className="d-flex align-items-center mb-2">
             <FaHashtag className="mr-2" />

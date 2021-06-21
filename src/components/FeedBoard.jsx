@@ -1,21 +1,22 @@
 import AddFeedSec from "./AddFeedSec";
 import "./feedBoard.css";
 import NewPost from "./NewPost";
+import PostSec from "./PostSec";
 import RecentSec from "./RecentSec";
 import UserDetails from "./UserDetails";
 
 const feedBoard = () => {
   return (
     <div className="feedBoard">
-      <div className="" style={{ width: "20%" }}>
+      <div className="leftSection" style={{ width: "20%" }}>
         <UserDetails />
         <RecentSec />
       </div>
-      <div className="" style={{ width: "50%" }}>
+      <div className="centerSection" style={{ width: "50%" }}>
         <NewPost />
-        <RecentSec />
+        <PostSec />
       </div>
-      <div className="" style={{ width: "25%" }}>
+      <div className="rightSection" style={{ width: "26%" }}>
         <AddFeedSec />
         <RecentSec />
       </div>
