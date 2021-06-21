@@ -7,6 +7,7 @@ import { IoNotifications } from "react-icons/io5";
 import { HiUserCircle } from "react-icons/hi";
 import { HiDotsCircleHorizontal } from "react-icons/hi";
 import { FcAdvertising } from "react-icons/fc";
+import { FaSearch } from "react-icons/fa";
 import "./header.css";
 
 const Header = () => {
@@ -15,6 +16,7 @@ const Header = () => {
       <div className="logoAndSearch">
         <img src={Logo} alt="logo" />
         <input type="text" placeholder="Search" />
+        <FaSearch style={{ marginLeft: "-15.4rem", fontSize: "1rem" }} />
       </div>
       <div className="headerIcons">
         <div className="icon">
