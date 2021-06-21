@@ -1,4 +1,8 @@
 .feedBoard {
-  height: 100vh;
+  display: flex;
+  /* height: 100vh; */
+  padding: 100px;
+  padding-top: 60px;
+  padding-bottom: 60px;
   background: rgb(241, 241, 241);
 }

@@ -1,0 +1,57 @@
+.userDetails {
+  background: #fff;
+  width: 20%;
+  height: auto;
+  border-radius: 20px;
+  border: 0.5px solid #ccc !important;
+}
+.cover {
+  display: flex;
+  width: 100%;
+  height: 60px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+.profile {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  display: block;
+  margin: 1px auto;
+  margin-top: -40px;
+}
+
+.userInfo {
+  padding: 20px;
+  padding-bottom: 5px;
+  text-align: center;
+}
+.userInfo .userName {
+  font-size: 0.9rem;
+}
+.userInfo .userAbout {
+  font-size: 0.7rem;
+  color: rgb(126, 126, 126);
+}
+.profileAnalytics {
+  padding: 20px;
+  padding-bottom: 3px;
+  padding-top: 3px;
+  font-size: 0.7rem;
+}
+.profileAnalytics p {
+  margin-top: 1px;
+  margin-bottom: 0;
+}
+.profileAnalytics .profileViews {
+  display: flex;
+  justify-content: space-between;
+}
+.profileAnalytics .postViews {
+  display: flex;
+  justify-content: space-between;
+}
+.profileAnalytics strong {
+  color: rgb(6, 6, 165);
+  font-weight: 500;
+}

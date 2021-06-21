@@ -1,9 +1,10 @@
 import "./feedBoard.css";
+import UserDetails from "./UserDetails";
 
 const feedBoard = () => {
   return (
     <div className="feedBoard">
-      <h1>Feeds</h1>
+      <UserDetails />
     </div>
   );
 };
