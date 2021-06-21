@@ -1,0 +1,24 @@
+.addFeedSec {
+  background: #fff;
+  border-radius: 20px;
+  padding: 20px;
+  width: 25%;
+  height: 430px;
+  border: 0.5px solid #ccc;
+}
+.followBtn {
+  font-size: 1rem;
+  border-radius: 20px;
+  border: 0.5px solid #333;
+  padding: 3px 20px;
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  background: #fff;
+  outline: none !important;
+}
+.followBtn:hover {
+  background: rgb(241, 241, 241) !important;
+  border: 2px solid #333 !important;
+  transition: 0.5;
+}

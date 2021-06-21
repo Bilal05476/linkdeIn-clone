@@ -12,7 +12,7 @@
 }
 .imageInput {
   display: flex;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 .imageInput input {
   border-radius: 30px;
@@ -20,13 +20,16 @@
   padding-left: 20px;
   border: 0.5px solid #ccc !important;
   outline: none;
+  transition: 0.5s;
+}
+.imageInput input:hover {
   background: rgb(241, 241, 241);
 }
 .postProfile {
-  width: 60px;
+  width: 50px;
   height: 50px;
   border-radius: 50%;
-  margin-right: 20px;
+  margin-right: 15px;
 }
 .postIcons {
   display: flex;
@@ -43,4 +46,14 @@
 .postIcons .article {
   display: flex;
   align-items: center;
+  padding: 10px;
+  border-radius: 10px;
+  transition: 0.5s;
+  cursor: pointer;
+}
+.postIcons .photo:hover,
+.postIcons .video:hover,
+.postIcons .event:hover,
+.postIcons .article:hover {
+  background-color: rgb(241, 241, 241);
 }

@@ -34,7 +34,7 @@
   color: rgb(126, 126, 126);
 }
 .profileAnalytics {
-  padding: 20px;
+  padding-top: 20px;
   padding-bottom: 3px;
   padding-top: 3px;
   font-size: 0.7rem;
@@ -43,15 +43,28 @@
   margin-top: 1px;
   margin-bottom: 0;
 }
-.profileAnalytics .profileViews {
-  display: flex;
-  justify-content: space-between;
-}
+.profileAnalytics .profileViews,
 .profileAnalytics .postViews {
   display: flex;
   justify-content: space-between;
+  transition: 0.5s;
+  padding: 4px;
+  padding-left: 20px;
+  padding-right: 20px;
+  cursor: pointer;
+}
+.profileAnalytics .profileViews:hover,
+.profileAnalytics .postViews:hover {
+  background-color: rgb(241, 241, 241);
 }
 .profileAnalytics strong {
   color: rgb(6, 6, 165);
   font-weight: 500;
+}
+.myItems:hover {
+  background-color: rgb(241, 241, 241);
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  transition: 0.5s;
+  padding-top: 10px;
 }
