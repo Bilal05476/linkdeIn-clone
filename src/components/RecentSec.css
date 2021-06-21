@@ -1,0 +1,27 @@
+.recentSec {
+  background: #fff;
+  height: auto;
+  /* padding: 20px; */
+  margin-top: 10px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  border: 0.5px solid #ccc !important;
+}
+.recentSec h6 {
+  font-size: 0.8rem;
+}
+.recent,
+.groups,
+.events {
+  padding: 20px;
+  padding-bottom: 0;
+}
+.discover {
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  cursor: pointer;
+}
+.discover:hover {
+  background: rgb(241, 241, 241);
+  color: rgb(6, 6, 165);
+}
