@@ -1,5 +1,6 @@
 import { MdLabel } from "react-icons/md";
 import "./UserDetails.css";
+import { BsFillSquareFill } from "react-icons/bs";
 
 const UserDetails = () => {
   return (
@@ -30,6 +31,20 @@ const UserDetails = () => {
         <div className="postViews">
           <p>views of your post</p>
           <strong>428</strong>
+        </div>
+      </div>
+      <hr />
+      <div className="profileAnalytics">
+        <div className="profileViews">
+          <p>Try exclusive tools & insights</p>
+        </div>
+        <div className="postViews">
+          <p style={{ fontWeight: "600" }}>
+            <BsFillSquareFill
+              style={{ color: "goldenrod", marginRight: "5px" }}
+            />
+            Try Premium Free for 1 Month
+          </p>
         </div>
       </div>
       <hr />
