@@ -16,7 +16,10 @@ const Header = () => {
       <div className="logoAndSearch">
         <img src={Logo} alt="logo" />
         <input type="text" placeholder="Search" />
-        <FaSearch style={{ marginLeft: "-15.4rem", fontSize: "1rem" }} />
+        <FaSearch
+          className="serachIcon"
+          style={{ marginLeft: "-17rem", fontSize: "1rem" }}
+        />
       </div>
       <div className="headerIcons">
         <div className="icon">

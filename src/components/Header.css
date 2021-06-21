@@ -25,6 +25,10 @@
   background: rgb(245, 249, 255);
   border: 1px solid #ccc;
   outline: none !important;
+  transition: 0.5s;
+}
+.logoAndSearch input:hover {
+  padding-left: 50px;
 }
 .headerIcons {
   display: flex;
