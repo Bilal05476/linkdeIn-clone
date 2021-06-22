@@ -1,6 +1,6 @@
+import "./feedBoard.css";
 import AddFeedSec from "./AddFeedSec";
 import CopyrightSec from "./CopyrightSec";
-import "./feedBoard.css";
 import NewPost from "./NewPost";
 import PostSec from "./PostSec";
 import RecentSec from "./RecentSec";

@@ -21,18 +21,18 @@ const UserDetails = () => {
           Full Stack Website Developer || JavaScript Developer || Pythoneer
         </p>
       </div>
-      <hr />
+      <hr className="my-1" />
       <div className="profileAnalytics">
         <div className="profileViews">
-          <p>Who viewed your profile</p>
+          <p className="mb-0">Who viewed your profile</p>
           <strong>128</strong>
         </div>
         <div className="postViews">
-          <p>views of your post</p>
+          <p className="mb-0">views of your post</p>
           <strong>428</strong>
         </div>
       </div>
-      <hr />
+      <hr className="my-1" />
       <div className="profileAnalytics">
         <div className="profileViews">
           <p>Try exclusive tools & insights</p>
@@ -46,10 +46,10 @@ const UserDetails = () => {
           </p>
         </div>
       </div>
-      <hr />
+      <hr className="mb-0 mt-1" />
       <div
         style={{ fontSize: "0.7rem" }}
-        className="myItems pl-3 pb-3 d-flex align-items-center"
+        className="myItems pl-3 py-3 d-flex align-items-center"
       >
         <MdLabel style={{ fontSize: "1.1rem" }} className="mr-1" /> My Items
       </div>

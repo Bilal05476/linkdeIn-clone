@@ -47,7 +47,7 @@
   display: flex;
   justify-content: space-between;
   transition: 0.5s;
-  padding: 4px;
+  padding: 2px;
   padding-left: 20px;
   padding-right: 20px;
   cursor: pointer;
@@ -64,6 +64,5 @@
   background-color: rgb(241, 241, 241);
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
-  transition: 0.5s;
-  padding-top: 10px;
+  cursor: pointer;
 }

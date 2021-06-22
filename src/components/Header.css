@@ -29,6 +29,7 @@
 }
 .logoAndSearch input:hover {
   padding-left: 50px;
+  margin-left: 10px;
 }
 .headerIcons {
   display: flex;

@@ -18,7 +18,7 @@ const Header = () => {
         <input type="text" placeholder="Search" />
         <FaSearch
           className="serachIcon"
-          style={{ marginLeft: "-17rem", fontSize: "1rem" }}
+          style={{ marginLeft: "-17rem", fontSize: ".8rem" }}
         />
       </div>
       <div className="headerIcons">
