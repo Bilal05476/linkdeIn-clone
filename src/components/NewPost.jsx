@@ -17,19 +17,19 @@ const NewPost = () => {
       </div>
       <div className="postIcons">
         <div className="photo">
-          <HiPhotograph color="blue" size="1.3rem" />
+          <HiPhotograph color="rgb(14, 118, 168)" size="1.3rem" />
           <p className="mb-0 ml-1">Photo</p>
         </div>
         <div className="video">
-          <FaVideo color="green" size="1.3rem" />
+          <FaVideo color="rgb(14, 168, 109)" size="1.3rem" />
           <p className="mb-0 ml-1">Video</p>
         </div>
         <div className="event">
-          <MdEvent color="gold" size="1.3rem" />
+          <MdEvent color="rgb(165, 168, 14)" size="1.3rem" />
           <p className="mb-0 ml-1">Event</p>
         </div>
         <div className="article">
-          <RiArticleFill color="crimson" size="1.3rem" />
+          <RiArticleFill color="rgb(168, 14, 52)" size="1.3rem" />
           <p className="mb-0 ml-1">Write article</p>
         </div>
       </div>

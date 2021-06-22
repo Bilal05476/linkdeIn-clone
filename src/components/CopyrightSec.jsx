@@ -26,7 +26,7 @@ const CopyrightSec = () => {
       </div>
       <div className="copy">
         <small>
-          <GrLinkedin className="mr-2" color="rgb(6, 6, 222)" />
+          <GrLinkedin size="18" className="mr-1" color="rgb(14, 118, 168)" />
           LinkedIn Corporation &copy; 2021
         </small>
       </div>

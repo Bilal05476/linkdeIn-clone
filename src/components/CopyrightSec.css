@@ -17,5 +17,5 @@
 }
 
 .copyrightSec small:hover {
-  color: rgb(6, 6, 244);
+  color: var(--mainColor--);
 }

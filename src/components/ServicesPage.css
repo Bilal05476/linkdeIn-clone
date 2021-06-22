@@ -36,8 +36,8 @@
   margin-top: 20px;
 }
 .services .started {
-  border: 1px solid rgb(6, 6, 165);
-  color: rgb(6, 6, 165);
+  border: 1px solid var(--mainColor--);
+  color: var(--mainColor--);
   padding: 5px 15px;
   border-radius: 30px;
   background-color: transparent;

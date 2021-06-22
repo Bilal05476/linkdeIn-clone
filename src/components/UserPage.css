@@ -51,6 +51,6 @@
   padding-right: 10px;
 }
 .pageAnalytics strong {
-  color: rgb(6, 6, 165);
+  color: var(--mainColor--);
   font-weight: 500;
 }

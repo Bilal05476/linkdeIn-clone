@@ -43,14 +43,15 @@ const LinkedInPost = () => {
           any reply from them about that.. 🙂
         </p>
         <img
-          src="https://www.hanloncreative.com/wp-content/uploads/2017/08/social-media-timing.jpg"
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnBj5fzx7tOJyLPXfby43X_oaz6C-_XITaEw&usqp=CAU"
           alt="media"
           className="postMedia"
         />
       </div>
       <div className="postFooter">
         <div className="reactionsIcons">
-          <BiLike color="blue" /> <FcLike style={{ marginLeft: "-2px" }} />{" "}
+          <BiLike color="rgb(14, 118, 168)" />{" "}
+          <FcLike style={{ marginLeft: "-2px" }} />{" "}
           <FaRegLightbulb color="goldenrod" style={{ marginLeft: "-2px" }} />
           <small className="ml-2">
             61 <span className="px-1">.</span> 14 comments

@@ -43,7 +43,8 @@ const PagePost = () => {
       </div>
       <div className="postFooter">
         <div className="reactionsIcons">
-          <BiLike color="blue" /> <FcLike style={{ marginLeft: "-2px" }} />{" "}
+          <BiLike color="rgb(14, 118, 168)" />{" "}
+          <FcLike style={{ marginLeft: "-2px" }} />{" "}
           <CgInsights color="green" style={{ marginLeft: "-2px" }} />
           <small className="ml-2">
             661 <span className="px-1">.</span> 4 comments
