@@ -12,7 +12,6 @@
 
 .postSec {
   background: #fff;
-  padding: 20px;
   margin-top: 0px;
   border-radius: 20px;
   border: 0.5px solid #ccc !important;
@@ -20,26 +19,51 @@
   flex-direction: column;
 }
 /*pagePost*/
-.postHeader {
+.pagePost .postHeader {
+  padding: 20px;
+  padding-bottom: 10px;
   display: flex;
   justify-content: space-between;
 }
-.postHeader .headerLeft {
+.pagePost .postHeader .headerLeft {
   display: flex;
 }
-.postHeader .headerLeft .pageLogo {
+.pagePost .postHeader .headerLeft .pageLogo {
   width: 40px;
   height: 40px;
   border-radius: 2px;
   margin-right: 10px;
 }
-.postHeader .headerRight {
+.pagePost .postHeader .headerRight {
   margin-top: -20px;
   font-size: 1.6rem;
 }
-.postHeader .headerLeft .pagePostInfo {
+.pagePost .postHeader .headerLeft .pagePostInfo {
   display: flex;
   margin-top: -5px;
   flex-direction: column;
   font-size: 0.8rem;
+}
+.pagePost .postBody .postCaption {
+  padding: 20px;
+  font-size: 0.8rem;
+  padding-top: 0;
+  padding-bottom: 1px;
+}
+.pagePost .postBody .postMedia {
+  width: 100%;
+}
+.pagePost .postFooter {
+  padding: 20px;
+}
+
+.pagePost .postFooter .actionsArea small {
+  margin: auto 10px;
+  font-size: 0.9rem;
+}
+
+.pagePost .postFooter .actionsArea .actionsIcons {
+  font-size: 1.5rem;
+  font-weight: 300;
+  margin-right: 5px;
 }

@@ -5,12 +5,12 @@ const UserPage = () => {
     <div className="userPage">
       <img
         className="pageCover"
-        src="https://images.template.net/wp-content/uploads/2014/11/Natural-Facebook-Cover-Photo.jpg"
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOpohMUNHMDmoa6h0EWbt_jiHZ_LjkOS5nXGoiIlX_gSzHVxtaHv3ArBvAKnInsjAwlZk&usqp=CAU"
         alt="cover"
       />
       <img
         className="pageProfile"
-        src="https://media-exp1.licdn.com/dms/image/C5603AQEQl3TdXRZAxQ/profile-displayphoto-shrink_100_100/0/1561463236720?e=1629936000&v=beta&t=s-fGyByCn8y7cn8DnUjlwactRwosFBXbA-4SbQrcILs"
+        src="https://dynamic.brandcrowd.com/asset/logo/9971bc9b-9d51-4b42-beca-b3ffe882efcd/logo?v=637102751107770000"
         alt="profile"
       />
       <div className="pageInfo">
