@@ -18,8 +18,7 @@ const UserDetails = () => {
       <div className="userInfo">
         <h4 className="userName">User Name</h4>
         <p className="userAbout mb-0">
-          User About || User About || User About || User About || User About ||
-          User About
+          Full Stack Website Developer || JavaScript Developer || Pythoneer
         </p>
       </div>
       <hr />

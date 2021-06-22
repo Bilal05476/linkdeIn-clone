@@ -33,7 +33,7 @@ const PagePost = () => {
         <p className="postCaption">
           In collaboration with the Microsoft Global BlackBelt Team, this summit
           is designed to help you ship faster, operate with ease, and scale
-          confidently.
+          confidently. 🚀
         </p>
         <img
           src="https://www.hanloncreative.com/wp-content/uploads/2017/08/social-media-timing.jpg"
@@ -45,7 +45,9 @@ const PagePost = () => {
         <div className="reactionsIcons">
           <BiLike color="blue" /> <FcLike style={{ marginLeft: "-2px" }} />{" "}
           <CgInsights color="green" style={{ marginLeft: "-2px" }} />
-          <small className="ml-2">661 . 4 comments</small>
+          <small className="ml-2">
+            661 <span className="px-1">.</span> 4 comments
+          </small>
         </div>
         <hr />
         <div className="actionsArea">

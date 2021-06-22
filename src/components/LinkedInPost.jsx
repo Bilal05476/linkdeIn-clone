@@ -6,6 +6,8 @@ import { CgInsights } from "react-icons/cg";
 import { BiCommentDetail } from "react-icons/bi";
 import { FiSend } from "react-icons/fi";
 import { VscLiveShare } from "react-icons/vsc";
+import { FaRegLightbulb } from "react-icons/fa";
+import { BiWorld } from "react-icons/bi";
 
 const LinkedInPost = () => {
   return (
@@ -13,16 +15,20 @@ const LinkedInPost = () => {
       <div className="postHeader">
         <div className="headerLeft">
           <img
-            className="pageLogo"
-            src="https://dynamic.brandcrowd.com/asset/logo/9971bc9b-9d51-4b42-beca-b3ffe882efcd/logo?v=637102751107770000"
+            className="postProfileImg"
+            src="https://media-exp1.licdn.com/dms/image/C5603AQEQl3TdXRZAxQ/profile-displayphoto-shrink_100_100/0/1561463236720?e=1629936000&v=beta&t=s-fGyByCn8y7cn8DnUjlwactRwosFBXbA-4SbQrcILs"
             alt="profile"
           />
           <div className="pagePostInfo">
             <p className="mb-0" style={{ fontWeight: "600" }}>
-              Page Name
+              User Name
             </p>
-            <small className="follower">92,991,222 followers</small>
-            <small className="status">Promoted</small>
+            <small className="follower">
+              Full Stack Website Developer | JavaScript Developer | Pythoneer
+            </small>
+            <small className="status py-1 d-flex align-items-center">
+              2h <span className="px-1">.</span> <BiWorld size="17" />
+            </small>
           </div>
         </div>
         <div className="headerRight">
@@ -31,9 +37,10 @@ const LinkedInPost = () => {
       </div>
       <div className="postBody">
         <p className="postCaption">
-          In collaboration with the Microsoft Global BlackBelt Team, this summit
-          is designed to help you ship faster, operate with ease, and scale
-          confidently.
+          It was about 1.5 years ago, I applied somewhere for a job.
+          <br />
+          <br /> My resume got rejected at the first stage. I didn't even get
+          any reply from them about that.. 🙂
         </p>
         <img
           src="https://www.hanloncreative.com/wp-content/uploads/2017/08/social-media-timing.jpg"
@@ -44,8 +51,10 @@ const LinkedInPost = () => {
       <div className="postFooter">
         <div className="reactionsIcons">
           <BiLike color="blue" /> <FcLike style={{ marginLeft: "-2px" }} />{" "}
-          <CgInsights color="green" style={{ marginLeft: "-2px" }} />
-          <small className="ml-2">661 . 4 comments</small>
+          <FaRegLightbulb color="goldenrod" style={{ marginLeft: "-2px" }} />
+          <small className="ml-2">
+            61 <span className="px-1">.</span> 14 comments
+          </small>
         </div>
         <hr />
         <div className="actionsArea">
