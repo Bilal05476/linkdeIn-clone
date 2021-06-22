@@ -6,9 +6,9 @@ import { FaLongArrowAltRight } from "react-icons/fa";
 const AddFeedSec = () => {
   return (
     <div className="addFeedSec">
-      <div className="addToFeed d-flex align-items-center">
+      <div className="addToFeed">
         <h6 className="mb-0">Add to your feed</h6>
-        <TiInfoLarge style={{ marginLeft: "100px" }} />
+        <TiInfoLarge />
       </div>
       <div className="feedDiv d-flex flex-column">
         <FeedDetails

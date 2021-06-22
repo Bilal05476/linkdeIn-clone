@@ -8,7 +8,9 @@ const FeedDetails = ({ img, title, company }) => {
         <h6 className="mb-0" style={{ fontSize: "0.9rem" }}>
           {title}
         </h6>
-        <p className="mb-0">{company} </p>
+        <p className="mb-0" style={{ fontSize: "0.7rem" }}>
+          {company}{" "}
+        </p>
         <button className="followBtn">
           <FiPlus className="mr-1" />
           Follow

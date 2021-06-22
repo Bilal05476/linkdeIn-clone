@@ -21,3 +21,7 @@
   border: 2px solid #333 !important;
   transition: 0.5;
 }
+.addToFeed {
+  display: flex;
+  justify-content: space-between;
+}

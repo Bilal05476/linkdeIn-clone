@@ -1,7 +1,19 @@
+.sortSec {
+  display: flex;
+  align-items: center;
+  margin: 5px;
+  justify-content: space-between;
+}
+.sortSec .sortingLine {
+  height: 1px;
+  width: 80%;
+  border: 0.025px solid #ccc !important;
+}
+
 .postSec {
   background: #fff;
   padding: 20px;
-  margin-top: 10px;
+  margin-top: 0px;
   border-radius: 20px;
   border: 0.5px solid #ccc !important;
   display: flex;

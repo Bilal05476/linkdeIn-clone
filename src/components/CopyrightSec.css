@@ -1,0 +1,21 @@
+.copyrightSec {
+  background: transparent;
+  height: auto;
+  padding: 20px;
+  margin-top: 10px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  text-align: center;
+}
+.copyrightSec .copy {
+  margin-top: 10px;
+}
+.copyrightSec small {
+  margin: 10px !important;
+  padding: 2px;
+  cursor: pointer;
+}
+
+.copyrightSec small:hover {
+  color: rgb(6, 6, 244);
+}

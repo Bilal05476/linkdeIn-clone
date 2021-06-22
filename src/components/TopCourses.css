@@ -1,0 +1,21 @@
+.topCourses {
+  background: #fff;
+  height: auto;
+  padding: 20px;
+  margin-top: 10px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  border: 0.5px solid #ccc !important;
+}
+.topCourse {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.topCourses .coursesBlock {
+  display: flex;
+  flex-direction: column;
+}
+.topCourses .coursesBlock small {
+  margin-left: 15px;
+}

@@ -46,7 +46,7 @@ const RecentSec = () => {
         </div>
       </div>
       <div className="events">
-        <div className="event mb-3 d-flex align-items-center justify-content-space-between">
+        <div className="event mb-3">
           <h6 className="mb-0 mr-2" style={{ color: "rgb(6, 6, 165)" }}>
             Events
           </h6>

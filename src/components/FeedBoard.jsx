@@ -1,15 +1,20 @@
 import AddFeedSec from "./AddFeedSec";
+import CopyrightSec from "./CopyrightSec";
 import "./feedBoard.css";
 import NewPost from "./NewPost";
 import PostSec from "./PostSec";
 import RecentSec from "./RecentSec";
+import ServicesPage from "./ServicesPage";
+import TopCourses from "./TopCourses";
 import UserDetails from "./UserDetails";
+import UserPage from "./UserPage";
 
 const feedBoard = () => {
   return (
     <div className="feedBoard">
       <div className="leftSection" style={{ width: "20%" }}>
         <UserDetails />
+        <UserPage />
         <RecentSec />
       </div>
       <div className="centerSection" style={{ width: "50%" }}>
@@ -18,7 +23,9 @@ const feedBoard = () => {
       </div>
       <div className="rightSection" style={{ width: "26%" }}>
         <AddFeedSec />
-        <RecentSec />
+        <TopCourses />
+        <ServicesPage />
+        <CopyrightSec />
       </div>
     </div>
   );

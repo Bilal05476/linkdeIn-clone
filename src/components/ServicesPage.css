@@ -1,0 +1,44 @@
+.servicesPage {
+  background: #fff;
+  height: auto;
+  padding: 20px;
+  margin-top: 10px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  border: 0.5px solid #ccc !important;
+}
+.servicesPage .ad {
+  display: flex;
+  justify-content: flex-end;
+}
+.servicesPage .services {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px 2px;
+}
+.servicesImages {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+.servicesImages .servicesProfile {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  display: block;
+  margin-right: 10px;
+}
+.findClient {
+  font-size: 0.7rem;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+.services .started {
+  border: 1px solid rgb(6, 6, 165);
+  color: rgb(6, 6, 165);
+  padding: 5px 15px;
+  border-radius: 30px;
+  background-color: transparent;
+}
