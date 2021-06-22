@@ -2,6 +2,7 @@
   display: flex;
   align-items: center;
   margin: 5px;
+  margin-bottom: 0;
   justify-content: space-between;
 }
 .sortSec .sortingLine {
@@ -11,14 +12,18 @@
 }
 
 .postSec {
-  background: #fff;
-  margin-top: 0px;
-  border-radius: 20px;
-  border: 0.5px solid #ccc !important;
   display: flex;
   flex-direction: column;
 }
 /*pagePost*/
+.pagePost {
+  background: #fff;
+  margin-top: 0px;
+  border-radius: 20px;
+  border: 0.5px solid #ccc !important;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
 .pagePost .postHeader {
   padding: 20px;
   padding-bottom: 10px;

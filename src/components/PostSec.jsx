@@ -1,6 +1,7 @@
 import "./PostSec.css";
 import { RiArrowDownSFill } from "react-icons/ri";
 import PagePost from "./PagePost";
+import LinkedInPost from "./LinkedInPost";
 
 const PostSec = () => {
   return (
@@ -16,6 +17,7 @@ const PostSec = () => {
       </div>
       <div className="postSec">
         <PagePost />
+        <LinkedInPost />
       </div>
     </>
   );
