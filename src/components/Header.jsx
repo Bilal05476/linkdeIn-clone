@@ -9,6 +9,7 @@ import { HiDotsCircleHorizontal } from "react-icons/hi";
 import { FcAdvertising } from "react-icons/fc";
 import { FaSearch } from "react-icons/fa";
 import "./header.css";
+import { RiArrowDownSFill } from "react-icons/ri";
 
 const Header = () => {
   return (
@@ -44,12 +45,17 @@ const Header = () => {
         </div>
         <div className="icon">
           <HiUserCircle size="1.5rem" />
-          <p style={{ fontSize: ".7rem" }}>Me</p>
+          <p className="d-flex" style={{ fontSize: ".7rem" }}>
+            Me <RiArrowDownSFill size="16" />
+          </p>
         </div>
         <div className="vertical"></div>
         <div className="icon">
           <HiDotsCircleHorizontal size="1.5rem" />
-          <p style={{ fontSize: ".7rem" }}>Work</p>
+          <p className="d-flex" style={{ fontSize: ".7rem" }}>
+            Work
+            <RiArrowDownSFill size="16" />
+          </p>
         </div>
         <div className="icon">
           <FcAdvertising size="1.5rem" />

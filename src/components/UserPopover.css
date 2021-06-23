@@ -1,0 +1,47 @@
+.userPopover {
+  background: #fff;
+  height: auto;
+  margin-top: 10px;
+  border-radius: var(--AppBorderRadius--);
+  border: 0.5px solid #ccc !important;
+  border-top-right-radius: 0px;
+}
+.userPopHeader,
+.userPopBodyTop,
+.userPopBodyBottom,
+.signOutBtn {
+  padding: 10px;
+  padding-left: 12px;
+}
+.userPopInfos {
+  display: flex;
+  margin-bottom: 10px;
+}
+.userPopInfos .popOverProfile {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+.userPopInfos .userPopInfo p {
+  font-size: 0.7rem;
+}
+.userPopInfos .userPopInfo h6 {
+  font-size: 0.9rem;
+}
+.userPopBodyTop .userAccountPara {
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  margin: 0px;
+  margin-bottom: 5px;
+  color: var(--mainColor--);
+}
+.userPopHeader .viewProfile {
+  width: 100%;
+  border-radius: 20px;
+  color: var(--mainColor--);
+  border: 1.5px solid var(--mainColor--);
+  font-size: 0.8rem;
+  background-color: transparent;
+}

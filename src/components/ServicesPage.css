@@ -3,7 +3,7 @@
   height: auto;
   padding: 20px;
   margin-top: 10px;
-  border-radius: 20px;
+  border-radius: var(--AppBorderRadius--);
   font-size: 0.9rem;
   border: 0.5px solid #ccc !important;
 }

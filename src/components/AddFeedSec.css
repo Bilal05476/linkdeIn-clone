@@ -1,6 +1,6 @@
 .addFeedSec {
   background: #fff;
-  border-radius: 20px;
+  border-radius: var(--AppBorderRadius--);
   padding: 20px;
   border: 0.5px solid #ccc;
 }

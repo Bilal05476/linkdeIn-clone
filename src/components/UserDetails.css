@@ -1,15 +1,15 @@
 .userDetails {
   background: #fff;
   height: auto;
-  border-radius: 20px;
+  border-radius: var(--AppBorderRadius--);
   border: 0.5px solid #ccc !important;
 }
 .cover {
   display: flex;
   width: 100%;
   height: 60px;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
+  border-top-left-radius: var(--AppBorderRadius--);
+  border-top-right-radius: var(--AppBorderRadius--);
 }
 .profile {
   width: 70px;

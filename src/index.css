@@ -6,6 +6,7 @@
 }
 :root {
   --mainColor--: rgb(14, 118, 168);
+  --AppBorderRadius--: 10px;
   /* --green-- : rgb(14, 168, 109);
   --yellow-- : rgb(165, 168, 14);
   --red--: rgb(168, 14, 52); */
