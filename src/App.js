@@ -7,7 +7,7 @@ function App() {
   const { user } = useStateValue();
   return (
     <div>
-      {!user ? (
+      {user ? (
         <AuthComponent />
       ) : (
         <>

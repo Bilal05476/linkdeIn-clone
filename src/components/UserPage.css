@@ -54,6 +54,6 @@
   padding-right: 10px;
 }
 .pageAnalytics strong {
-  color: var(--mainColor--);
+  color: var(--darkMainColor--);
   font-weight: 500;
 }

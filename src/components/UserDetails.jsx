@@ -38,7 +38,7 @@ const UserDetails = () => {
           <p>Try exclusive tools & insights</p>
         </div>
         <div className="postViews">
-          <p style={{ fontWeight: "600" }}>
+          <p style={{ fontWeight: "600", color: "rgb(19, 180, 255)" }}>
             <BsFillSquareFill
               style={{ color: "goldenrod", marginRight: "5px" }}
             />

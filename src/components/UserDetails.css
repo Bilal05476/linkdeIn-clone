@@ -61,7 +61,7 @@
   background-color: rgb(241, 241, 241);
 }
 .profileAnalytics strong {
-  color: var(--mainColor--);
+  color: var(--darkMainColor--);
   font-weight: 500;
 }
 .myItems:hover {

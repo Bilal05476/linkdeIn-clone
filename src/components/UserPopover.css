@@ -41,15 +41,15 @@
   margin: 0px;
   margin-bottom: 5px;
   color: var(--mainColor--);
-  color: #fff;
+  color: var(--darkMainColor--);
 }
 .userPopHeader .viewProfile {
   width: 100%;
   border-radius: 20px;
   color: var(--mainColor--);
   border: 1.5px solid var(--mainColor--);
-  border: 1.5px solid #fff;
-  color: #fff;
+  border: 1.5px solid var(--darkMainColor--);
+  color: var(--darkMainColor--);
   font-size: 0.8rem;
   background-color: transparent;
 }
