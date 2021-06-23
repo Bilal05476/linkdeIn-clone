@@ -9,7 +9,7 @@ const JoinNow = () => {
         alt="logo"
         className="mb-3"
       />
-      <h2 style={{ fontWeight: "400" }}>
+      <h2 style={{ fontWeight: "300", fontSize: "1.8rem" }}>
         Make the most of your professional life
       </h2>
       <div className="joinNowDetails">

@@ -1,4 +1,5 @@
 import React from "react";
+import AuthFooter from "./AuthFooter";
 import JoinNow from "./JoinNow";
 // import SignIn from "./SignIn";
 
@@ -7,6 +8,7 @@ const AuthComponent = () => {
     <div>
       {/* <SignIn /> */}
       <JoinNow />
+      <AuthFooter />
     </div>
   );
 };
