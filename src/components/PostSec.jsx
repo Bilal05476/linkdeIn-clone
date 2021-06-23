@@ -8,7 +8,7 @@ const PostSec = () => {
     <>
       <div className="sortSec">
         <div className="sortingLine"></div>
-        <small>
+        <small className="sortingText">
           Sort by:{" "}
           <strong>
             Top <RiArrowDownSFill size="20" />{" "}

@@ -3,6 +3,9 @@
   height: auto;
   border-radius: var(--AppBorderRadius--);
   border: 0.5px solid #ccc !important;
+  border: 0.5px solid var(--AppDarkBorder--) !important;
+  background: #424242;
+  color: #fff;
 }
 .cover {
   display: flex;
@@ -31,6 +34,7 @@
 .userInfo .userAbout {
   font-size: 0.7rem;
   color: rgb(126, 126, 126);
+  color: #ccc;
 }
 .profileAnalytics {
   padding-top: 20px;

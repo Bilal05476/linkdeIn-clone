@@ -8,7 +8,6 @@ import ServicesPage from "./ServicesPage";
 import TopCourses from "./TopCourses";
 import UserDetails from "./UserDetails";
 import UserPage from "./UserPage";
-import UserPopover from "./UserPopover";
 
 const feedBoard = () => {
   return (
@@ -17,7 +16,6 @@ const feedBoard = () => {
         <UserDetails />
         <UserPage />
         <RecentSec />
-        <UserPopover />
       </div>
       <div className="centerSection" style={{ width: "50%" }}>
         <NewPost />

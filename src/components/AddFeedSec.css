@@ -1,6 +1,9 @@
 .addFeedSec {
-  background: #fff;
+  /* background: #fff; */
+  background: #424242;
+  color: #fff;
   border-radius: var(--AppBorderRadius--);
+  border: 0.5px solid var(--AppDarkBorder--) !important;
   padding: 20px;
   border: 0.5px solid #ccc;
 }
@@ -13,12 +16,18 @@
   display: flex;
   align-items: center;
   background: #fff;
+  background-color: #484848;
+  color: #fff;
+  border: 0.5px solid var(--AppDarkBorder--);
   outline: none !important;
 }
 .followBtn:hover {
   background: rgb(241, 241, 241) !important;
-  border: 2px solid #333 !important;
+  background-color: #323232 !important;
+  border: 1px solid #333;
+  border: 0.5px solid var(--AppDarkBorder--);
   transition: 0.5;
+  transform: translateX(2px);
 }
 .addToFeed {
   display: flex;

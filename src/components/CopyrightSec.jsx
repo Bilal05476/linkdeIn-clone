@@ -1,6 +1,6 @@
 import "./CopyrightSec.css";
-import { GrLinkedin } from "react-icons/gr";
 import { IoIosArrowDown } from "react-icons/io";
+import Logo from "../img/logo.png";
 
 const CopyrightSec = () => {
   return (
@@ -26,7 +26,7 @@ const CopyrightSec = () => {
       </div>
       <div className="copy">
         <small>
-          <GrLinkedin size="18" className="mr-1" color="rgb(14, 118, 168)" />
+          <img src={Logo} className="mr-2" width="10%" alt="logo" />
           LinkedIn Corporation &copy; 2021
         </small>
       </div>

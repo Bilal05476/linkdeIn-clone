@@ -9,6 +9,10 @@
   height: 1px;
   width: 80%;
   border: 0.025px solid #ccc !important;
+  border: 0.025px solid var(--AppDarkBorder--) !important;
+}
+.sortingText {
+  color: #ccc !important;
 }
 
 .postSec {
@@ -21,8 +25,11 @@
   margin-top: 0px;
   border-radius: var(--AppBorderRadius--);
   border: 0.5px solid #ccc !important;
+  border: 0.5px solid var(--AppDarkBorder--) !important;
   margin-top: 5px;
   margin-bottom: 5px;
+  background: #424242;
+  color: #fff;
 }
 .pagePost .postHeader {
   padding: 20px;

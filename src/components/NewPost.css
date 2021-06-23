@@ -4,8 +4,11 @@
   height: 130px;
   border-radius: var(--AppBorderRadius--);
   border: 0.5px solid #ccc !important;
+  border: 0.5px solid var(--AppDarkBorder--) !important;
   display: flex;
   flex-direction: column;
+  background: #424242;
+  color: #fff;
 }
 .imageInput {
   display: flex;
@@ -18,6 +21,11 @@
   border: 0.5px solid #ccc !important;
   outline: none;
   transition: 0.5s;
+  background: #424242;
+  color: #fff;
+}
+.imageInput input::placeholder {
+  color: #fff;
 }
 .imageInput input:hover {
   background: rgb(241, 241, 241);
@@ -53,4 +61,5 @@
 .postIcons .event:hover,
 .postIcons .article:hover {
   background-color: rgb(241, 241, 241);
+  background-color: #545454 !important;
 }

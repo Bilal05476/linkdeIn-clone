@@ -6,6 +6,9 @@
   border-radius: var(--AppBorderRadius--);
   font-size: 0.9rem;
   border: 0.5px solid #ccc !important;
+  border: 0.5px solid var(--AppDarkBorder--) !important;
+  background: #424242;
+  color: #fff;
 }
 .servicesPage .ad {
   display: flex;
@@ -37,7 +40,10 @@
 }
 .services .started {
   border: 1px solid var(--mainColor--);
+  border: 1px solid var(--AppDarkBorder--);
   color: var(--mainColor--);
+  color: #fff;
+
   padding: 5px 15px;
   border-radius: 30px;
   background-color: transparent;

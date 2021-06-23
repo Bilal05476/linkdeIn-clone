@@ -1,10 +1,15 @@
 .userPopover {
   background: #fff;
+  /* color: #fff; */
   height: auto;
-  margin-top: 10px;
-  border-radius: var(--AppBorderRadius--);
-  border: 0.5px solid #ccc !important;
-  border-top-right-radius: 0px;
+  width: 100%;
+  background: #424242;
+  color: #fff;
+}
+.userPopoverTab {
+  width: 85%;
+  margin-left: -60px;
+  margin-top: 40px;
 }
 .userPopHeader,
 .userPopBodyTop,
@@ -36,12 +41,15 @@
   margin: 0px;
   margin-bottom: 5px;
   color: var(--mainColor--);
+  color: #fff;
 }
 .userPopHeader .viewProfile {
   width: 100%;
   border-radius: 20px;
   color: var(--mainColor--);
   border: 1.5px solid var(--mainColor--);
+  border: 1.5px solid #fff;
+  color: #fff;
   font-size: 0.8rem;
   background-color: transparent;
 }

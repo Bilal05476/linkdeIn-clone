@@ -6,6 +6,9 @@
   border-radius: var(--AppBorderRadius--);
   font-size: 0.9rem;
   border: 0.5px solid #ccc !important;
+  border: 0.5px solid var(--AppDarkBorder--) !important;
+  background: #424242;
+  color: #fff;
 }
 .recentSec h6 {
   font-size: 0.8rem;

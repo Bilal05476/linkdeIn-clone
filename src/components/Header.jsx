@@ -10,6 +10,7 @@ import { FcAdvertising } from "react-icons/fc";
 import { FaSearch } from "react-icons/fa";
 import "./header.css";
 import { RiArrowDownSFill } from "react-icons/ri";
+import UserPopover from "./UserPopover";
 
 const Header = () => {
   return (
@@ -18,7 +19,7 @@ const Header = () => {
         <img src={Logo} alt="logo" />
         <input type="text" placeholder="Search" />
         <FaSearch
-          className="serachIcon"
+          className="searchIcon"
           style={{ marginLeft: "-17rem", fontSize: ".8rem" }}
         />
       </div>
@@ -43,12 +44,7 @@ const Header = () => {
           <IoNotifications size="1.5rem" />
           <p style={{ fontSize: ".7rem" }}>Notifications</p>
         </div>
-        <div className="icon">
-          <HiUserCircle size="1.5rem" />
-          <p className="d-flex" style={{ fontSize: ".7rem" }}>
-            Me <RiArrowDownSFill size="16" />
-          </p>
-        </div>
+        <UserPopover />
         <div className="vertical"></div>
         <div className="icon">
           <HiDotsCircleHorizontal size="1.5rem" />
