@@ -2,7 +2,6 @@ import "./PostSec.css";
 import { BsThreeDots } from "react-icons/bs";
 import { BiLike } from "react-icons/bi";
 import { FcLike } from "react-icons/fc";
-import { CgInsights } from "react-icons/cg";
 import { BiCommentDetail } from "react-icons/bi";
 import { FiSend } from "react-icons/fi";
 import { VscLiveShare } from "react-icons/vsc";
