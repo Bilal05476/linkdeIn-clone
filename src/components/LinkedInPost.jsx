@@ -7,20 +7,18 @@ import { FiSend } from "react-icons/fi";
 import { VscLiveShare } from "react-icons/vsc";
 import { FaRegLightbulb } from "react-icons/fa";
 import { BiWorld } from "react-icons/bi";
+import { useStateValue } from "../StateProvider";
 
 const LinkedInPost = () => {
+  const [{ user }] = useStateValue();
   return (
     <div className="pagePost">
       <div className="postHeader">
         <div className="headerLeft">
-          <img
-            className="postProfileImg"
-            src="https://media-exp1.licdn.com/dms/image/C5603AQEQl3TdXRZAxQ/profile-displayphoto-shrink_100_100/0/1561463236720?e=1629936000&v=beta&t=s-fGyByCn8y7cn8DnUjlwactRwosFBXbA-4SbQrcILs"
-            alt="profile"
-          />
+          <img className="postProfileImg" src={user?.photoURL} alt="profile" />
           <div className="pagePostInfo">
             <p className="mb-0" style={{ fontWeight: "600" }}>
-              User Name
+              {user?.displayName}
             </p>
             <small className="follower">
               Full Stack Website Developer | JavaScript Developer | Pythoneer

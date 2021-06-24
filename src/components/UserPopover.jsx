@@ -2,13 +2,32 @@ import "./UserPopover.css";
 import { BsFillSquareFill } from "react-icons/bs";
 import Popover from "@material-ui/core/Popover";
 import { useState } from "react";
-import { HiUserCircle } from "react-icons/hi";
+// import { HiUserCircle } from "react-icons/hi";
 import { RiArrowDownSFill } from "react-icons/ri";
+import { useStateValue } from "../StateProvider";
+import { auth } from "../firebase";
 
 const UserPopover = () => {
+  const [{ user }, dispatch] = useStateValue();
   const [anchorEl, setAnchorEl] = useState(null);
   const handleClose = () => {
     setAnchorEl(null);
+  };
+
+  const signOut = (e) => {
+    e.preventDefault();
+    auth
+      .signOut()
+      .then((result) => {
+        dispatch({
+          type: "SET_USER",
+          user: result,
+        });
+        localStorage.setItem("user", null);
+      })
+      .catch((error) => {
+        alert(error);
+      });
   };
 
   const handleClick = (event) => {
@@ -20,13 +39,18 @@ const UserPopover = () => {
   return (
     <>
       <div
-        className="icon"
+        className="icon m-0"
         aria-describedby={id}
         variant="contained"
         color="primary"
         onClick={handleClick}
       >
-        <HiUserCircle size="1.5rem" />
+        <img
+          style={{ borderRadius: "50%" }}
+          src={user?.photoURL}
+          width="30px"
+          height="30px"
+        />
         <p className="d-flex" style={{ fontSize: ".7rem" }}>
           Me <RiArrowDownSFill size="16" />
         </p>
@@ -43,11 +67,11 @@ const UserPopover = () => {
             <div className="userPopInfos">
               <img
                 className="popOverProfile"
-                src="https://media-exp1.licdn.com/dms/image/C5603AQEQl3TdXRZAxQ/profile-displayphoto-shrink_100_100/0/1561463236720?e=1629936000&v=beta&t=s-fGyByCn8y7cn8DnUjlwactRwosFBXbA-4SbQrcILs"
+                src={user?.photoURL}
                 alt="profile"
               />
               <div className="userPopInfo">
-                <h6 className="mb-0">User Name</h6>
+                <h6 className="mb-0">{user?.displayName}</h6>
                 <p className="mb-0">
                   Full Stack Website Developer || JavaScript Developer ||
                   Pythoneer
@@ -90,7 +114,9 @@ const UserPopover = () => {
           </div>
           <hr className="m-0" />
           <div className="signOutBtn">
-            <small className="signOut">Sign Out</small>
+            <small className="signOut" onClick={signOut}>
+              Sign Out
+            </small>
           </div>
         </div>
       </Popover>

@@ -4,19 +4,17 @@ import { useStateValue } from "./StateProvider";
 import AuthComponent from "./components/AuthComponent";
 
 function App() {
-  const { user } = useStateValue();
+  const [{ user }] = useStateValue();
   return (
     <>
-      <div>
-        {!user ? (
-          <AuthComponent />
-        ) : (
-          <>
-            <Header />
-            <FeedBoard />{" "}
-          </>
-        )}
-      </div>
+      {!user ? (
+        <AuthComponent />
+      ) : (
+        <>
+          <Header />
+          <FeedBoard />
+        </>
+      )}
     </>
   );
 }

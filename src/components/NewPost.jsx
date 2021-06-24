@@ -3,16 +3,14 @@ import { HiPhotograph } from "react-icons/hi";
 import { FaVideo } from "react-icons/fa";
 import { MdEvent } from "react-icons/md";
 import { RiArticleFill } from "react-icons/ri";
+import { useStateValue } from "../StateProvider";
 
 const NewPost = () => {
+  const [{ user }] = useStateValue();
   return (
     <div className="newPost">
       <div className="imageInput">
-        <img
-          className="postProfile"
-          src="https://media-exp1.licdn.com/dms/image/C5603AQEQl3TdXRZAxQ/profile-displayphoto-shrink_100_100/0/1561463236720?e=1629936000&v=beta&t=s-fGyByCn8y7cn8DnUjlwactRwosFBXbA-4SbQrcILs"
-          alt="profile"
-        />
+        <img className="postProfile" src={user?.photoURL} alt="profile" />
         <input type="text" placeholder="Start a post" />
       </div>
       <div className="postIcons">

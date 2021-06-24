@@ -53,3 +53,10 @@
   font-size: 0.8rem;
   background-color: transparent;
 }
+.signOutBtn:hover {
+  background: crimson;
+  padding-left: 40%;
+}
+.signOutBtn .signOut {
+  cursor: pointer;
+}

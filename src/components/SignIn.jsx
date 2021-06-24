@@ -1,10 +1,13 @@
 import "./AuthComponent.css";
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
+// import { auth, provider } from "../firebase";
+// import { useStateValue } from "../StateProvider";
 
 const SignIn = () => {
   const [signEmail, setSignEmail] = useState("");
   const [signPass, setSignPass] = useState("");
+  // const [{ user }, dispatch] = useStateValue();
 
   const onSubmit = (e) => {
     e.preventDefault();

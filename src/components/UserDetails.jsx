@@ -1,8 +1,11 @@
 import { MdLabel } from "react-icons/md";
 import "./UserDetails.css";
 import { BsFillSquareFill } from "react-icons/bs";
+import { useStateValue } from "../StateProvider";
 
 const UserDetails = () => {
+  const [{ user }] = useStateValue();
+
   return (
     <div className="userDetails">
       <img
@@ -10,13 +13,9 @@ const UserDetails = () => {
         src="https://images.template.net/wp-content/uploads/2014/11/Natural-Facebook-Cover-Photo.jpg"
         alt="cover"
       />
-      <img
-        className="profile"
-        src="https://media-exp1.licdn.com/dms/image/C5603AQEQl3TdXRZAxQ/profile-displayphoto-shrink_100_100/0/1561463236720?e=1629936000&v=beta&t=s-fGyByCn8y7cn8DnUjlwactRwosFBXbA-4SbQrcILs"
-        alt="profile"
-      />
+      <img className="profile" src={user?.photoURL} alt="profile" />
       <div className="userInfo">
-        <h4 className="userName">User Name</h4>
+        <h4 className="userName">{user?.displayName}</h4>
         <p className="userAbout mb-0">
           Full Stack Website Developer || JavaScript Developer || Pythoneer
         </p>

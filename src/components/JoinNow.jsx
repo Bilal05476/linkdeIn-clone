@@ -2,16 +2,35 @@ import "./AuthComponent.css";
 import Google from "../img/google.png";
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
+import { auth, provider } from "../firebase";
+import { useStateValue } from "../StateProvider";
 
 const JoinNow = () => {
   const [joinEmail, setJoinEmail] = useState("");
   const [joinPass, setJoinPass] = useState("");
+  const [{ user }, dispatch] = useStateValue();
 
   const onSubmit = (e) => {
     e.preventDefault();
     console.log(joinEmail);
     console.log(joinPass);
   };
+
+  const googleSignIn = (e) => {
+    e.preventDefault();
+    auth
+      .signInWithPopup(provider)
+      .then((result) => {
+        dispatch({
+          type: "SET_USER",
+          user: result.user,
+        });
+      })
+      .catch((error) => {
+        alert(error.message);
+      });
+  };
+
   return (
     <div className="joinNow">
       <img
@@ -57,7 +76,7 @@ const JoinNow = () => {
           <small>or</small>
           <div className="line"></div>
         </div>
-        <button className="googleBtn">
+        <button onClick={googleSignIn} className="googleBtn">
           <img src={Google} width="8%" className="mr-2" alt="google" />
           Join With Google
         </button>

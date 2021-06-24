@@ -13,9 +13,9 @@ const TopCourses = () => {
         "1. Personal Training",
         "2. Artificial Intelligence",
         "3. React Web App",
-      ].map((item) => {
+      ].map((item, ind) => {
         return (
-          <div className="coursesBlock mb-2">
+          <div className="coursesBlock mb-2" key={ind}>
             <h6
               className="mb-1"
               style={{ fontSize: "0.9rem", fontWeight: "600" }}
