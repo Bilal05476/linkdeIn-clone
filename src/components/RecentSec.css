@@ -13,6 +13,9 @@
 .recentSec h6 {
   font-size: 0.8rem;
 }
+.blueishColor {
+  color: var(--darkMainColor--);
+}
 .recent,
 .groups,
 .events {
@@ -25,11 +28,13 @@
   justify-content: space-between;
 }
 .discover {
-  border-bottom-left-radius: 20px;
-  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
   cursor: pointer;
 }
 .discover:hover {
   background: rgb(241, 241, 241);
+  background: #282828;
   color: var(--mainColor--);
+  color: var(--darkMainColor--);
 }

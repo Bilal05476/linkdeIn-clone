@@ -29,6 +29,7 @@
 }
 .imageInput input:hover {
   background: rgb(241, 241, 241);
+  background: #323232;
 }
 .postProfile {
   width: 50px;

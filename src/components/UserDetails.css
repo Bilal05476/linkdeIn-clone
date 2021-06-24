@@ -59,6 +59,7 @@
 .profileAnalytics .profileViews:hover,
 .profileAnalytics .postViews:hover {
   background-color: rgb(241, 241, 241);
+  background-color: #323232;
 }
 .profileAnalytics strong {
   color: var(--darkMainColor--);
@@ -66,7 +67,9 @@
 }
 .myItems:hover {
   background-color: rgb(241, 241, 241);
-  border-bottom-left-radius: 20px;
-  border-bottom-right-radius: 20px;
+  background-color: #323232;
+
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
   cursor: pointer;
 }

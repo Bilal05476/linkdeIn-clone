@@ -26,7 +26,7 @@ const RecentSec = () => {
         </small>
       </div>
       <div className="groups">
-        <h6 style={{ color: "rgb(14, 118, 168)" }}>Groups</h6>
+        <h6 className="blueishColor">Groups</h6>
         <div className="group">
           <small className="d-flex align-items-center mb-2">
             <FaLayerGroup className="mr-2" />
@@ -47,12 +47,10 @@ const RecentSec = () => {
       </div>
       <div className="events">
         <div className="event mb-3">
-          <h6 className="mb-0 mr-2" style={{ color: "rgb(14, 118, 168)" }}>
-            Events
-          </h6>
+          <h6 className="mb-0 mr-2 blueishColor">Events</h6>
           <FiPlus />
         </div>
-        <h6 style={{ color: "rgb(14, 118, 168)" }}>Follow Hashtags</h6>
+        <h6 className="blueishColor">Follow Hashtags</h6>
         <div className="tags">
           <small className="d-flex align-items-center mb-2">
             <FaHashtag className="mr-2" />
