@@ -1,3 +1,28 @@
+.welcomePage {
+  background-color: #212121;
+  height: 91vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.welcomePage .joinBtn,
+.welcomePage .signBtn {
+  padding: 20px 40px;
+  border: 2px solid var(--darkMainColor--);
+  color: var(--darkMainColor--);
+  text-decoration: none;
+  border-radius: var(--AppBorderRadius--);
+  margin: auto 20px;
+}
+
+.welcomePage .joinBtn:hover,
+.welcomePage .signBtn:hover {
+  background-color: var(--mainColor--);
+  color: #ccc;
+  border: 2px solid var(--mainColor--);
+}
+
 .joinNow,
 .signIn {
   display: flex;
@@ -90,9 +115,15 @@
   width: 35%;
 }
 .signInForm input {
-  padding: 10px;
+  padding: 12px;
   margin-bottom: 15px;
   border: var(--AppDarkBorder--);
   outline: none !important;
   border-radius: var(--AppBorderRadius--);
+  background: #585858;
+  color: #ccc;
+}
+
+.signInForm input::placeholder {
+  color: #ccc;
 }

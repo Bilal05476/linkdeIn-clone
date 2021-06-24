@@ -1,6 +1,7 @@
 import "./AuthComponent.css";
 import Google from "../img/google.png";
 import { useState } from "react";
+import { NavLink } from "react-router-dom";
 
 const JoinNow = () => {
   const [joinEmail, setJoinEmail] = useState("");
@@ -61,7 +62,10 @@ const JoinNow = () => {
           Join With Google
         </button>
         <p className="m-0 text-center">
-          Already on LinkedIn? <span className="signInLink">Sign in</span>
+          Already on LinkedIn?{" "}
+          <NavLink to="/signIn" style={{ textDecoration: "none" }}>
+            <span className="signInLink">Sign in</span>
+          </NavLink>
         </p>
       </div>
     </div>

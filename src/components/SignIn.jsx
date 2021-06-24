@@ -1,5 +1,6 @@
 import "./AuthComponent.css";
 import { useState } from "react";
+import { NavLink } from "react-router-dom";
 
 const SignIn = () => {
   const [signEmail, setSignEmail] = useState("");
@@ -10,7 +11,7 @@ const SignIn = () => {
     console.log(signEmail);
     console.log(signPass);
   };
-  ret;
+
   return (
     <div className="signIn">
       <img
@@ -20,7 +21,9 @@ const SignIn = () => {
         className="mb-3 mt-3"
       />
       <form onSubmit={onSubmit} className="signInForm">
-        <h3 className="mb-0">Sign In</h3>
+        <h3 style={{ fontSize: "1.9rem" }} className="mb-0">
+          Sign in
+        </h3>
         <small className="mt-1 mb-3">
           Stay updated on your professional world
         </small>
@@ -36,13 +39,16 @@ const SignIn = () => {
           type="password"
           placeholder="Password"
         />
-        <span className="forgetPass my-3 mb-4">Forgot Password?</span>
+        <span className="signInLink my-3 mb-4">Forgot Password?</span>
         <button type="submit" className="joinNowButton">
           Sign in
         </button>
       </form>
       <p className="m-0 my-5 text-center">
-        New to LinkedIn? <span className="signInLink">Join Now</span>
+        New to LinkedIn?
+        <NavLink to="/joinNow" style={{ textDecoration: "none" }}>
+          <span className="signInLink mx-1">Join Now</span>
+        </NavLink>
       </p>
     </div>
   );

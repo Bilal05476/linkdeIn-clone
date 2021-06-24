@@ -6,16 +6,18 @@ import AuthComponent from "./components/AuthComponent";
 function App() {
   const { user } = useStateValue();
   return (
-    <div>
-      {!user ? (
-        <AuthComponent />
-      ) : (
-        <>
-          <Header />
-          <FeedBoard />{" "}
-        </>
-      )}
-    </div>
+    <>
+      <div>
+        {!user ? (
+          <AuthComponent />
+        ) : (
+          <>
+            <Header />
+            <FeedBoard />{" "}
+          </>
+        )}
+      </div>
+    </>
   );
 }
 
