@@ -1,30 +1,17 @@
-import React from "react";
+import { useState } from "react";
 import AuthFooter from "./AuthFooter";
 import JoinNow from "./JoinNow";
 import SignIn from "./SignIn";
-import { Switch, Route, NavLink } from "react-router-dom";
+import ReactCardFlip from "react-card-flip";
 
 const AuthComponent = () => {
+  const [isFlipped, setIsFlipped] = useState(false);
   return (
-    <div>
-      <Switch>
-        <Route
-          path="/"
-          exact
-          render={(props) => (
-            <div className="welcomePage">
-              <NavLink className="signBtn" to="/signIn">
-                Sign In
-              </NavLink>
-              <NavLink className="joinBtn" to="/joinNow">
-                Join Now
-              </NavLink>
-            </div>
-          )}
-        />
-        <Route path="/signIn" exact component={SignIn} />
-        <Route path="/joinNow" exact component={JoinNow} />
-      </Switch>
+    <div className="authComponent">
+      <ReactCardFlip isFlipped={isFlipped} flipDirection="horizontal">
+        <SignIn isFlipped={isFlipped} setIsFlipped={setIsFlipped} />
+        <JoinNow isFlipped={isFlipped} setIsFlipped={setIsFlipped} />
+      </ReactCardFlip>
       <AuthFooter />
     </div>
   );

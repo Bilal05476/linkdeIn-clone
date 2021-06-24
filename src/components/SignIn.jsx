@@ -1,10 +1,10 @@
 import "./AuthComponent.css";
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
+// import { NavLink } from "react-router-dom";
 // import { auth, provider } from "../firebase";
 // import { useStateValue } from "../StateProvider";
 
-const SignIn = () => {
+const SignIn = ({ isFlipped, setIsFlipped }) => {
   const [signEmail, setSignEmail] = useState("");
   const [signPass, setSignPass] = useState("");
   // const [{ user }, dispatch] = useStateValue();
@@ -15,6 +15,10 @@ const SignIn = () => {
     console.log(signPass);
   };
 
+  const handleClick = (e) => {
+    e.preventDefault();
+    setIsFlipped(!isFlipped);
+  };
   return (
     <div className="signIn">
       <img
@@ -48,10 +52,10 @@ const SignIn = () => {
         </button>
       </form>
       <p className="m-0 my-5 text-center">
-        New to LinkedIn?
-        <NavLink to="/joinNow" style={{ textDecoration: "none" }}>
-          <span className="signInLink mx-1">Join Now</span>
-        </NavLink>
+        New to LinkedIn?{" "}
+        <span onClick={handleClick} className="signInLink">
+          Join Now
+        </span>
       </p>
     </div>
   );

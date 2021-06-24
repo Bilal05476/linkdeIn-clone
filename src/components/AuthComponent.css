@@ -1,26 +1,5 @@
-.welcomePage {
+.authComponent {
   background-color: #212121;
-  height: 91vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.welcomePage .joinBtn,
-.welcomePage .signBtn {
-  padding: 20px 40px;
-  border: 2px solid var(--darkMainColor--);
-  color: var(--darkMainColor--);
-  text-decoration: none;
-  border-radius: var(--AppBorderRadius--);
-  margin: auto 20px;
-}
-
-.welcomePage .joinBtn:hover,
-.welcomePage .signBtn:hover {
-  background-color: var(--mainColor--);
-  color: #ccc;
-  border: 2px solid var(--mainColor--);
 }
 
 .joinNow,
@@ -28,7 +7,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: #212121;
+  background: transparent;
   color: #fff;
   padding: 50px;
   padding-top: 20px;
@@ -58,6 +37,7 @@
 .policy,
 .signInLink {
   color: rgb(19, 180, 255);
+  cursor: pointer;
 }
 .joinNowButton {
   padding: 10px 40px;

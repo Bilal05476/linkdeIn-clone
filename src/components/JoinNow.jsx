@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 import { auth, provider } from "../firebase";
 import { useStateValue } from "../StateProvider";
 
-const JoinNow = () => {
+const JoinNow = ({ isFlipped, setIsFlipped }) => {
   const [joinEmail, setJoinEmail] = useState("");
   const [joinPass, setJoinPass] = useState("");
   const [{ user }, dispatch] = useStateValue();
@@ -29,6 +29,11 @@ const JoinNow = () => {
       .catch((error) => {
         alert(error.message);
       });
+  };
+
+  const handleClick = (e) => {
+    e.preventDefault();
+    setIsFlipped(!isFlipped);
   };
 
   return (
@@ -82,9 +87,9 @@ const JoinNow = () => {
         </button>
         <p className="m-0 text-center">
           Already on LinkedIn?{" "}
-          <NavLink to="/signIn" style={{ textDecoration: "none" }}>
-            <span className="signInLink">Sign in</span>
-          </NavLink>
+          <span onClick={handleClick} className="signInLink">
+            Sign in
+          </span>
         </p>
       </div>
     </div>
