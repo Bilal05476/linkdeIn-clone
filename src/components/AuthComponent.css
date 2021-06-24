@@ -107,3 +107,12 @@
 .signInForm input::placeholder {
   color: #ccc;
 }
+.signError,
+.joinError {
+  background-color: pink;
+  color: crimson;
+  border: 1px solid crimson;
+  padding: 5px;
+  padding-left: 10px;
+  border-radius: var(--AppBorderRadius--);
+}

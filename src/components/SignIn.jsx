@@ -1,20 +1,35 @@
 import "./AuthComponent.css";
 import { useState } from "react";
 // import { NavLink } from "react-router-dom";
-// import { auth, provider } from "../firebase";
-// import { useStateValue } from "../StateProvider";
+import { auth } from "../firebase";
+import { useStateValue } from "../StateProvider";
 
 const SignIn = ({ isFlipped, setIsFlipped }) => {
   const [signEmail, setSignEmail] = useState("");
   const [signPass, setSignPass] = useState("");
-  // const [{ user }, dispatch] = useStateValue();
+  const [signError, setSignError] = useState("");
+  const [{ user }, dispatch] = useStateValue();
 
   const onSubmit = (e) => {
     e.preventDefault();
-    console.log(signEmail);
-    console.log(signPass);
+    //validate data from database
+    auth
+      .signInWithEmailAndPassword(signEmail, signPass)
+      .then((result) => {
+        dispatch({
+          type: "SET_USER",
+          user: result.user,
+        });
+        localStorage.setItem("user", JSON.stringify(result.user));
+      })
+      .catch((error) => {
+        setSignError(error.message);
+      });
+    setSignEmail("");
+    setSignPass("");
+    setSignError("");
+    console.log(user);
   };
-
   const handleClick = (e) => {
     e.preventDefault();
     setIsFlipped(!isFlipped);
@@ -46,6 +61,8 @@ const SignIn = ({ isFlipped, setIsFlipped }) => {
           type="password"
           placeholder="Password"
         />
+        {signError && <div className="my-1 signError">{signError}</div>}
+
         <span className="signInLink my-3 mb-4">Forgot Password?</span>
         <button type="submit" className="joinNowButton">
           Sign in

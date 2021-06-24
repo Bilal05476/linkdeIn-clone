@@ -1,18 +1,38 @@
 import "./AuthComponent.css";
 import Google from "../img/google.png";
 import { useState } from "react";
-import { auth, provider } from "../firebase";
+import { auth, provider, db } from "../firebase";
 import { useStateValue } from "../StateProvider";
 
 const JoinNow = ({ isFlipped, setIsFlipped }) => {
   const [joinEmail, setJoinEmail] = useState("");
   const [joinPass, setJoinPass] = useState("");
+  const [joinError, setJoinError] = useState("");
   const [{ user }, dispatch] = useStateValue();
 
   const onSubmit = (e) => {
     e.preventDefault();
-    console.log(joinEmail);
-    console.log(joinPass);
+    //auth
+    auth
+      .createUserWithEmailAndPassword(joinEmail, joinPass)
+      .then((result) => {
+        dispatch({
+          type: "SET_USER",
+          user: result.user,
+        });
+        localStorage.setItem("user", JSON.stringify(result.user));
+        //send data to database
+        return db.collection("users").doc(result.user.uid).set({
+          email: joinEmail,
+        });
+      })
+      .catch((error) => {
+        setJoinError(error.message);
+        setJoinEmail(joinEmail);
+      });
+    setJoinEmail("");
+    setJoinPass("");
+    console.log(user);
   };
 
   const googleSignIn = (e) => {
@@ -24,9 +44,14 @@ const JoinNow = ({ isFlipped, setIsFlipped }) => {
           type: "SET_USER",
           user: result.user,
         });
+        localStorage.setItem("user", JSON.stringify(result.user));
+        //send data to database
+        return db.collection("users").doc(result.user.uid).set({
+          email: result.user.email,
+        });
       })
       .catch((error) => {
-        alert(error.message);
+        setJoinError(error.message);
       });
   };
 
@@ -66,6 +91,8 @@ const JoinNow = ({ isFlipped, setIsFlipped }) => {
             type="password"
             name="password"
           />
+          {joinError && <div className="my-2 joinError">{joinError}</div>}
+
           <small className="text-center m-4" style={{ fontSize: ".7rem" }}>
             By clicking Agree & Join, you agree to the LinkedIn
             <span className="policy"> User Agreement, Privacy Policy</span>, and{" "}
