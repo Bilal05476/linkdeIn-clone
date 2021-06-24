@@ -1,6 +1,16 @@
 import "./AuthComponent.css";
 import Google from "../img/google.png";
+import { useState } from "react";
+
 const JoinNow = () => {
+  const [joinEmail, setJoinEmail] = useState("");
+  const [joinPass, setJoinPass] = useState("");
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    console.log(joinEmail);
+    console.log(joinPass);
+  };
   return (
     <div className="joinNow">
       <img
@@ -13,21 +23,33 @@ const JoinNow = () => {
         Make the most of your professional life
       </h2>
       <div className="joinNowDetails">
-        <form action="" className="joinNowForm">
+        <form onSubmit={onSubmit} className="joinNowForm">
           <label className="m-0 mt-1" htmlFor="email">
             Email or phone number
           </label>
-          <input type="text" name="email" />
+          <input
+            value={joinEmail}
+            onChange={(e) => setJoinEmail(e.target.value)}
+            type="text"
+            name="email"
+          />
           <label className="m-0 mt-1" htmlFor="password">
             Email or phone number
           </label>
-          <input type="password" name="password" />
+          <input
+            value={joinPass}
+            onChange={(e) => setJoinPass(e.target.value)}
+            type="password"
+            name="password"
+          />
           <small className="text-center m-4" style={{ fontSize: ".7rem" }}>
             By clicking Agree & Join, you agree to the LinkedIn
             <span className="policy"> User Agreement, Privacy Policy</span>, and{" "}
             <span className="policy">Cookie Policy.</span>
           </small>
-          <button className="joinNowButton">Agree & Join</button>
+          <button type="submit" className="joinNowButton">
+            Agree & Join
+          </button>
         </form>
         <div className="partition">
           <div className="line"></div>

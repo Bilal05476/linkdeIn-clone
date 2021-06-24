@@ -1,13 +1,13 @@
 import React from "react";
 import AuthFooter from "./AuthFooter";
-import JoinNow from "./JoinNow";
-// import SignIn from "./SignIn";
+// import JoinNow from "./JoinNow";
+import SignIn from "./SignIn";
 
 const AuthComponent = () => {
   return (
     <div>
-      {/* <SignIn /> */}
-      <JoinNow />
+      <SignIn />
+      {/* <JoinNow /> */}
       <AuthFooter />
     </div>
   );

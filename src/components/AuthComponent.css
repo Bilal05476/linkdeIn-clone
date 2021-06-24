@@ -17,7 +17,8 @@
   width: 35%;
   margin-top: 15px;
 }
-.joinNowDetails .joinNowForm {
+.joinNowDetails .joinNowForm,
+.signInForm {
   display: flex;
   flex-direction: column;
 }
@@ -81,4 +82,17 @@
   padding: 15px;
   color: #ccc;
   font-size: 0.8rem;
+}
+.signInForm {
+  background-color: #424242;
+  padding: 30px;
+  border-radius: var(--AppBorderRadius--);
+  width: 35%;
+}
+.signInForm input {
+  padding: 10px;
+  margin-bottom: 15px;
+  border: var(--AppDarkBorder--);
+  outline: none !important;
+  border-radius: var(--AppBorderRadius--);
 }
