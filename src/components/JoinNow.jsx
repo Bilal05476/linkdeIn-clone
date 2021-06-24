@@ -1,7 +1,6 @@
 import "./AuthComponent.css";
 import Google from "../img/google.png";
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
 import { auth, provider } from "../firebase";
 import { useStateValue } from "../StateProvider";
 

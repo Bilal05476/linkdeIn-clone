@@ -50,6 +50,7 @@ const UserPopover = () => {
           src={user?.photoURL}
           width="30px"
           height="30px"
+          alt="profile"
         />
         <p className="d-flex" style={{ fontSize: ".7rem" }}>
           Me <RiArrowDownSFill size="16" />
