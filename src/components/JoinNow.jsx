@@ -79,6 +79,8 @@ const JoinNow = ({ isFlipped, setIsFlipped }) => {
         //send data to database
         return db.collection("users").doc(result.user.uid).set({
           email: result.user.email,
+          name: result.user.displayName,
+          avatar: result.user.photoURL,
         });
       })
       .catch((error) => {

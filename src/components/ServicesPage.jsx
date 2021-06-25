@@ -8,10 +8,12 @@ const ServicesPage = () => {
   const [{ user }] = useStateValue();
   const getUserData = db.collection("users").doc(user.uid);
   const [userName, setUserName] = useState("");
+  const [userImage, setUserImage] = useState(null);
 
   useEffect(() => {
     return getUserData.get().then((doc) => {
       setUserName(doc.data().name);
+      setUserImage(doc.data().avatar);
     });
   }, [user, getUserData]);
   return (
@@ -27,7 +29,16 @@ const ServicesPage = () => {
           {user?.displayName}, showcase your services
         </small>
         <div className="servicesImages">
-          <img className="servicesProfile" src={user?.photoURL} alt="profile" />
+          {userImage && (
+            <img className="servicesProfile" src={userImage} alt="profile" />
+          )}
+          {user?.photoURL && (
+            <img
+              className="servicesProfile"
+              src={user?.photoURL}
+              alt="profile"
+            />
+          )}
           <img
             className="servicesProfile"
             src="https://img.freepik.com/free-vector/organic-flat-customer-support-illustration_23-2148899174.jpg?size=626&ext=jpg"

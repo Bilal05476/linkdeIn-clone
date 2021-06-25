@@ -4,13 +4,27 @@ import { FaVideo } from "react-icons/fa";
 import { MdEvent } from "react-icons/md";
 import { RiArticleFill } from "react-icons/ri";
 import { useStateValue } from "../StateProvider";
+import { db } from "../firebase";
+import { useState, useEffect } from "react";
 
 const NewPost = () => {
   const [{ user }] = useStateValue();
+  const getUserData = db.collection("users").doc(user.uid);
+  const [userImage, setUserImage] = useState(null);
+  useEffect(() => {
+    return getUserData.get().then((doc) => {
+      setUserImage(doc.data().avatar);
+    });
+  }, [user, getUserData]);
   return (
     <div className="newPost">
       <div className="imageInput">
-        <img className="postProfile" src={user?.photoURL} alt="profile" />
+        {userImage && (
+          <img className="postProfile" src={userImage} alt="profile" />
+        )}
+        {user?.photoURL && (
+          <img className="postProfile" src={user?.photoURL} alt="profile" />
+        )}
         <input type="text" placeholder="Start a post" />
       </div>
       <div className="postIcons">
