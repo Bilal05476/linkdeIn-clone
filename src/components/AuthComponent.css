@@ -50,6 +50,9 @@
 .joinNowButton:hover {
   background: rgb(6, 63, 90);
 }
+.nextButton {
+  width: 100%;
+}
 .partition {
   display: flex;
   align-items: center;
