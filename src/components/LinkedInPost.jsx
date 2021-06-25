@@ -32,17 +32,10 @@ const LinkedInPost = () => {
           {userImage && (
             <img className="postProfileImg" src={userImage} alt="profile" />
           )}
-          {user?.photoURL && (
-            <img
-              className="postProfileImg"
-              src={user?.photoURL}
-              alt="profile"
-            />
-          )}
+
           <div className="pagePostInfo">
             <p className="mb-0" style={{ fontWeight: "600" }}>
               {userName}
-              {user?.displayName}
             </p>
             <small className="follower">
               {!userOccupation

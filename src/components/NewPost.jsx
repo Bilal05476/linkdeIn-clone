@@ -22,9 +22,7 @@ const NewPost = () => {
         {userImage && (
           <img className="postProfile" src={userImage} alt="profile" />
         )}
-        {user?.photoURL && (
-          <img className="postProfile" src={user?.photoURL} alt="profile" />
-        )}
+
         <input type="text" placeholder="Start a post" />
       </div>
       <div className="postIcons">

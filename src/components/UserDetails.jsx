@@ -28,14 +28,9 @@ const UserDetails = () => {
         alt="cover"
       />
       {userImage && <img className="profile" src={userImage} alt="profile" />}
-      {user?.photoURL && (
-        <img className="profile" src={user?.photoURL} alt="profile" />
-      )}
 
       <div className="userInfo">
-        <h4 className="userName">
-          {userName} {user?.displayName}
-        </h4>
+        <h4 className="userName">{userName}</h4>
         <p className="userAbout mb-0">
           {!userOccupation
             ? "Full Stack Website Developer | JavaScript Developer | Pythoneer"

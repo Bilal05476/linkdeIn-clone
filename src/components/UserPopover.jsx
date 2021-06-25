@@ -59,23 +59,13 @@ const UserPopover = () => {
         {userImage && (
           <img
             style={{ borderRadius: "50%" }}
-            src={user?.photoURL}
             width="30px"
             height="30px"
             src={userImage}
             alt="profile"
           />
         )}
-        {user?.photoURL && (
-          <img
-            style={{ borderRadius: "50%" }}
-            src={user?.photoURL}
-            width="30px"
-            height="30px"
-            src={user?.photoURL}
-            alt="profile"
-          />
-        )}
+
         <p className="d-flex" style={{ fontSize: ".7rem" }}>
           Me <RiArrowDownSFill size="16" />
         </p>
@@ -93,17 +83,9 @@ const UserPopover = () => {
               {userImage && (
                 <img className="popOverProfile" src={userImage} alt="profile" />
               )}
-              {user?.photoURL && (
-                <img
-                  className="popOverProfile"
-                  src={user?.photoURL}
-                  alt="profile"
-                />
-              )}
+
               <div className="userPopInfo">
-                <h6 className="mb-0">
-                  {userName} {user?.displayName}
-                </h6>
+                <h6 className="mb-0">{userName}</h6>
                 <p className="mb-0">
                   {!userOccupation
                     ? "Front End Developer || JavaScript Developer || Pythoneer"

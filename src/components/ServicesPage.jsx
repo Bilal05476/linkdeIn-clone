@@ -25,20 +25,13 @@ const ServicesPage = () => {
       </div>
       <div className="services">
         <small className="text-center">
-          {userName}
-          {user?.displayName}, showcase your services
+          {userName}, showcase your services
         </small>
         <div className="servicesImages">
           {userImage && (
             <img className="servicesProfile" src={userImage} alt="profile" />
           )}
-          {user?.photoURL && (
-            <img
-              className="servicesProfile"
-              src={user?.photoURL}
-              alt="profile"
-            />
-          )}
+
           <img
             className="servicesProfile"
             src="https://img.freepik.com/free-vector/organic-flat-customer-support-illustration_23-2148899174.jpg?size=626&ext=jpg"
