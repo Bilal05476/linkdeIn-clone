@@ -1,7 +1,7 @@
 import "./AuthComponent.css";
 import Google from "../img/google.png";
 import { useState } from "react";
-import { auth, provider, db } from "../firebase";
+import { auth, provider, db, storage } from "../firebase";
 import { useStateValue } from "../StateProvider";
 
 const JoinNow = ({ isFlipped, setIsFlipped }) => {
@@ -11,11 +11,19 @@ const JoinNow = ({ isFlipped, setIsFlipped }) => {
   const [joinCountry, setJoinCountry] = useState("");
   const [joinCity, setJoinCity] = useState("");
   const [joinOccupation, setJoinOccupation] = useState("");
-  const [joinImage, setJoinImage] = useState("");
+  const [joinImage, setJoinImage] = useState(null);
 
   const [joinError, setJoinError] = useState("");
   const [{ user }, dispatch] = useStateValue();
   const [toggleForm, setToggleForm] = useState(false);
+
+  const onFileChange = async (e) => {
+    const file = e.target.files[0];
+    const storageRef = storage.ref();
+    const fileRef = await storageRef.child(file.name);
+    await fileRef.put(file);
+    setJoinImage(await fileRef.getDownloadURL());
+  };
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -35,6 +43,7 @@ const JoinNow = ({ isFlipped, setIsFlipped }) => {
           country: joinCountry,
           city: joinCity,
           occupation: joinOccupation,
+          avatar: joinImage,
         });
       })
       .catch((error) => {
@@ -52,6 +61,7 @@ const JoinNow = ({ isFlipped, setIsFlipped }) => {
     setJoinCountry("");
     setJoinCity("");
     setJoinOccupation("");
+    setJoinImage(null);
 
     console.log(user);
   };
@@ -159,11 +169,7 @@ const JoinNow = ({ isFlipped, setIsFlipped }) => {
               <label className="m-0 mt-1" htmlFor="profile">
                 Profile
               </label>
-              <input
-                onChange={(e) => setJoinImage(e.target.files[0])}
-                type="file"
-                name="profile"
-              />
+              <input onChange={onFileChange} type="file" name="profile" />
             </>
           ) : (
             ""
@@ -176,7 +182,7 @@ const JoinNow = ({ isFlipped, setIsFlipped }) => {
             <span className="policy">Cookie Policy.</span>
           </small>
 
-          {!joinCity || !joinCountry || !joinOccupation ? (
+          {!joinCity || !joinCountry || !joinOccupation || !joinImage ? (
             " "
           ) : (
             <button type="submit" className="joinNowButton">

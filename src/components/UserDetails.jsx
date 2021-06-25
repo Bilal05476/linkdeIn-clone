@@ -10,11 +10,13 @@ const UserDetails = () => {
   const getUserData = db.collection("users").doc(user.uid);
   const [userName, setUserName] = useState("");
   const [userOccupation, setUserOccupation] = useState("");
+  const [userImage, setUserImage] = useState(null);
 
   useEffect(() => {
     return getUserData.get().then((doc) => {
       setUserName(doc.data().name);
       setUserOccupation(doc.data().occupation);
+      setUserImage(doc.data().avatar);
     });
   }, [user, getUserData]);
 
@@ -25,7 +27,11 @@ const UserDetails = () => {
         src="https://images.template.net/wp-content/uploads/2014/11/Natural-Facebook-Cover-Photo.jpg"
         alt="cover"
       />
-      <img className="profile" src={user?.photoURL} alt="profile" />
+      {userImage && <img className="profile" src={userImage} alt="profile" />}
+      {user?.photoURL && (
+        <img className="profile" src={user?.photoURL} alt="profile" />
+      )}
+
       <div className="userInfo">
         <h4 className="userName">
           {userName} {user?.displayName}

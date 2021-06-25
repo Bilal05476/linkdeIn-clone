@@ -12,11 +12,13 @@ const UserPopover = () => {
   const getUserData = db.collection("users").doc(user.uid);
   const [userName, setUserName] = useState("");
   const [userOccupation, setUserOccupation] = useState("");
+  const [userImage, setUserImage] = useState(null);
 
   useEffect(() => {
     return getUserData.get().then((doc) => {
       setUserName(doc.data().name);
       setUserOccupation(doc.data().occupation);
+      setUserImage(doc.data().avatar);
     });
   }, [user, getUserData]);
   const handleClose = () => {
@@ -54,13 +56,26 @@ const UserPopover = () => {
         color="primary"
         onClick={handleClick}
       >
-        <img
-          style={{ borderRadius: "50%" }}
-          src={user?.photoURL}
-          width="30px"
-          height="30px"
-          alt="profile"
-        />
+        {userImage && (
+          <img
+            style={{ borderRadius: "50%" }}
+            src={user?.photoURL}
+            width="30px"
+            height="30px"
+            src={userImage}
+            alt="profile"
+          />
+        )}
+        {user?.photoURL && (
+          <img
+            style={{ borderRadius: "50%" }}
+            src={user?.photoURL}
+            width="30px"
+            height="30px"
+            src={user?.photoURL}
+            alt="profile"
+          />
+        )}
         <p className="d-flex" style={{ fontSize: ".7rem" }}>
           Me <RiArrowDownSFill size="16" />
         </p>
@@ -75,11 +90,16 @@ const UserPopover = () => {
         <div className="userPopover">
           <div className="userPopHeader">
             <div className="userPopInfos">
-              <img
-                className="popOverProfile"
-                src={user?.photoURL}
-                alt="profile"
-              />
+              {userImage && (
+                <img className="popOverProfile" src={userImage} alt="profile" />
+              )}
+              {user?.photoURL && (
+                <img
+                  className="popOverProfile"
+                  src={user?.photoURL}
+                  alt="profile"
+                />
+              )}
               <div className="userPopInfo">
                 <h6 className="mb-0">
                   {userName} {user?.displayName}
