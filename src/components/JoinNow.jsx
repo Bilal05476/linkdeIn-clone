@@ -11,6 +11,7 @@ const JoinNow = ({ isFlipped, setIsFlipped }) => {
   const [joinCountry, setJoinCountry] = useState("");
   const [joinCity, setJoinCity] = useState("");
   const [joinOccupation, setJoinOccupation] = useState("");
+  const [joinImage, setJoinImage] = useState("");
 
   const [joinError, setJoinError] = useState("");
   const [{ user }, dispatch] = useStateValue();
@@ -154,6 +155,14 @@ const JoinNow = ({ isFlipped, setIsFlipped }) => {
                 onChange={(e) => setJoinOccupation(e.target.value)}
                 type="text"
                 name="occupation"
+              />
+              <label className="m-0 mt-1" htmlFor="profile">
+                Profile
+              </label>
+              <input
+                onChange={(e) => setJoinImage(e.target.files[0])}
+                type="file"
+                name="profile"
               />
             </>
           ) : (
