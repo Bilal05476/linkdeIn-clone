@@ -1,9 +1,19 @@
 import "./ServicesPage.css";
 import { BsThreeDots } from "react-icons/bs";
 import { useStateValue } from "../StateProvider";
+import { db } from "../firebase";
+import { useEffect, useState } from "react";
 
 const ServicesPage = () => {
   const [{ user }] = useStateValue();
+  const getUserData = db.collection("users").doc(user.uid);
+  const [userName, setUserName] = useState("");
+
+  useEffect(() => {
+    return getUserData.get().then((doc) => {
+      setUserName(doc.data().name);
+    });
+  }, [user, getUserData]);
   return (
     <div className="servicesPage">
       <div className="ad">
@@ -13,6 +23,7 @@ const ServicesPage = () => {
       </div>
       <div className="services">
         <small className="text-center">
+          {userName}
           {user?.displayName}, showcase your services
         </small>
         <div className="servicesImages">

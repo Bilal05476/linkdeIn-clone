@@ -8,9 +8,21 @@ import { VscLiveShare } from "react-icons/vsc";
 import { FaRegLightbulb } from "react-icons/fa";
 import { BiWorld } from "react-icons/bi";
 import { useStateValue } from "../StateProvider";
+import { db } from "../firebase";
+import { useEffect, useState } from "react";
 
 const LinkedInPost = () => {
   const [{ user }] = useStateValue();
+  const getUserData = db.collection("users").doc(user.uid);
+  const [userName, setUserName] = useState("");
+  const [userOccupation, setUserOccupation] = useState("");
+
+  useEffect(() => {
+    return getUserData.get().then((doc) => {
+      setUserName(doc.data().name);
+      setUserOccupation(doc.data().occupation);
+    });
+  }, [user, getUserData]);
   return (
     <div className="pagePost">
       <div className="postHeader">
@@ -18,10 +30,13 @@ const LinkedInPost = () => {
           <img className="postProfileImg" src={user?.photoURL} alt="profile" />
           <div className="pagePostInfo">
             <p className="mb-0" style={{ fontWeight: "600" }}>
+              {userName}
               {user?.displayName}
             </p>
             <small className="follower">
-              Full Stack Website Developer | JavaScript Developer | Pythoneer
+              {!userOccupation
+                ? "Full Stack Website Developer | JavaScript Developer | Pythoneer"
+                : userOccupation}
             </small>
             <small className="status py-1 d-flex align-items-center">
               2h <span className="px-1">.</span> <BiWorld size="17" />

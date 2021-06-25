@@ -1,15 +1,24 @@
 import "./UserPopover.css";
 import { BsFillSquareFill } from "react-icons/bs";
 import Popover from "@material-ui/core/Popover";
-import { useState } from "react";
-// import { HiUserCircle } from "react-icons/hi";
+import { useEffect, useState } from "react";
 import { RiArrowDownSFill } from "react-icons/ri";
 import { useStateValue } from "../StateProvider";
-import { auth } from "../firebase";
+import { auth, db } from "../firebase";
 
 const UserPopover = () => {
   const [{ user }, dispatch] = useStateValue();
   const [anchorEl, setAnchorEl] = useState(null);
+  const getUserData = db.collection("users").doc(user.uid);
+  const [userName, setUserName] = useState("");
+  const [userOccupation, setUserOccupation] = useState("");
+
+  useEffect(() => {
+    return getUserData.get().then((doc) => {
+      setUserName(doc.data().name);
+      setUserOccupation(doc.data().occupation);
+    });
+  }, [user, getUserData]);
   const handleClose = () => {
     setAnchorEl(null);
   };
@@ -72,10 +81,13 @@ const UserPopover = () => {
                 alt="profile"
               />
               <div className="userPopInfo">
-                <h6 className="mb-0">{user?.displayName}</h6>
+                <h6 className="mb-0">
+                  {userName} {user?.displayName}
+                </h6>
                 <p className="mb-0">
-                  Full Stack Website Developer || JavaScript Developer ||
-                  Pythoneer
+                  {!userOccupation
+                    ? "Front End Developer || JavaScript Developer || Pythoneer"
+                    : userOccupation}
                 </p>
               </div>
             </div>

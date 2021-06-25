@@ -2,9 +2,21 @@ import { MdLabel } from "react-icons/md";
 import "./UserDetails.css";
 import { BsFillSquareFill } from "react-icons/bs";
 import { useStateValue } from "../StateProvider";
+import { db } from "../firebase";
+import { useEffect, useState } from "react";
 
 const UserDetails = () => {
   const [{ user }] = useStateValue();
+  const getUserData = db.collection("users").doc(user.uid);
+  const [userName, setUserName] = useState("");
+  const [userOccupation, setUserOccupation] = useState("");
+
+  useEffect(() => {
+    return getUserData.get().then((doc) => {
+      setUserName(doc.data().name);
+      setUserOccupation(doc.data().occupation);
+    });
+  }, [user, getUserData]);
 
   return (
     <div className="userDetails">
@@ -15,9 +27,13 @@ const UserDetails = () => {
       />
       <img className="profile" src={user?.photoURL} alt="profile" />
       <div className="userInfo">
-        <h4 className="userName">{user?.displayName}</h4>
+        <h4 className="userName">
+          {userName} {user?.displayName}
+        </h4>
         <p className="userAbout mb-0">
-          Full Stack Website Developer || JavaScript Developer || Pythoneer
+          {!userOccupation
+            ? "Full Stack Website Developer | JavaScript Developer | Pythoneer"
+            : userOccupation}
         </p>
       </div>
       <hr className="my-1" />
