@@ -7,6 +7,12 @@ import { db } from "../firebase";
 import { useState, useEffect } from "react";
 import { GrClose } from "react-icons/gr";
 import { useStateValue } from "../StateProvider";
+import { HiPhotograph } from "react-icons/hi";
+import { FaVideo } from "react-icons/fa";
+import { AiOutlinePlus } from "react-icons/ai";
+import { HiUsers } from "react-icons/hi";
+import { BiWorld } from "react-icons/bi";
+import { BiCommentDetail } from "react-icons/bi";
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -64,7 +70,11 @@ const useStyles = makeStyles((theme) => ({
     paddingBottom: "15px",
   },
 
-  modalLeftFooter: {},
+  modalLeftFooter: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
+  },
   postSubmitBtn: {
     background: "rgb(19, 180, 255)",
     padding: "5px 15px",
@@ -136,8 +146,13 @@ export default function PostModal({ open, setOpen }) {
                 {userImage && (
                   <img className="postProfile" src={userImage} alt="profile" />
                 )}
-                <p className="mb-0 nameTags">{userName}</p>
-                <p className="mb-0 nameTags">Anyone</p>
+                <p className="mb-0 nameTags">
+                  <HiUsers size="1.2rem" className="mr-2" /> {userName}
+                </p>
+                <p className="mb-0 nameTags">
+                  <BiWorld size="1.2rem" className="mr-2" />
+                  Anyone
+                </p>
               </div>
               <textarea
                 className={classes.modalInput}
@@ -154,7 +169,19 @@ export default function PostModal({ open, setOpen }) {
               </button>
             </div>
             <div className={classes.modalFooter}>
-              <div className={classes.modalLeftFooter}>+ Photo Video</div>
+              <div className={classes.modalLeftFooter}>
+                <AiOutlinePlus size="1.3rem" />{" "}
+                <HiPhotograph className="mx-2" size="1.3rem" />{" "}
+                <FaVideo size="1.3rem" />
+                <div
+                  className="mx-4"
+                  style={{ width: "1px", height: "20px", background: "#333" }}
+                ></div>
+                <p className="mb-0 nameTags">
+                  <BiCommentDetail size="1.2rem" className="mr-2" />
+                  Anyone
+                </p>
+              </div>
               <div className={classes.modalRightFooter}>
                 <button className={classes.postSubmitBtn}>Post</button>
               </div>
