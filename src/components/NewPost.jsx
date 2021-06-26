@@ -28,7 +28,7 @@ const NewPost = () => {
         {userImage && (
           <img className="postProfile" src={userImage} alt="profile" />
         )}
-        <input onClick={handleOpen} type="text" placeholder="Start a post" />
+        <input onClick={handleOpen} placeholder="Start a post" />
       </div>
       <PostModal open={open} setOpen={setOpen} />
       <div className="postIcons">

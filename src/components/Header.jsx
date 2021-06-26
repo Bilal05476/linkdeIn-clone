@@ -13,7 +13,7 @@ import UserPopover from "./UserPopover";
 
 const Header = () => {
   return (
-    <div className="header">
+    <div className="header fixed-top">
       <div className="logoAndSearch">
         <img src={Logo} alt="logo" />
         <input type="text" placeholder="Search" />

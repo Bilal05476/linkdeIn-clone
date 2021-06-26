@@ -3,6 +3,11 @@ import { makeStyles } from "@material-ui/core/styles";
 import Modal from "@material-ui/core/Modal";
 import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";
+import { db } from "../firebase";
+import { useState, useEffect } from "react";
+import { GrClose } from "react-icons/gr";
+import { useStateValue } from "../StateProvider";
+
 // import { useState } from "react";
 
 const useStyles = makeStyles((theme) => ({
@@ -12,16 +17,51 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
   },
   paper: {
-    backgroundColor: theme.palette.background.paper,
-    border: "2px solid #000",
+    borderRadius: "10px",
     boxShadow: theme.shadows[5],
-    padding: theme.spacing(2, 4, 3),
+    backgroundColor: "#212121",
+    color: "#fff",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "space-between",
+    width: "40%",
+  },
+  modalHeader: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
+    padding: "20px 40px",
+    paddingRight: "20px",
+    width: "100%",
+    borderBottom: "1px solid #585858",
+  },
+  modalBody: {
+    backgroundColor: "#212121",
+    color: "#fff",
+    display: "flex",
+    alignItems: "center",
+    padding: "20px 30px",
+  },
+  modalFooter: {
+    backgroundColor: "#212121",
+    color: "#fff",
+    display: "flex",
+    alignItems: "center",
+    padding: "20px 30px",
   },
 }));
 
 export default function PostModal({ open, setOpen }) {
+  const [{ user }] = useStateValue();
   const classes = useStyles();
+  const getUserData = db.collection("users").doc(user.uid);
+  const [userImage, setUserImage] = useState(null);
 
+  useEffect(() => {
+    return getUserData.get().then((doc) => {
+      setUserImage(doc.data().avatar);
+    });
+  }, [user, getUserData]);
   const handleClose = () => {
     setOpen(false);
   };
@@ -42,10 +82,22 @@ export default function PostModal({ open, setOpen }) {
       >
         <Fade in={open}>
           <div className={classes.paper}>
-            <h2 id="transition-modal-title">Transition modal</h2>
-            <p id="transition-modal-description">
-              react-transition-group animates me.
-            </p>
+            <div className={classes.modalHeader}>
+              <h4 className="m-0" style={{ fontWeight: "300" }}>
+                Create a post
+              </h4>
+              <button className="modalCloseBtn" onClick={handleClose}>
+                <GrClose size="18" />
+              </button>
+            </div>
+            <div className={classes.modalBody}>
+              {userImage && (
+                <img className="postProfile" src={userImage} alt="profile" />
+              )}
+              <p className="mb-0 nameTags">Bilal Ahmed</p>
+              <p className="mb-0 nameTags">Anyone</p>
+            </div>
+            <div className={classes.modalFooter}>Modal Footer</div>
           </div>
         </Fade>
       </Modal>

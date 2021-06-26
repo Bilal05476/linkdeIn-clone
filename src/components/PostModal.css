@@ -1,0 +1,18 @@
+.nameTags {
+  border: 1px solid #ccc;
+  padding: 5px 20px;
+  font-size: 0.8rem;
+  margin-right: 7px;
+  border-radius: 20px;
+}
+.modalCloseBtn {
+  background: #545454;
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  padding: 4px 6px;
+}
+
+.modalCloseBtn:hover {
+  background-color: crimson !important;
+}
