@@ -5,12 +5,18 @@ import { MdEvent } from "react-icons/md";
 import { RiArticleFill } from "react-icons/ri";
 import { useStateValue } from "../StateProvider";
 import { db } from "../firebase";
+import PostModal from "./PostModal";
 import { useState, useEffect } from "react";
 
 const NewPost = () => {
   const [{ user }] = useStateValue();
   const getUserData = db.collection("users").doc(user.uid);
   const [userImage, setUserImage] = useState(null);
+  const [open, setOpen] = useState(false);
+
+  const handleOpen = () => {
+    setOpen(true);
+  };
   useEffect(() => {
     return getUserData.get().then((doc) => {
       setUserImage(doc.data().avatar);
@@ -22,9 +28,9 @@ const NewPost = () => {
         {userImage && (
           <img className="postProfile" src={userImage} alt="profile" />
         )}
-
-        <input type="text" placeholder="Start a post" />
+        <input onClick={handleOpen} type="text" placeholder="Start a post" />
       </div>
+      <PostModal open={open} setOpen={setOpen} />
       <div className="postIcons">
         <div className="photo">
           <HiPhotograph color="rgb(14, 118, 168)" size="1.3rem" />
