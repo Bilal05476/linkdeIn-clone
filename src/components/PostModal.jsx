@@ -59,7 +59,19 @@ const useStyles = makeStyles((theme) => ({
     color: "#fff",
     display: "flex",
     alignItems: "center",
+    justifyContent: "space-between",
     padding: "5px 30px",
+    paddingBottom: "15px",
+  },
+
+  modalLeftFooter: {},
+  postSubmitBtn: {
+    background: "rgb(19, 180, 255)",
+    padding: "5px 15px",
+    color: "#fff",
+    border: "none",
+    outline: "none !important",
+    borderRadius: "20px",
   },
   modalHashBtn: {
     color: "rgb(19, 180, 255)",
@@ -79,10 +91,12 @@ export default function PostModal({ open, setOpen }) {
   const getUserData = db.collection("users").doc(user.uid);
   const [userImage, setUserImage] = useState(null);
   const [postInput, setPostInput] = useState("");
+  const [userName, setUserName] = useState("");
 
   useEffect(() => {
     return getUserData.get().then((doc) => {
       setUserImage(doc.data().avatar);
+      setUserName(doc.data().name);
     });
   }, [user, getUserData]);
   const handleClose = () => {
@@ -122,7 +136,7 @@ export default function PostModal({ open, setOpen }) {
                 {userImage && (
                   <img className="postProfile" src={userImage} alt="profile" />
                 )}
-                <p className="mb-0 nameTags">Bilal Ahmed</p>
+                <p className="mb-0 nameTags">{userName}</p>
                 <p className="mb-0 nameTags">Anyone</p>
               </div>
               <textarea
@@ -139,7 +153,12 @@ export default function PostModal({ open, setOpen }) {
                 Add hashtag
               </button>
             </div>
-            <div className={classes.modalFooter}>Modal Footer</div>
+            <div className={classes.modalFooter}>
+              <div className={classes.modalLeftFooter}>+ Photo Video</div>
+              <div className={classes.modalRightFooter}>
+                <button className={classes.postSubmitBtn}>Post</button>
+              </div>
+            </div>
           </div>
         </Fade>
       </Modal>
