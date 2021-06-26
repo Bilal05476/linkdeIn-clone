@@ -8,8 +8,6 @@ import { useState, useEffect } from "react";
 import { GrClose } from "react-icons/gr";
 import { useStateValue } from "../StateProvider";
 
-// import { useState } from "react";
-
 const useStyles = makeStyles((theme) => ({
   modal: {
     display: "flex",
@@ -39,15 +37,39 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "#212121",
     color: "#fff",
     display: "flex",
+    flexDirection: "column",
+    padding: "20px",
+  },
+  modalBodyHeader: {
+    backgroundColor: "#212121",
+    color: "#fff",
+    display: "flex",
     alignItems: "center",
-    padding: "20px 30px",
+  },
+  modalInput: {
+    background: "transparent",
+    outline: "none",
+    border: "none",
+    color: "#fff",
+    padding: "10px",
+    overflowY: "auto",
   },
   modalFooter: {
     backgroundColor: "#212121",
     color: "#fff",
     display: "flex",
     alignItems: "center",
-    padding: "20px 30px",
+    padding: "5px 30px",
+  },
+  modalHashBtn: {
+    color: "rgb(19, 180, 255)",
+    width: "20%",
+    background: "transparent",
+    fontSize: "0.8rem",
+    outline: "none !important",
+    border: "none",
+    fontWeight: "400",
+    padding: "5px 2px",
   },
 }));
 
@@ -56,6 +78,7 @@ export default function PostModal({ open, setOpen }) {
   const classes = useStyles();
   const getUserData = db.collection("users").doc(user.uid);
   const [userImage, setUserImage] = useState(null);
+  const [postInput, setPostInput] = useState("");
 
   useEffect(() => {
     return getUserData.get().then((doc) => {
@@ -66,6 +89,10 @@ export default function PostModal({ open, setOpen }) {
     setOpen(false);
   };
 
+  const onAdd = (hash) => {
+    setPostInput(hash);
+    console.log(postInput);
+  };
   return (
     <div>
       <Modal
@@ -91,11 +118,26 @@ export default function PostModal({ open, setOpen }) {
               </button>
             </div>
             <div className={classes.modalBody}>
-              {userImage && (
-                <img className="postProfile" src={userImage} alt="profile" />
-              )}
-              <p className="mb-0 nameTags">Bilal Ahmed</p>
-              <p className="mb-0 nameTags">Anyone</p>
+              <div className={classes.modalBodyHeader}>
+                {userImage && (
+                  <img className="postProfile" src={userImage} alt="profile" />
+                )}
+                <p className="mb-0 nameTags">Bilal Ahmed</p>
+                <p className="mb-0 nameTags">Anyone</p>
+              </div>
+              <textarea
+                className={classes.modalInput}
+                type="text"
+                rows="4"
+                value={postInput}
+                placeholder="What do you want to talk about?"
+              ></textarea>
+              <button
+                onClick={() => onAdd("#")}
+                className={`${classes.modalHashBtn} modalHashBtn`}
+              >
+                Add hashtag
+              </button>
             </div>
             <div className={classes.modalFooter}>Modal Footer</div>
           </div>

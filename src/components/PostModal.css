@@ -16,3 +16,7 @@
 .modalCloseBtn:hover {
   background-color: crimson !important;
 }
+.modalHashBtn:hover {
+  background: rgba(19, 180, 255, 0.1);
+  border-radius: 3px;
+}
