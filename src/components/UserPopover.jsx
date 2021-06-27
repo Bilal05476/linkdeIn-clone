@@ -83,7 +83,6 @@ const UserPopover = () => {
               {userImage && (
                 <img className="popOverProfile" src={userImage} alt="profile" />
               )}
-
               <div className="userPopInfo">
                 <h6 className="mb-0">{userName}</h6>
                 <p className="mb-0">

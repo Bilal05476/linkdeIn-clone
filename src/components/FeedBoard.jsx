@@ -8,26 +8,51 @@ import ServicesPage from "./ServicesPage";
 import TopCourses from "./TopCourses";
 import UserDetails from "./UserDetails";
 import UserPage from "./UserPage";
+import { useStateValue } from "../StateProvider";
 
-const feedBoard = () => {
+const FeedBoard = () => {
+  const [{ toggleTheme }] = useStateValue();
   return (
-    <div className="feedBoard">
-      <div className="leftSection" style={{ width: "20%" }}>
-        <UserDetails />
-        <UserPage />
-        <RecentSec />
-      </div>
-      <div className="centerSection" style={{ width: "50%" }}>
-        <NewPost />
-        <PostSec />
-      </div>
-      <div className="rightSection" style={{ width: "26%" }}>
-        <AddFeedSec />
-        <TopCourses />
-        <ServicesPage />
-        <CopyrightSec />
-      </div>
-    </div>
+    <>
+      {toggleTheme && (
+        <div className="feedBoardLight">
+          <div className="leftSection" style={{ width: "20%" }}>
+            <UserDetails />
+            <UserPage />
+            <RecentSec />
+          </div>
+          <div className="centerSection" style={{ width: "50%" }}>
+            <NewPost />
+            <PostSec />
+          </div>
+          <div className="rightSection" style={{ width: "26%" }}>
+            <AddFeedSec />
+            <TopCourses />
+            <ServicesPage />
+            <CopyrightSec />
+          </div>
+        </div>
+      )}
+      {!toggleTheme && (
+        <div className="feedBoard">
+          <div className="leftSection" style={{ width: "20%" }}>
+            <UserDetails />
+            <UserPage />
+            <RecentSec />
+          </div>
+          <div className="centerSection" style={{ width: "50%" }}>
+            <NewPost />
+            <PostSec />
+          </div>
+          <div className="rightSection" style={{ width: "26%" }}>
+            <AddFeedSec />
+            <TopCourses />
+            <ServicesPage />
+            <CopyrightSec />
+          </div>
+        </div>
+      )}
+    </>
   );
 };
-export default feedBoard;
+export default FeedBoard;

@@ -32,7 +32,8 @@ hr {
   background: linear-gradient(to bottom, #212121 0%, #424242 100%);
 }
 
-.toggle {
+.lightTheme,
+.darkTheme {
   width: 40px;
   height: 40px;
   /* background: #fff; */
@@ -42,13 +43,13 @@ hr {
   justify-content: center;
   align-items: center;
 }
-.toggle::before {
+.lightTheme::before {
   content: "\f185";
   font-family: fontAwesome;
   font-size: 24px;
 }
-/* .toggle::after {
+.darkTheme::after {
   font-size: 24px;
   content: "\f186";
   font-family: fontAwesome;
-} */
+}

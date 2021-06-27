@@ -3,8 +3,17 @@
   padding: 100px;
   padding-top: 90px;
   padding-bottom: 60px;
-  /* background: rgb(241, 241, 241); */
   background: #212121;
+  transition: 0.5s;
+}
+
+.feedBoardLight {
+  display: flex;
+  padding: 100px;
+  padding-top: 90px;
+  padding-bottom: 60px;
+  background: rgb(241, 241, 241);
+  transition: 0.5s;
 }
 .centerSection {
   margin-left: 20px;

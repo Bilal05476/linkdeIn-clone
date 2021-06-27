@@ -1,5 +1,6 @@
 export const initialState = {
   user: JSON.parse(localStorage.getItem("user")) || null,
+  toggleTheme: false,
 };
 
 const reducer = (state, action) => {
@@ -9,7 +10,16 @@ const reducer = (state, action) => {
         ...state,
         user: action.user,
       };
-
+    case "DARK_THEME":
+      return {
+        ...state,
+        toggleTheme: !state.toggleTheme,
+      };
+    // case "LIGHT_THEME":
+    //   return {
+    //     ...state,
+    //     toggleTheme: true,
+    //   };
     default:
       return state;
   }
