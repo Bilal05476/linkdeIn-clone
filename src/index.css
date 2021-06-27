@@ -2,16 +2,14 @@
 
 * {
   font-family: "Poppins", sans-serif;
-  transition: 0.5s;
+  transition: var(--AppTransition--);
 }
 :root {
   --mainColor--: rgb(14, 118, 168);
   --darkMainColor--: rgb(19, 180, 255);
   --AppBorderRadius--: 10px;
   --AppDarkBorder--: rgb(128, 128, 128);
-  /* --green-- : rgb(14, 168, 109);
-  --yellow-- : rgb(165, 168, 14);
-  --red--: rgb(168, 14, 52); */
+  --AppTransition--: 0.3s;
 }
 hr {
   background: var(--AppDarkBorder--);

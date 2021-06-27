@@ -4,7 +4,7 @@
   padding-top: 90px;
   padding-bottom: 60px;
   background: #212121;
-  transition: 0.5s;
+  transition: var(--AppTransition--);
 }
 
 .feedBoardLight {
@@ -13,7 +13,7 @@
   padding-top: 90px;
   padding-bottom: 60px;
   background: rgb(241, 241, 241);
-  transition: 0.5s;
+  transition: var(--AppTransition--);
 }
 .centerSection {
   margin-left: 20px;

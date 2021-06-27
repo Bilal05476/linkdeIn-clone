@@ -14,44 +14,23 @@ const FeedBoard = () => {
   const [{ toggleTheme }] = useStateValue();
   return (
     <>
-      {toggleTheme && (
-        <div className="feedBoardLight">
-          <div className="leftSection" style={{ width: "20%" }}>
-            <UserDetails />
-            <UserPage />
-            <RecentSec />
-          </div>
-          <div className="centerSection" style={{ width: "50%" }}>
-            <NewPost />
-            <PostSec />
-          </div>
-          <div className="rightSection" style={{ width: "26%" }}>
-            <AddFeedSec />
-            <TopCourses />
-            <ServicesPage />
-            <CopyrightSec />
-          </div>
+      <div className={toggleTheme ? "feedBoardLight" : "feedBoard"}>
+        <div className="leftSection" style={{ width: "20%" }}>
+          <UserDetails />
+          <UserPage />
+          <RecentSec />
         </div>
-      )}
-      {!toggleTheme && (
-        <div className="feedBoard">
-          <div className="leftSection" style={{ width: "20%" }}>
-            <UserDetails />
-            <UserPage />
-            <RecentSec />
-          </div>
-          <div className="centerSection" style={{ width: "50%" }}>
-            <NewPost />
-            <PostSec />
-          </div>
-          <div className="rightSection" style={{ width: "26%" }}>
-            <AddFeedSec />
-            <TopCourses />
-            <ServicesPage />
-            <CopyrightSec />
-          </div>
+        <div className="centerSection" style={{ width: "50%" }}>
+          <NewPost />
+          <PostSec />
         </div>
-      )}
+        <div className="rightSection" style={{ width: "26%" }}>
+          <AddFeedSec />
+          <TopCourses />
+          <ServicesPage />
+          <CopyrightSec />
+        </div>
+      </div>
     </>
   );
 };
