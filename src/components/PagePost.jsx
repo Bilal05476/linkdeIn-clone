@@ -6,10 +6,12 @@ import { CgInsights } from "react-icons/cg";
 import { BiCommentDetail } from "react-icons/bi";
 import { FiSend } from "react-icons/fi";
 import { VscLiveShare } from "react-icons/vsc";
+import { useStateValue } from "../StateProvider";
 
 const PagePost = () => {
+  const [{ toggleTheme }] = useStateValue();
   return (
-    <div className="pagePost">
+    <div className={toggleTheme ? "pagePostLight" : "pagePost"}>
       <div className="postHeader">
         <div className="headerLeft">
           <img

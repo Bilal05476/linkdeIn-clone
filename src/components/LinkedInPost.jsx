@@ -12,7 +12,7 @@ import { db } from "../firebase";
 import { useEffect, useState } from "react";
 
 const LinkedInPost = () => {
-  const [{ user }] = useStateValue();
+  const [{ user, toggleTheme }] = useStateValue();
   const getUserData = db.collection("users").doc(user.uid);
   const [userName, setUserName] = useState("");
   const [userOccupation, setUserOccupation] = useState("");
@@ -26,7 +26,7 @@ const LinkedInPost = () => {
     });
   }, [user, getUserData]);
   return (
-    <div className="pagePost">
+    <div className={toggleTheme ? "pagePostLight" : "pagePost"}>
       <div className="postHeader">
         <div className="headerLeft">
           {userImage && (

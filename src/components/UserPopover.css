@@ -1,10 +1,13 @@
 .userPopover {
-  background: #fff;
-  /* color: #fff; */
   height: auto;
   width: 100%;
   background: #424242;
   color: #fff;
+}
+.userPopoverLight {
+  background: #fff;
+  height: auto;
+  width: 100%;
 }
 .userPopoverTab {
   width: 90%;

@@ -107,7 +107,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function PostModal({ open, setOpen }) {
-  const [{ user }] = useStateValue();
+  const [{ user, toggleTheme }] = useStateValue();
   const classes = useStyles();
   const getUserData = db.collection("users").doc(user.uid);
   const [userImage, setUserImage] = useState(null);
@@ -139,12 +139,15 @@ export default function PostModal({ open, setOpen }) {
         }}
       >
         <Fade in={open}>
-          <div className={classes.paper}>
+          <div className={`${toggleTheme ? "paperLight" : classes.paper}`}>
             <div className={classes.modalHeader}>
               <h4 className="m-0" style={{ fontWeight: "300" }}>
                 Create a post
               </h4>
-              <button className="modalCloseBtn" onClick={handleClose}>
+              <button
+                className={toggleTheme ? "modalCloseBtnLight" : "modalCloseBtn"}
+                onClick={handleClose}
+              >
                 <GrClose size="18" />
               </button>
             </div>

@@ -7,7 +7,7 @@ import { useStateValue } from "../StateProvider";
 import { auth, db } from "../firebase";
 
 const UserPopover = () => {
-  const [{ user }, dispatch] = useStateValue();
+  const [{ user, toggleTheme }, dispatch] = useStateValue();
   const [anchorEl, setAnchorEl] = useState(null);
   const getUserData = db.collection("users").doc(user.uid);
   const [userName, setUserName] = useState("");
@@ -77,7 +77,7 @@ const UserPopover = () => {
         anchorEl={anchorEl}
         onClose={handleClose}
       >
-        <div className="userPopover">
+        <div className={toggleTheme ? "userPopoverLight" : "userPopover"}>
           <div className="userPopHeader">
             <div className="userPopInfos">
               {userImage && (
