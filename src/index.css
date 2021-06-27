@@ -11,8 +11,12 @@
   --AppDarkBorder--: rgb(128, 128, 128);
   --AppTransition--: 0.3s;
 }
-hr {
+.hr {
   background: var(--AppDarkBorder--);
+}
+
+.hrLight {
+  background: #ccc;
 }
 
 /* width */
@@ -29,6 +33,8 @@ hr {
 ::-webkit-scrollbar-thumb {
   background: linear-gradient(to bottom, #212121 0%, #424242 100%);
 }
+
+/*toggleBtn*/
 
 .lightTheme,
 .darkTheme {

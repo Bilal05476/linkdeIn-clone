@@ -1,8 +1,10 @@
 import "./UserPage.css";
+import { useStateValue } from "../StateProvider";
 
 const UserPage = () => {
+  const [{ toggleTheme }] = useStateValue();
   return (
-    <div className="userPage">
+    <div className={toggleTheme ? "userPageLight" : "userPage"}>
       <img
         className="pageCover"
         src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOpohMUNHMDmoa6h0EWbt_jiHZ_LjkOS5nXGoiIlX_gSzHVxtaHv3ArBvAKnInsjAwlZk&usqp=CAU"
@@ -17,18 +19,26 @@ const UserPage = () => {
         <h4 className="pageName">Page Name</h4>
         <hr style={{ margin: "10px 20px", marginRight: "150px" }} />
         <div className="pageAnalytics">
-          <div className="pageNotification">
+          <div
+            className={
+              toggleTheme ? "pageNotificationLight" : "pageNotification"
+            }
+          >
             <p>Page notifications</p>
             <strong>12</strong>
           </div>
-          <div className="pageViews">
+          <div className={toggleTheme ? "pageViewsLight" : "pageViews"}>
             <p>Page Visitors</p>
             <strong>48</strong>
           </div>
         </div>
         <hr className="mb-0" />
         <div
-          className="discover text-center py-3"
+          className={
+            toggleTheme
+              ? "discoverLight text-center py-3"
+              : "discover text-center py-3"
+          }
           style={{ fontSize: "0.7rem" }}
         >
           See visitor analytics

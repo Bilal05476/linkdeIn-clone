@@ -8,6 +8,14 @@
   background: #424242;
   color: #fff;
 }
+.userPageLight {
+  background: #fff;
+  height: auto;
+  margin-top: 10px;
+  border-radius: var(--AppBorderRadius--);
+  border: 0.5px solid #ccc !important;
+}
+
 .pageCover {
   display: flex;
   width: 100%;
@@ -39,7 +47,9 @@
   margin-bottom: 0;
 }
 .pageAnalytics .pageNotification,
-.pageAnalytics .pageViews {
+.pageAnalytics .pageViews,
+.pageAnalytics .pageNotificationLight,
+.pageAnalytics .pageViewsLight {
   display: flex;
   justify-content: space-between;
   cursor: pointer;
@@ -49,12 +59,17 @@
 
 .pageAnalytics .pageNotification:hover,
 .pageAnalytics .pageViews:hover {
-  background-color: rgb(241, 241, 241);
   background-color: #323232;
-
   padding-left: 10px;
   padding-right: 10px;
 }
+.pageAnalytics .pageNotificationLight:hover,
+.pageAnalytics .pageViewsLight:hover {
+  background-color: rgb(241, 241, 241);
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
 .pageAnalytics strong {
   color: var(--darkMainColor--);
   font-weight: 500;
