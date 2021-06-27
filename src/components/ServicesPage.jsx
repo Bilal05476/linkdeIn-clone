@@ -5,7 +5,7 @@ import { db } from "../firebase";
 import { useEffect, useState } from "react";
 
 const ServicesPage = () => {
-  const [{ user }] = useStateValue();
+  const [{ user, toggleTheme }] = useStateValue();
   const getUserData = db.collection("users").doc(user.uid);
   const [userName, setUserName] = useState("");
   const [userImage, setUserImage] = useState(null);
@@ -17,13 +17,13 @@ const ServicesPage = () => {
     });
   }, [user, getUserData]);
   return (
-    <div className="servicesPage">
+    <div className={toggleTheme ? "servicesPageLight" : "servicesPage"}>
       <div className="ad">
         <small>
           Ad <BsThreeDots />{" "}
         </small>
       </div>
-      <div className="services">
+      <div className={toggleTheme ? "servicesLight" : "services"}>
         <small className="text-center">
           {userName}, showcase your services
         </small>

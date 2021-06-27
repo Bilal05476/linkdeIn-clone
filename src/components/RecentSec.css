@@ -1,18 +1,30 @@
 .recentSec {
-  background: #fff;
   height: auto;
-  /* padding: 20px; */
   margin-top: 10px;
   border-radius: var(--AppBorderRadius--);
   font-size: 0.9rem;
-  border: 0.5px solid #ccc !important;
   border: 0.5px solid var(--AppDarkBorder--) !important;
   background: #424242;
   color: #fff;
 }
+
+.recentSecLight {
+  background: #fff;
+  height: auto;
+  margin-top: 10px;
+  border-radius: var(--AppBorderRadius--);
+  font-size: 0.9rem;
+  border: 0.5px solid #ccc !important;
+}
+
 .recentSec h6 {
   font-size: 0.8rem;
 }
+
+.recentSecLight h6 {
+  font-size: 0.8rem;
+}
+
 .blueishColor {
   color: var(--darkMainColor--);
 }

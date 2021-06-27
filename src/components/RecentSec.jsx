@@ -3,10 +3,13 @@ import { FaHashtag } from "react-icons/fa";
 import { FaLayerGroup } from "react-icons/fa";
 import { IoIosArrowDown } from "react-icons/io";
 import { FiPlus } from "react-icons/fi";
+import { useStateValue } from "../StateProvider";
 
 const RecentSec = () => {
+  const [{ toggleTheme }] = useStateValue();
+
   return (
-    <div className="recentSec">
+    <div className={toggleTheme ? "recentSecLight" : "recentSec"}>
       <div className="recent mb-3">
         <h6>Recent</h6>
         <small className="d-flex align-items-center  mb-2">
@@ -70,7 +73,16 @@ const RecentSec = () => {
         </div>
       </div>
       <hr className="mb-0" />
-      <div className="discover text-center py-3">Discover more</div>
+      <div
+        className={
+          toggleTheme
+            ? "discoverLight text-center py-3"
+            : "discover text-center py-3"
+        }
+        style={{ fontSize: "0.7rem" }}
+      >
+        Discover more
+      </div>
     </div>
   );
 };

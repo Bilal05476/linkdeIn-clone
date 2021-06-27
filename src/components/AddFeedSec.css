@@ -1,34 +1,53 @@
 .addFeedSec {
-  /* background: #fff; */
   background: #424242;
   color: #fff;
   border-radius: var(--AppBorderRadius--);
   border: 0.5px solid var(--AppDarkBorder--) !important;
+  padding: 20px;
+}
+
+.addFeedSecLight {
+  background: #fff;
+  border-radius: var(--AppBorderRadius--);
   padding: 20px;
   border: 0.5px solid #ccc;
 }
 .followBtn {
   font-size: 1rem;
   border-radius: 20px;
-  border: 0.5px solid #333;
   padding: 3px 20px;
   margin-top: 10px;
   display: flex;
   align-items: center;
-  background: #fff;
   background-color: #484848;
   color: #fff;
   border: 0.5px solid var(--AppDarkBorder--);
   outline: none !important;
 }
 .followBtn:hover {
-  background: rgb(241, 241, 241) !important;
   background-color: #323232 !important;
-  border: 1px solid #333;
   border: 0.5px solid var(--AppDarkBorder--);
   transition: 0.5;
   transform: translateX(2px);
 }
+
+.followBtnLight {
+  font-size: 1rem;
+  border-radius: 20px;
+  border: 0.5px solid #ccc;
+  padding: 3px 20px;
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  background: #fff;
+  outline: none !important;
+}
+.followBtnLight:hover {
+  background: rgb(241, 241, 241) !important;
+  transition: 0.5;
+  transform: translateX(2px);
+}
+
 .addToFeed {
   display: flex;
   justify-content: space-between;

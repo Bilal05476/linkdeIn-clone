@@ -1,10 +1,12 @@
 import "./CopyrightSec.css";
 import { IoIosArrowDown } from "react-icons/io";
 import Logo from "../img/logo.png";
+import { useStateValue } from "../StateProvider";
 
 const CopyrightSec = () => {
+  const [{ toggleTheme }] = useStateValue();
   return (
-    <div className="copyrightSec">
+    <div className={toggleTheme ? "copyrightSecLight" : "copyrightSec"}>
       <div className="about">
         <small>About</small>
         <small>Accessibility</small>

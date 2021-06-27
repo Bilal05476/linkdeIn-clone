@@ -2,10 +2,12 @@ import "./AddFeedSec.css";
 import FeedDetails from "./FeedDetails";
 import { TiInfoLarge } from "react-icons/ti";
 import { FaLongArrowAltRight } from "react-icons/fa";
+import { useStateValue } from "../StateProvider";
 
 const AddFeedSec = () => {
+  const [{ toggleTheme }] = useStateValue();
   return (
-    <div className="addFeedSec">
+    <div className={toggleTheme ? "addFeedSecLight" : "addFeedSec"}>
       <div className="addToFeed">
         <h6 className="mb-0">Add to your feed</h6>
         <TiInfoLarge />

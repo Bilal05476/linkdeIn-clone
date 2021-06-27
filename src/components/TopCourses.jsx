@@ -1,10 +1,12 @@
 import "./TopCourses.css";
 import { TiInfoLarge } from "react-icons/ti";
 import { FaLongArrowAltRight } from "react-icons/fa";
+import { useStateValue } from "../StateProvider";
 
 const TopCourses = () => {
+  const [{ toggleTheme }] = useStateValue();
   return (
-    <div className="topCourses">
+    <div className={toggleTheme ? "topCoursesLight" : "topCourses"}>
       <div className="topCourse">
         <h6 className="mb-0">Today's top courses</h6>
         <TiInfoLarge />

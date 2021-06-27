@@ -1,4 +1,14 @@
 .topCourses {
+  height: auto;
+  padding: 20px;
+  margin-top: 10px;
+  border-radius: var(--AppBorderRadius--);
+  font-size: 0.9rem;
+  border: 0.5px solid var(--AppDarkBorder--) !important;
+  background: #424242;
+  color: #fff;
+}
+.topCoursesLight {
   background: #fff;
   height: auto;
   padding: 20px;
@@ -6,11 +16,13 @@
   border-radius: var(--AppBorderRadius--);
   font-size: 0.9rem;
   border: 0.5px solid #ccc !important;
-  border: 0.5px solid var(--AppDarkBorder--) !important;
-  background: #424242;
-  color: #fff;
 }
 .topCourse {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.topCourseLight {
   display: flex;
   justify-content: space-between;
   margin-bottom: 20px;
@@ -19,6 +31,13 @@
   display: flex;
   flex-direction: column;
 }
+.topCoursesLight .coursesBlock {
+  display: flex;
+  flex-direction: column;
+}
 .topCourses .coursesBlock small {
+  margin-left: 15px;
+}
+.topCoursesLight .coursesBlock small {
   margin-left: 15px;
 }
