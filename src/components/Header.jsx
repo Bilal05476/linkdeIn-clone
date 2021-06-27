@@ -7,6 +7,8 @@ import { IoNotifications } from "react-icons/io5";
 import { HiDotsCircleHorizontal } from "react-icons/hi";
 import { FcAdvertising } from "react-icons/fc";
 import { FaSearch } from "react-icons/fa";
+import { GiNightSleep } from "react-icons/gi";
+
 import "./header.css";
 import { RiArrowDownSFill } from "react-icons/ri";
 import UserPopover from "./UserPopover";
@@ -56,6 +58,7 @@ const Header = () => {
           <FcAdvertising size="1.5rem" />
           <p style={{ fontSize: ".7rem" }}>Advertise</p>
         </div>
+        <div class="toggle"></div>
       </div>
     </div>
   );

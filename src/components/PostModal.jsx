@@ -83,6 +83,14 @@ const useStyles = makeStyles((theme) => ({
     outline: "none !important",
     borderRadius: "20px",
   },
+  postDisabledBtn: {
+    background: "#424242",
+    padding: "5px 15px",
+    color: "#fff",
+    border: "none",
+    outline: "none !important",
+    borderRadius: "20px",
+  },
   modalHashBtn: {
     color: "rgb(19, 180, 255)",
     width: "20%",
@@ -92,6 +100,9 @@ const useStyles = makeStyles((theme) => ({
     border: "none",
     fontWeight: "400",
     padding: "5px 2px",
+  },
+  modalRightFooter: {
+    display: "flex",
   },
 }));
 
@@ -113,10 +124,6 @@ export default function PostModal({ open, setOpen }) {
     setOpen(false);
   };
 
-  const onAdd = (hash) => {
-    setPostInput(hash);
-    console.log(postInput);
-  };
   return (
     <div>
       <Modal
@@ -159,12 +166,10 @@ export default function PostModal({ open, setOpen }) {
                 type="text"
                 rows="4"
                 value={postInput}
+                onChange={(e) => setPostInput(e.target.value)}
                 placeholder="What do you want to talk about?"
               ></textarea>
-              <button
-                onClick={() => onAdd("#")}
-                className={`${classes.modalHashBtn} modalHashBtn`}
-              >
+              <button className={`${classes.modalHashBtn} modalHashBtn`}>
                 Add hashtag
               </button>
             </div>
@@ -183,7 +188,12 @@ export default function PostModal({ open, setOpen }) {
                 </p>
               </div>
               <div className={classes.modalRightFooter}>
-                <button className={classes.postSubmitBtn}>Post</button>
+                {postInput && (
+                  <button className={classes.postSubmitBtn}>Post</button>
+                )}
+                {!postInput && (
+                  <p className={`${classes.postDisabledBtn} mb-0`}>Post</p>
+                )}
               </div>
             </div>
           </div>
