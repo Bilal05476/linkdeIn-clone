@@ -1,6 +1,6 @@
 export const initialState = {
   user: JSON.parse(localStorage.getItem("user")) || null,
-  toggleTheme: false,
+  toggleTheme: JSON.parse(localStorage.getItem("theme")) || false,
 };
 
 const reducer = (state, action) => {

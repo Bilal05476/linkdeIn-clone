@@ -9,7 +9,7 @@ import PostModal from "./PostModal";
 import { useState, useEffect } from "react";
 
 const NewPost = () => {
-  const [{ user }] = useStateValue();
+  const [{ user, toggleTheme }] = useStateValue();
   const getUserData = db.collection("users").doc(user.uid);
   const [userImage, setUserImage] = useState(null);
   const [open, setOpen] = useState(false);
@@ -23,15 +23,15 @@ const NewPost = () => {
     });
   }, [user, getUserData]);
   return (
-    <div className="newPost">
-      <div className="imageInput">
+    <div className={toggleTheme ? "newPostLight" : "newPost"}>
+      <div className={toggleTheme ? "imageInputLight" : "imageInput"}>
         {userImage && (
           <img className="postProfile" src={userImage} alt="profile" />
         )}
         <input onClick={handleOpen} placeholder="Start a post" />
       </div>
       <PostModal open={open} setOpen={setOpen} />
-      <div className="postIcons">
+      <div className={toggleTheme ? "postIconsLight" : "postIcons"}>
         <div className="photo">
           <HiPhotograph color="rgb(14, 118, 168)" size="1.3rem" />
           <p className="mb-0 ml-1">Photo</p>

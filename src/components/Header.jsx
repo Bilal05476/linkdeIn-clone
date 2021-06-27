@@ -16,7 +16,12 @@ import UserPopover from "./UserPopover";
 
 const Header = () => {
   const [{ toggleTheme }, dispatch] = useStateValue();
-  console.log(toggleTheme);
+
+  const onToggleTheme = () => {
+    dispatch({
+      type: "DARK_THEME",
+    });
+  };
 
   return (
     <>
@@ -65,18 +70,14 @@ const Header = () => {
             <FcAdvertising size="1.5rem" />
             <p style={{ fontSize: ".7rem" }}>Advertise</p>
           </div>
-          {toggleTheme && (
-            <div
-              className="darkTheme"
-              onClick={() => dispatch({ type: "DARK_THEME" })}
-            ></div>
-          )}
-          {!toggleTheme && (
-            <div
-              className="lightTheme"
-              onClick={() => dispatch({ type: "DARK_THEME" })}
-            ></div>
-          )}
+          <div
+            className={`${toggleTheme ? "darkTheme" : "lightTheme"} toolTip`}
+            onClick={onToggleTheme}
+          >
+            <span className={toggleTheme ? "tooltipTextLight" : "tooltipText"}>
+              Toggle theme
+            </span>
+          </div>
         </div>
       </div>
     </>
