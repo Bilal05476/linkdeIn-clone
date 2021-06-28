@@ -3,7 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Modal from "@material-ui/core/Modal";
 import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";
-import { db } from "../firebase";
+import { db, storage } from "../firebase";
 import { useState, useEffect } from "react";
 import { GrClose } from "react-icons/gr";
 import { useStateValue } from "../StateProvider";
@@ -109,7 +109,9 @@ export default function PostModal({ open, setOpen }) {
   const getUserData = db.collection("users").doc(user.uid);
   const [userImage, setUserImage] = useState(null);
   const [postInput, setPostInput] = useState("");
+  const [postMedia, setPostMedia] = useState("");
   const [userName, setUserName] = useState("");
+  const [userNewPost, setUserNewPost] = useState([]);
 
   useEffect(() => {
     return getUserData.get().then((doc) => {
@@ -119,6 +121,30 @@ export default function PostModal({ open, setOpen }) {
   }, [user, getUserData]);
   const handleClose = () => {
     setOpen(false);
+  };
+
+  const onMediaChange = async (e) => {
+    const media = e.target.files[0];
+    const storageRef = storage.ref();
+    const mediaRef = await storageRef.child(media.name);
+    await mediaRef.put(media);
+    setPostMedia(await mediaRef.getDownloadURL());
+  };
+  const onHandleSubmit = (e) => {
+    e.preventDefault();
+    userNewPost.push({ postInput, postMedia });
+    return getUserData
+      .update({
+        posts: userNewPost,
+      })
+      .then(() => {
+        setPostInput("");
+        setPostMedia("");
+      })
+      .catch((error) => {
+        // The document probably doesn't exist.
+        alert(`Error! ${error}`);
+      });
   };
 
   return (
@@ -201,8 +227,17 @@ export default function PostModal({ open, setOpen }) {
             >
               <div className={classes.modalLeftFooter}>
                 <AiOutlinePlus size="1.3rem" />{" "}
-                <HiPhotograph className="mx-2" size="1.3rem" />{" "}
-                <FaVideo size="1.3rem" />
+                <HiPhotograph
+                  value={postMedia}
+                  onChange={onMediaChange}
+                  className="mx-2"
+                  size="1.3rem"
+                />{" "}
+                <FaVideo
+                  value={postMedia}
+                  onChange={onMediaChange}
+                  size="1.3rem"
+                />
                 <div
                   className="mx-4"
                   style={{
@@ -222,7 +257,12 @@ export default function PostModal({ open, setOpen }) {
               </div>
               <div className={classes.modalRightFooter}>
                 {postInput && (
-                  <button className={classes.postSubmitBtn}>Post</button>
+                  <button
+                    onClick={onHandleSubmit}
+                    className={classes.postSubmitBtn}
+                  >
+                    Post
+                  </button>
                 )}
                 {!postInput && (
                   <p className={`${classes.postDisabledBtn} mb-0`}>Post</p>
