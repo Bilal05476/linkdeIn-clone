@@ -7,7 +7,7 @@ import { IoNotifications } from "react-icons/io5";
 import { HiDotsCircleHorizontal } from "react-icons/hi";
 import { FcAdvertising } from "react-icons/fc";
 import { FaSearch } from "react-icons/fa";
-import { GiNightSleep } from "react-icons/gi";
+// import { GiNightSleep } from "react-icons/gi";
 import { useStateValue } from "../StateProvider";
 
 import "./header.css";

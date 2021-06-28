@@ -6,7 +6,7 @@ import { db } from "../firebase";
 import { useEffect, useState } from "react";
 
 const UserDetails = () => {
-  const [{ user, toggleTheme }, dispatch] = useStateValue();
+  const [{ user, toggleTheme }] = useStateValue();
   const getUserData = db.collection("users").doc(user.uid);
   const [userName, setUserName] = useState("");
   const [userOccupation, setUserOccupation] = useState("");

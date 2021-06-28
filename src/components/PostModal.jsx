@@ -22,13 +22,13 @@ const useStyles = makeStyles((theme) => ({
   },
   paper: {
     borderRadius: "10px",
-    boxShadow: theme.shadows[5],
     backgroundColor: "#212121",
     color: "#fff",
     display: "flex",
     flexDirection: "column",
     justifyContent: "space-between",
     width: "40%",
+    border: "1px solid rgb(128, 128, 128)",
   },
   modalHeader: {
     display: "flex",
@@ -37,18 +37,15 @@ const useStyles = makeStyles((theme) => ({
     padding: "20px 40px",
     paddingRight: "20px",
     width: "100%",
-    borderBottom: "1px solid #585858",
   },
   modalBody: {
-    backgroundColor: "#212121",
-    color: "#fff",
+    // color: "#fff",
     display: "flex",
     flexDirection: "column",
     padding: "20px",
   },
   modalBodyHeader: {
-    backgroundColor: "#212121",
-    color: "#fff",
+    // color: "#fff",
     display: "flex",
     alignItems: "center",
   },
@@ -56,18 +53,18 @@ const useStyles = makeStyles((theme) => ({
     background: "transparent",
     outline: "none",
     border: "none",
-    color: "#fff",
+    // color: "#fff",
     padding: "10px",
     overflowY: "auto",
   },
   modalFooter: {
-    backgroundColor: "#212121",
-    color: "#fff",
+    // color: "#fff",
     display: "flex",
     alignItems: "center",
     justifyContent: "space-between",
     padding: "5px 30px",
     paddingBottom: "15px",
+    borderRadius: "10px",
   },
 
   modalLeftFooter: {
@@ -140,7 +137,14 @@ export default function PostModal({ open, setOpen }) {
       >
         <Fade in={open}>
           <div className={`${toggleTheme ? "paperLight" : classes.paper}`}>
-            <div className={classes.modalHeader}>
+            <div
+              className={classes.modalHeader}
+              style={{
+                borderBottom: toggleTheme
+                  ? "1px solid #ccc"
+                  : "1px solid #585858",
+              }}
+            >
               <h4 className="m-0" style={{ fontWeight: "300" }}>
                 Create a post
               </h4>
@@ -151,21 +155,36 @@ export default function PostModal({ open, setOpen }) {
                 <GrClose size="18" />
               </button>
             </div>
-            <div className={classes.modalBody}>
-              <div className={classes.modalBodyHeader}>
+            <div
+              className={classes.modalBody}
+              style={{ color: toggleTheme ? "#424242" : "#fff" }}
+            >
+              <div
+                className={classes.modalBodyHeader}
+                style={{ color: toggleTheme ? "#424242" : "#fff" }}
+              >
                 {userImage && (
                   <img className="postProfile" src={userImage} alt="profile" />
                 )}
-                <p className="mb-0 nameTags">
+                <p
+                  className={
+                    toggleTheme ? "mb-0 nameTagsLight" : "mb-0 nameTags"
+                  }
+                >
                   <HiUsers size="1.2rem" className="mr-2" /> {userName}
                 </p>
-                <p className="mb-0 nameTags">
+                <p
+                  className={
+                    toggleTheme ? "mb-0 nameTagsLight" : "mb-0 nameTags"
+                  }
+                >
                   <BiWorld size="1.2rem" className="mr-2" />
                   Anyone
                 </p>
               </div>
               <textarea
                 className={classes.modalInput}
+                style={{ color: toggleTheme ? "#424242" : "#fff" }}
                 type="text"
                 rows="4"
                 value={postInput}
@@ -176,16 +195,27 @@ export default function PostModal({ open, setOpen }) {
                 Add hashtag
               </button>
             </div>
-            <div className={classes.modalFooter}>
+            <div
+              className={classes.modalFooter}
+              style={{ color: toggleTheme ? "#424242" : "#fff" }}
+            >
               <div className={classes.modalLeftFooter}>
                 <AiOutlinePlus size="1.3rem" />{" "}
                 <HiPhotograph className="mx-2" size="1.3rem" />{" "}
                 <FaVideo size="1.3rem" />
                 <div
                   className="mx-4"
-                  style={{ width: "1px", height: "20px", background: "#333" }}
+                  style={{
+                    width: "1px",
+                    height: "20px",
+                    background: toggleTheme ? "#ccc" : "#333",
+                  }}
                 ></div>
-                <p className="mb-0 nameTags">
+                <p
+                  className={
+                    toggleTheme ? "mb-0 nameTagsLight" : "mb-0 nameTags"
+                  }
+                >
                   <BiCommentDetail size="1.2rem" className="mr-2" />
                   Anyone
                 </p>

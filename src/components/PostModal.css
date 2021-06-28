@@ -22,7 +22,7 @@
   flex-direction: column;
   justify-content: space-between;
   width: 40%;
-  box-shadow: 0.5px 0.5px 3px #ccc;
+  border: 1px solid #ccc;
 }
 .nameTagsLight {
   border: 1px solid #ccc;
