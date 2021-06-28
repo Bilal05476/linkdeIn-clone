@@ -57,7 +57,8 @@ const LinkedInPost = () => {
                         : userOccupation}
                     </small>
                     <small className="status py-1 d-flex align-items-center">
-                      2h <span className="px-1">.</span> <BiWorld size="17" />
+                      Just Now <span className="px-1">.</span>{" "}
+                      <BiWorld size="17" />
                     </small>
                   </div>
                 </div>

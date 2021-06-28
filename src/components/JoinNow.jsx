@@ -15,7 +15,7 @@ const JoinNow = ({ isFlipped, setIsFlipped }) => {
   const [posts, setPosts] = useState([]);
 
   const [joinError, setJoinError] = useState("");
-  const [{ user }, dispatch] = useStateValue();
+  const [{ user, toggleTheme }, dispatch] = useStateValue();
   const [toggleForm, setToggleForm] = useState(false);
 
   const onFileChange = async (e) => {
@@ -24,6 +24,12 @@ const JoinNow = ({ isFlipped, setIsFlipped }) => {
     const fileRef = await storageRef.child(file.name);
     await fileRef.put(file);
     setJoinImage(await fileRef.getDownloadURL());
+  };
+
+  const onToggleTheme = () => {
+    dispatch({
+      type: "DARK_THEME",
+    });
   };
 
   const onSubmit = (e) => {
@@ -97,7 +103,10 @@ const JoinNow = ({ isFlipped, setIsFlipped }) => {
   };
 
   return (
-    <div className="joinNow">
+    <div
+      className="joinNow"
+      style={{ color: toggleTheme ? "#424242" : "#fff" }}
+    >
       <img
         src="https://logos-download.com/wp-content/uploads/2016/03/LinkedIn_Logo_2019.png"
         width="10%"
@@ -107,7 +116,19 @@ const JoinNow = ({ isFlipped, setIsFlipped }) => {
       <h2 style={{ fontWeight: "300", fontSize: "1.8rem" }}>
         Make the most of your professional life
       </h2>
-      <div className="joinNowDetails">
+      <div
+        className={`${toggleTheme ? "darkTheme" : "lightTheme"} toolTip`}
+        style={{ color: toggleTheme ? "#424242" : "#fff" }}
+        onClick={onToggleTheme}
+      >
+        <span className={toggleTheme ? "tooltipTextLight" : "tooltipText"}>
+          Toggle theme
+        </span>
+      </div>
+      <div
+        className="joinNowDetails"
+        style={{ background: toggleTheme ? "#fff" : "#484848" }}
+      >
         <form onSubmit={onSubmit} className="joinNowForm">
           {!toggleForm ? (
             <>
@@ -119,6 +140,12 @@ const JoinNow = ({ isFlipped, setIsFlipped }) => {
                 onChange={(e) => setJoinEmail(e.target.value)}
                 type="email"
                 name="email"
+                required
+                style={{
+                  border: toggleTheme ? "1px solid #ccc" : "1px solid #585858",
+                  background: toggleTheme ? "#fff" : "#585858",
+                  color: toggleTheme ? "#424242" : "#ccc",
+                }}
               />
               <label className="m-0 mt-1" htmlFor="password">
                 Password
@@ -128,6 +155,12 @@ const JoinNow = ({ isFlipped, setIsFlipped }) => {
                 onChange={(e) => setJoinPass(e.target.value)}
                 type="password"
                 name="password"
+                required
+                style={{
+                  border: toggleTheme ? "1px solid #ccc" : "1px solid #585858",
+                  background: toggleTheme ? "#fff" : "#585858",
+                  color: toggleTheme ? "#424242" : "#ccc",
+                }}
               />
               <label className="m-0 mt-1" htmlFor="fullName">
                 Full Name
@@ -137,6 +170,12 @@ const JoinNow = ({ isFlipped, setIsFlipped }) => {
                 onChange={(e) => setJoinName(e.target.value)}
                 type="text"
                 name="fullName"
+                required
+                style={{
+                  border: toggleTheme ? "1px solid #ccc" : "1px solid #585858",
+                  background: toggleTheme ? "#fff" : "#585858",
+                  color: toggleTheme ? "#424242" : "#ccc",
+                }}
               />{" "}
             </>
           ) : (
@@ -144,24 +183,46 @@ const JoinNow = ({ isFlipped, setIsFlipped }) => {
           )}
           {toggleForm ? (
             <>
-              <label className="m-0 mt-1" htmlFor="country">
-                Country
-              </label>
-              <input
-                value={joinCountry}
-                onChange={(e) => setJoinCountry(e.target.value)}
-                type="text"
-                name="country"
-              />
-              <label className="m-0 mt-1" htmlFor="city">
-                City
-              </label>
-              <input
-                value={joinCity}
-                onChange={(e) => setJoinCity(e.target.value)}
-                type="text"
-                name="city"
-              />
+              <div className="d-flex">
+                <div className="country">
+                  <label className="m-0 mt-1" htmlFor="country">
+                    Country
+                  </label>
+                  <input
+                    value={joinCountry}
+                    onChange={(e) => setJoinCountry(e.target.value)}
+                    type="text"
+                    name="country"
+                    required
+                    style={{
+                      border: toggleTheme
+                        ? "1px solid #ccc"
+                        : "1px solid #585858",
+                      background: toggleTheme ? "#fff" : "#585858",
+                      color: toggleTheme ? "#424242" : "#ccc",
+                    }}
+                  />
+                </div>
+                <div className="city">
+                  <label className="m-0 mt-1" htmlFor="city">
+                    City
+                  </label>
+                  <input
+                    value={joinCity}
+                    onChange={(e) => setJoinCity(e.target.value)}
+                    type="text"
+                    name="city"
+                    required
+                    style={{
+                      border: toggleTheme
+                        ? "1px solid #ccc"
+                        : "1px solid #585858",
+                      background: toggleTheme ? "#fff" : "#585858",
+                      color: toggleTheme ? "#424242" : "#ccc",
+                    }}
+                  />
+                </div>
+              </div>
               <label className="m-0 mt-1" htmlFor="occupation">
                 Occupation
               </label>
@@ -170,11 +231,26 @@ const JoinNow = ({ isFlipped, setIsFlipped }) => {
                 onChange={(e) => setJoinOccupation(e.target.value)}
                 type="text"
                 name="occupation"
+                required
+                style={{
+                  border: toggleTheme ? "1px solid #ccc" : "1px solid #585858",
+                  background: toggleTheme ? "#fff" : "#585858",
+                  color: toggleTheme ? "#424242" : "#ccc",
+                }}
               />
               <label className="m-0 mt-1" htmlFor="profile">
                 Profile
               </label>
-              <input onChange={onFileChange} type="file" name="profile" />
+              <input
+                onChange={onFileChange}
+                type="file"
+                name="profile"
+                style={{
+                  border: toggleTheme ? "1px solid #ccc" : "1px solid #585858",
+                  background: toggleTheme ? "#fff" : "#585858",
+                  color: toggleTheme ? "#424242" : "#ccc",
+                }}
+              />
             </>
           ) : (
             ""

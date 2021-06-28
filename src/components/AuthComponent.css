@@ -2,18 +2,23 @@
   background-color: #212121;
 }
 
+.authComponentLight {
+  background: rgb(241, 241, 241);
+  transition: var(--AppTransition--);
+}
+
 .joinNow,
 .signIn {
   display: flex;
   flex-direction: column;
   align-items: center;
   background: transparent;
-  color: #fff;
+  /* color: #fff; */
   padding: 50px;
   padding-top: 20px;
 }
 .joinNowDetails {
-  background-color: #484848;
+  /* background-color: #484848; */
   border-radius: var(--AppBorderRadius--);
   padding: 40px;
   padding-top: 25px;
@@ -27,7 +32,7 @@
   flex-direction: column;
 }
 .joinNowDetails .joinNowForm input {
-  background: #585858;
+  /* background: #585858; */
   outline: #333 !important;
   padding: 4px 10px;
   border: none;
@@ -45,7 +50,7 @@
   border: none;
   outline: none !important;
   color: #fff;
-  background: var(--mainColor--);
+  background: var(--darkMainColor--);
 }
 .joinNowButton:hover {
   background: rgb(6, 63, 90);
@@ -78,8 +83,8 @@
   margin-bottom: 20px;
 }
 .googleBtn:hover {
-  border: 1px solid var(--mainColor--);
-  background: rgba(200, 238, 255, 0.1);
+  border: 1px solid var(--darkMainColor--);
+  background: var(--darkMainColor--);
   color: #fff;
 }
 .authFooter {
@@ -91,8 +96,17 @@
   color: #ccc;
   font-size: 0.8rem;
 }
+.authFooterLight {
+  display: flex;
+  background-color: #fff;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  color: #484848;
+  font-size: 0.8rem;
+}
 .signInForm {
-  background-color: #424242;
+  /* background-color: #424242; */
   padding: 30px;
   border-radius: var(--AppBorderRadius--);
   width: 35%;
@@ -103,8 +117,8 @@
   border: var(--AppDarkBorder--);
   outline: none !important;
   border-radius: var(--AppBorderRadius--);
-  background: #585858;
-  color: #ccc;
+  /* background: #585858; */
+  /* color: #ccc; */
 }
 
 .signInForm input::placeholder {
@@ -118,4 +132,20 @@
   padding: 5px;
   padding-left: 10px;
   border-radius: var(--AppBorderRadius--);
+}
+.disabledBtn {
+  /* background: #585858; */
+  padding: 10px 40px;
+  text-align: center;
+  color: #fff;
+  border: none;
+  margin-bottom: 0;
+  border-radius: 20px;
+}
+
+.country > input {
+  width: 90% !important;
+}
+.city > input {
+  width: 100% !important;
 }

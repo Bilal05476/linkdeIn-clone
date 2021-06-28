@@ -1,7 +1,10 @@
 import Logo from "../img/logo.png";
+import { useStateValue } from "../StateProvider";
+
 const AuthFooter = () => {
+  const [{ toggleTheme }] = useStateValue();
   return (
-    <div className="authFooter">
+    <div className={toggleTheme ? "authFooterLight" : "authFooter"}>
       <img src={Logo} width="2%" alt="logo" />
       <small className="mx-2">&copy; 2020 </small>
       <small className="mx-2">About</small>
