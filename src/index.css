@@ -56,3 +56,23 @@
   content: "\f186";
   font-family: fontAwesome;
 }
+.collapsableIcon {
+  display: none !important;
+}
+
+/*Media Queries*/
+@media (max-width: 1196px) {
+  .sortSec .sortingLine,
+  .sortSec .sortingLineLight {
+    width: 70% !important;
+  }
+}
+
+@media (max-width: 1115px) {
+  .headerIcons {
+    display: none !important;
+  }
+  .collapsableIcon {
+    display: block !important;
+  }
+}

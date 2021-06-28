@@ -62,6 +62,9 @@
   margin-bottom: 0px;
   transition: 0.5s;
 }
+.collapsableIcon .icon {
+  margin: 10px 10px;
+}
 .icon:hover {
   border-bottom: 1px solid #212121;
   cursor: pointer;

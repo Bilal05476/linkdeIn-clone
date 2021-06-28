@@ -28,13 +28,15 @@ const LinkedInPost = () => {
       // console.log("userPosts", userPosts);
     });
   }, [user, getUserData]);
-  // <div key={ind}>{userPost.postInput}</div>;
   return (
     <>
       {userPosts.map((userPost, ind) => {
         return (
           <>
-            <div className={toggleTheme ? "pagePostLight" : "pagePost"}>
+            <div
+              key={ind}
+              className={toggleTheme ? "pagePostLight" : "pagePost"}
+            >
               <div className="postHeader">
                 <div className="headerLeft">
                   {userImage && (

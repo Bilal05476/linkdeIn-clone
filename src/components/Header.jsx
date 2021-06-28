@@ -7,9 +7,8 @@ import { IoNotifications } from "react-icons/io5";
 import { HiDotsCircleHorizontal } from "react-icons/hi";
 import { FcAdvertising } from "react-icons/fc";
 import { FaSearch } from "react-icons/fa";
-// import { GiNightSleep } from "react-icons/gi";
 import { useStateValue } from "../StateProvider";
-
+import { IoMenuOutline } from "react-icons/io5";
 import "./header.css";
 import { RiArrowDownSFill } from "react-icons/ri";
 import UserPopover from "./UserPopover";
@@ -77,6 +76,11 @@ const Header = () => {
             <span className={toggleTheme ? "tooltipTextLight" : "tooltipText"}>
               Toggle theme
             </span>
+          </div>
+        </div>
+        <div className="collapsableIcon">
+          <div className="icon">
+            <IoMenuOutline size="1.5rem" />
           </div>
         </div>
       </div>
