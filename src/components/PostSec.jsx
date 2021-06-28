@@ -18,8 +18,8 @@ const PostSec = () => {
         </small>
       </div>
       <div className="postSec">
-        <PagePost />
         <LinkedInPost />
+        <PagePost />
       </div>
     </>
   );

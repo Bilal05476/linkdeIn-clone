@@ -217,6 +217,15 @@ export default function PostModal({ open, setOpen }) {
                 onChange={(e) => setPostInput(e.target.value)}
                 placeholder="What do you want to talk about?"
               ></textarea>
+              {postMedia && (
+                <img
+                  src={postMedia}
+                  alt=" "
+                  width="100%"
+                  height="200px"
+                  className={postMedia ? "mb-2" : "m-0"}
+                />
+              )}
               <button className={`${classes.modalHashBtn} modalHashBtn`}>
                 Add hashtag
               </button>
@@ -227,17 +236,18 @@ export default function PostModal({ open, setOpen }) {
             >
               <div className={classes.modalLeftFooter}>
                 <AiOutlinePlus size="1.3rem" />{" "}
-                <HiPhotograph
-                  value={postMedia}
-                  onChange={onMediaChange}
-                  className="mx-2"
-                  size="1.3rem"
-                />{" "}
-                <FaVideo
-                  value={postMedia}
-                  onChange={onMediaChange}
-                  size="1.3rem"
-                />
+                <div className="mediaUpload">
+                  <label for="file-input">
+                    <HiPhotograph className="mx-2" size="1.3rem" />
+                  </label>
+                  <input id="file-input" type="file" onChange={onMediaChange} />{" "}
+                </div>
+                <div className="mediaUpload">
+                  <label for="file-input">
+                    <FaVideo size="1.3rem" />
+                  </label>
+                  <input id="file-input" type="file" onChange={onMediaChange} />{" "}
+                </div>
                 <div
                   className="mx-4"
                   style={{

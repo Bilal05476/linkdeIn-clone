@@ -17,83 +17,91 @@ const LinkedInPost = () => {
   const [userName, setUserName] = useState("");
   const [userOccupation, setUserOccupation] = useState("");
   const [userImage, setUserImage] = useState(null);
+  const [userPosts, setUserPosts] = useState([]);
 
   useEffect(() => {
     return getUserData.get().then((doc) => {
       setUserName(doc.data().name);
       setUserOccupation(doc.data().occupation);
       setUserImage(doc.data().avatar);
+      setUserPosts(doc.data().posts);
+      // console.log("userPosts", userPosts);
     });
   }, [user, getUserData]);
   return (
-    <div className={toggleTheme ? "pagePostLight" : "pagePost"}>
-      <div className="postHeader">
-        <div className="headerLeft">
-          {userImage && (
-            <img className="postProfileImg" src={userImage} alt="profile" />
-          )}
+    <>
+      {userPosts.map((userPost, ind) => {
+        return <div key={ind}>{userPost.postInput}</div>;
+      })}
+      <div className={toggleTheme ? "pagePostLight" : "pagePost"}>
+        <div className="postHeader">
+          <div className="headerLeft">
+            {userImage && (
+              <img className="postProfileImg" src={userImage} alt="profile" />
+            )}
 
-          <div className="pagePostInfo">
-            <p className="mb-0" style={{ fontWeight: "600" }}>
-              {userName}
-            </p>
-            <small className="follower">
-              {!userOccupation
-                ? "Full Stack Website Developer | JavaScript Developer | Pythoneer"
-                : userOccupation}
+            <div className="pagePostInfo">
+              <p className="mb-0" style={{ fontWeight: "600" }}>
+                {userName}
+              </p>
+              <small className="follower">
+                {!userOccupation
+                  ? "Full Stack Website Developer | JavaScript Developer | Pythoneer"
+                  : userOccupation}
+              </small>
+              <small className="status py-1 d-flex align-items-center">
+                2h <span className="px-1">.</span> <BiWorld size="17" />
+              </small>
+            </div>
+          </div>
+          <div className="headerRight">
+            <BsThreeDots />
+          </div>
+        </div>
+        <div className="postBody">
+          <p className="postCaption">
+            It was about 1.5 years ago, I applied somewhere for a job.
+            <br />
+            <br /> My resume got rejected at the first stage. I didn't even get
+            any reply from them about that.. 🙂
+          </p>
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnBj5fzx7tOJyLPXfby43X_oaz6C-_XITaEw&usqp=CAU"
+            alt="media"
+            className="postMedia"
+          />
+        </div>
+        <div className="postFooter">
+          <div className="reactionsIcons">
+            <BiLike color="rgb(14, 118, 168)" />{" "}
+            <FcLike style={{ marginLeft: "-2px" }} />{" "}
+            <FaRegLightbulb color="goldenrod" style={{ marginLeft: "-2px" }} />
+            <small className="ml-2">
+              61 <span className="px-1">.</span> 14 comments
             </small>
-            <small className="status py-1 d-flex align-items-center">
-              2h <span className="px-1">.</span> <BiWorld size="17" />
+          </div>
+          <hr />
+          <div className="actionsArea">
+            <small>
+              <BiLike className="actionsIcons" />
+              Like
+            </small>
+            <small>
+              <BiCommentDetail className="actionsIcons" />
+              Comment
+            </small>
+            <small>
+              <VscLiveShare className="actionsIcons" />
+              Share
+            </small>
+            <small>
+              <FiSend className="actionsIcons" />
+              Send
             </small>
           </div>
         </div>
-        <div className="headerRight">
-          <BsThreeDots />
-        </div>
       </div>
-      <div className="postBody">
-        <p className="postCaption">
-          It was about 1.5 years ago, I applied somewhere for a job.
-          <br />
-          <br /> My resume got rejected at the first stage. I didn't even get
-          any reply from them about that.. 🙂
-        </p>
-        <img
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnBj5fzx7tOJyLPXfby43X_oaz6C-_XITaEw&usqp=CAU"
-          alt="media"
-          className="postMedia"
-        />
-      </div>
-      <div className="postFooter">
-        <div className="reactionsIcons">
-          <BiLike color="rgb(14, 118, 168)" />{" "}
-          <FcLike style={{ marginLeft: "-2px" }} />{" "}
-          <FaRegLightbulb color="goldenrod" style={{ marginLeft: "-2px" }} />
-          <small className="ml-2">
-            61 <span className="px-1">.</span> 14 comments
-          </small>
-        </div>
-        <hr />
-        <div className="actionsArea">
-          <small>
-            <BiLike className="actionsIcons" />
-            Like
-          </small>
-          <small>
-            <BiCommentDetail className="actionsIcons" />
-            Comment
-          </small>
-          <small>
-            <VscLiveShare className="actionsIcons" />
-            Share
-          </small>
-          <small>
-            <FiSend className="actionsIcons" />
-            Send
-          </small>
-        </div>
-      </div>
-    </div>
+    </>
   );
 };
 

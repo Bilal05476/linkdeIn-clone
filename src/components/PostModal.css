@@ -51,3 +51,9 @@
   background: rgba(19, 180, 255, 0.1);
   border-radius: 3px;
 }
+.mediaUpload > input {
+  display: none;
+}
+.mediaUpload > label {
+  margin-bottom: 0;
+}
