@@ -1,8 +1,9 @@
 import "./PostSec.css";
 import { RiArrowDownSFill } from "react-icons/ri";
 import PagePost from "./PagePost";
-import LinkedInPost from "./LinkedInPost";
+// import LinkedInPost from "./LinkedInPost";
 import { useStateValue } from "../StateProvider";
+import LinkedInPosts from "./LinkedInPosts";
 
 const PostSec = () => {
   const [{ toggleTheme }] = useStateValue();
@@ -18,7 +19,7 @@ const PostSec = () => {
         </small>
       </div>
       <div className="postSec">
-        <LinkedInPost />
+        <LinkedInPosts />
         <PagePost />
       </div>
     </>
