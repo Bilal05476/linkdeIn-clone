@@ -13,8 +13,12 @@ import { useEffect, useState } from "react";
 
 const LinkedInPosts = () => {
   const [linkedInPosts, setLinkedInPost] = useState([]);
+  const [threeDots, setThreeDots] = useState(false);
 
   const [{ user, toggleTheme }] = useStateValue();
+  const getUserData = db.collection("users").doc(user.uid);
+  // const setUserPost = db.collection("posts");
+  // const { data }
 
   //   const [userName, setUserName] = useState("");
   //   const [userOccupation, setUserOccupation] = useState("");
@@ -30,8 +34,8 @@ const LinkedInPosts = () => {
   //       // console.log("userPosts", userPosts);
   //     });
   //   }, [user, getUserData]);
-  useEffect(() => {
-    db.collection("posts").onSnapshot((snapshot) =>
+  useEffect(async () => {
+    await db.collection("posts").onSnapshot((snapshot) =>
       setLinkedInPost(
         snapshot.docs.map((doc) => ({
           id: doc.id,
@@ -39,8 +43,15 @@ const LinkedInPosts = () => {
         }))
       )
     );
+    const { data } = await linkedInPosts;
+    const { avatar } = await data;
+    await getUserData.get().then((doc) => {
+      if (avatar === doc.data().avatar) {
+        setThreeDots(true);
+      }
+    });
   }, []);
-  console.log(linkedInPosts);
+
   return (
     <>
       {linkedInPosts.map((linkedInPost, ind) => {
@@ -77,7 +88,7 @@ const LinkedInPosts = () => {
                   </div>
                 </div>
                 <div className="headerRight">
-                  <BsThreeDots />
+                  {threeDots && <BsThreeDots />}
                 </div>
               </div>
               <div className="postBody">

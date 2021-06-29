@@ -108,7 +108,9 @@ export default function PostModal({ open, setOpen }) {
   const [{ user, toggleTheme }] = useStateValue();
   const classes = useStyles();
   const getUserData = db.collection("users").doc(user.uid);
+  const setUserPost = db.collection("posts");
   const [userImage, setUserImage] = useState(null);
+  const [userOccupation, setUserOccupation] = useState("");
   const [postInput, setPostInput] = useState("");
   const [postMedia, setPostMedia] = useState("");
   const [userName, setUserName] = useState("");
@@ -118,6 +120,7 @@ export default function PostModal({ open, setOpen }) {
     return getUserData.get().then((doc) => {
       setUserImage(doc.data().avatar);
       setUserName(doc.data().name);
+      setUserOccupation(doc.data().occupation);
     });
   }, [user, getUserData]);
   const handleClose = () => {
@@ -133,6 +136,21 @@ export default function PostModal({ open, setOpen }) {
   };
   const onHandleSubmit = (e) => {
     e.preventDefault();
+    setUserPost
+      .add({
+        name: userName,
+        avatar: userImage,
+        occupation: userOccupation,
+        postInput: postInput,
+        postMedia: postMedia,
+      })
+      .then(() => {
+        alert("Your post has been added👍");
+      })
+      .catch((error) => {
+        alert(error.message);
+      });
+
     userNewPost.push({ postInput, postMedia });
     return getUserData
       .update({
