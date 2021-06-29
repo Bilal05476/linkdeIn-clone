@@ -12,9 +12,10 @@ import { db } from "../firebase";
 import { useEffect, useState } from "react";
 
 const LinkedInPosts = () => {
-  //   const [{ user, toggleTheme }] = useStateValue();
-  //   const getUserData = db.collection("users").doc(user.uid);
-  const getPostsData = db.collection("posts");
+  const [linkedInPosts, setLinkedInPost] = useState([]);
+
+  const [{ user, toggleTheme }] = useStateValue();
+
   //   const [userName, setUserName] = useState("");
   //   const [userOccupation, setUserOccupation] = useState("");
   //   const [userImage, setUserImage] = useState(null);
@@ -29,11 +30,21 @@ const LinkedInPosts = () => {
   //       // console.log("userPosts", userPosts);
   //     });
   //   }, [user, getUserData]);
-  console.log(getPostsData);
+  useEffect(() => {
+    db.collection("posts").onSnapshot((snapshot) =>
+      setLinkedInPost(
+        snapshot.docs.map((doc) => ({
+          id: doc.id,
+          data: doc.data(),
+        }))
+      )
+    );
+  }, []);
+  console.log(linkedInPosts);
   return (
     <>
-      <div>Hello World</div>
-      {/* {userPosts.map((userPost, ind) => {
+      {linkedInPosts.map((linkedInPost, ind) => {
+        const { data } = linkedInPost;
         return (
           <>
             <div
@@ -42,22 +53,22 @@ const LinkedInPosts = () => {
             >
               <div className="postHeader">
                 <div className="headerLeft">
-                  {userImage && (
+                  {data.avatar && (
                     <img
                       className="postProfileImg"
-                      src={userImage}
+                      src={data.avatar}
                       alt="profile"
                     />
                   )}
 
                   <div className="pagePostInfo">
                     <p className="mb-0" style={{ fontWeight: "600" }}>
-                      {userName}
+                      {data.name}
                     </p>
                     <small className="follower">
-                      {!userOccupation
+                      {!data.occupation
                         ? "Full Stack Website Developer | JavaScript Developer | Pythoneer"
-                        : userOccupation}
+                        : data.occupation}
                     </small>
                     <small className="status py-1 d-flex align-items-center">
                       Just Now <span className="px-1">.</span>{" "}
@@ -70,13 +81,9 @@ const LinkedInPosts = () => {
                 </div>
               </div>
               <div className="postBody">
-                <p className="postCaption">{userPost.postInput}</p>
-                {userPost.postMedia && (
-                  <img
-                    src={userPost.postMedia}
-                    alt="media"
-                    className="postMedia"
-                  />
+                <p className="postCaption">{data.postInput}</p>
+                {data.postMedia && (
+                  <img src={data.postMedia} alt="media" className="postMedia" />
                 )}
               </div>
               <div className="postFooter">
@@ -114,7 +121,7 @@ const LinkedInPosts = () => {
             </div>
           </>
         );
-      })} */}
+      })}
     </>
   );
 };
