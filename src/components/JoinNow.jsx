@@ -245,6 +245,7 @@ const JoinNow = ({ isFlipped, setIsFlipped }) => {
                 onChange={onFileChange}
                 type="file"
                 name="profile"
+                accept="image/jpeg, image/png"
                 style={{
                   border: toggleTheme ? "1px solid #ccc" : "1px solid #585858",
                   background: toggleTheme ? "#fff" : "#585858",

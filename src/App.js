@@ -7,14 +7,20 @@ function App() {
   const [{ user }] = useStateValue();
   return (
     <>
-      {!user ? (
-        <AuthComponent />
-      ) : (
-        <>
-          <Header />
-          <FeedBoard />
-        </>
-      )}
+      <div className="largeScreen">
+        {!user ? (
+          <AuthComponent />
+        ) : (
+          <>
+            <Header />
+            <FeedBoard />
+          </>
+        )}
+      </div>
+      <div className="shortScreen">
+        Please Open LinkedIn Clone on Large Screen Size as Small or Medium
+        Screen View is under Developement !! Thank you 🙂{" "}
+      </div>
     </>
   );
 }

@@ -54,10 +54,13 @@
   color: var(--darkMainColor--);
   font-size: 0.8rem;
   background-color: transparent;
+  outline: none !important;
 }
 .signOutBtn:hover {
   background: crimson;
-  padding-left: 40%;
+  text-align: center;
+  padding-left: 0px;
+  transition: 0.5s;
 }
 .signOutBtn .signOut {
   cursor: pointer;

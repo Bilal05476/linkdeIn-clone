@@ -60,6 +60,17 @@
   display: none !important;
 }
 
+.shortScreen {
+  display: none !important;
+  background-color: #ccc;
+  display: flex;
+  text-align: center;
+  padding: 3rem;
+  padding-top: 15rem;
+  height: 100vh;
+  font-size: 1.2rem;
+}
+
 /*Media Queries*/
 @media (max-width: 1196px) {
   .sortSec .sortingLine,
@@ -68,11 +79,11 @@
   }
 }
 
-@media (max-width: 1115px) {
-  .headerIcons {
-    display: none !important;
-  }
-  .collapsableIcon {
+@media (max-width: 1110px) {
+  .shortScreen {
     display: block !important;
+  }
+  .largeScreen {
+    display: none !important;
   }
 }

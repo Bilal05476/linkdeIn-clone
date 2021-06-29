@@ -13,7 +13,7 @@ import { AiOutlinePlus } from "react-icons/ai";
 import { HiUsers } from "react-icons/hi";
 import { BiWorld } from "react-icons/bi";
 import { BiCommentDetail } from "react-icons/bi";
-import EmojiComponent from "./EmojiComponent";
+// import EmojiComponent from "./EmojiComponent";
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -238,16 +238,26 @@ export default function PostModal({ open, setOpen }) {
               <div className={classes.modalLeftFooter}>
                 <AiOutlinePlus size="1.3rem" />{" "}
                 <div className="mediaUpload">
-                  <label for="file-input">
+                  <label htmlFor="file-input">
                     <HiPhotograph className="mx-2" size="1.3rem" />
                   </label>
-                  <input id="file-input" type="file" onChange={onMediaChange} />{" "}
+                  <input
+                    id="file-input"
+                    type="file"
+                    onChange={onMediaChange}
+                    accept="image/*"
+                  />{" "}
                 </div>
                 <div className="mediaUpload">
-                  <label for="file-input">
+                  <label htmlFor="file-input">
                     <FaVideo size="1.3rem" />
                   </label>
-                  <input id="file-input" type="file" onChange={onMediaChange} />{" "}
+                  <input
+                    id="file-input"
+                    type="file"
+                    onChange={onMediaChange}
+                    accept="image/*"
+                  />{" "}
                 </div>
                 <div
                   className="mx-4"
