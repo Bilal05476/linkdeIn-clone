@@ -34,8 +34,9 @@ const LinkedInPosts = () => {
   //       // console.log("userPosts", userPosts);
   //     });
   //   }, [user, getUserData]);
-  useEffect(async () => {
-    await db.collection("posts").onSnapshot((snapshot) =>
+  const { data } = linkedInPosts;
+  useEffect(() => {
+    db.collection("posts").onSnapshot((snapshot) =>
       setLinkedInPost(
         snapshot.docs.map((doc) => ({
           id: doc.id,
@@ -43,19 +44,17 @@ const LinkedInPosts = () => {
         }))
       )
     );
-    const { data } = await linkedInPosts;
-    const { avatar } = await data;
-    await getUserData.get().then((doc) => {
-      if (avatar === doc.data().avatar) {
-        setThreeDots(true);
-      }
-    });
   }, []);
 
   return (
     <>
       {linkedInPosts.map((linkedInPost, ind) => {
         const { data } = linkedInPost;
+        getUserData.get().then((doc) => {
+          if (data.avatar === doc.data().avatar) {
+            setThreeDots(true);
+          }
+        });
         return (
           <>
             <div
