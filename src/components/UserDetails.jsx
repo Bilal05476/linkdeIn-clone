@@ -2,23 +2,9 @@ import { MdLabel } from "react-icons/md";
 import "./UserDetails.css";
 import { BsFillSquareFill } from "react-icons/bs";
 import { useStateValue } from "../StateProvider";
-import { db } from "../firebase";
-import { useEffect, useState } from "react";
 
-const UserDetails = () => {
-  const [{ user, toggleTheme }] = useStateValue();
-  const getUserData = db.collection("users").doc(user.uid);
-  const [userName, setUserName] = useState("");
-  const [userOccupation, setUserOccupation] = useState("");
-  const [userImage, setUserImage] = useState(null);
-
-  useEffect(() => {
-    return getUserData.get().then((doc) => {
-      setUserName(doc.data().name);
-      setUserOccupation(doc.data().occupation);
-      setUserImage(doc.data().avatar);
-    });
-  }, [user, getUserData]);
+const UserDetails = ({ userName, userImage, userOccupation }) => {
+  const [{ toggleTheme }] = useStateValue();
 
   return (
     <>

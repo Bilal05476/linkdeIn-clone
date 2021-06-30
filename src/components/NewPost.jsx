@@ -4,24 +4,16 @@ import { FaVideo } from "react-icons/fa";
 import { MdEvent } from "react-icons/md";
 import { RiArticleFill } from "react-icons/ri";
 import { useStateValue } from "../StateProvider";
-import { db } from "../firebase";
 import PostModal from "./PostModal";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
-const NewPost = () => {
-  const [{ user, toggleTheme }] = useStateValue();
-  const getUserData = db.collection("users").doc(user.uid);
-  const [userImage, setUserImage] = useState(null);
+const NewPost = ({ userImage }) => {
+  const [{ toggleTheme }] = useStateValue();
   const [open, setOpen] = useState(false);
 
   const handleOpen = () => {
     setOpen(true);
   };
-  useEffect(() => {
-    return getUserData.get().then((doc) => {
-      setUserImage(doc.data().avatar);
-    });
-  }, [user, getUserData]);
   return (
     <div className={toggleTheme ? "newPostLight" : "newPost"}>
       <div className={toggleTheme ? "imageInputLight" : "imageInput"}>

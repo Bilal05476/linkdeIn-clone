@@ -1,21 +1,10 @@
 import "./ServicesPage.css";
 import { BsThreeDots } from "react-icons/bs";
 import { useStateValue } from "../StateProvider";
-import { db } from "../firebase";
-import { useEffect, useState } from "react";
 
-const ServicesPage = () => {
-  const [{ user, toggleTheme }] = useStateValue();
-  const getUserData = db.collection("users").doc(user.uid);
-  const [userName, setUserName] = useState("");
-  const [userImage, setUserImage] = useState(null);
+const ServicesPage = ({ userName, userImage }) => {
+  const [{ toggleTheme }] = useStateValue();
 
-  useEffect(() => {
-    return getUserData.get().then((doc) => {
-      setUserName(doc.data().name);
-      setUserImage(doc.data().avatar);
-    });
-  }, [user, getUserData]);
   return (
     <div className={toggleTheme ? "servicesPageLight" : "servicesPage"}>
       <div className="ad">

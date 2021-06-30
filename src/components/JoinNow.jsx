@@ -70,6 +70,7 @@ const JoinNow = ({ isFlipped, setIsFlipped }) => {
     setJoinCity("");
     setJoinOccupation("");
     setJoinImage(null);
+    setPosts([]);
 
     console.log(user);
   };
