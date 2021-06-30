@@ -14,6 +14,7 @@ import { HiUsers } from "react-icons/hi";
 import { BiWorld } from "react-icons/bi";
 import { BiCommentDetail } from "react-icons/bi";
 // import EmojiComponent from "./EmojiComponent";
+import firebase from "firebase";
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -143,6 +144,7 @@ export default function PostModal({ open, setOpen }) {
         occupation: userOccupation,
         postInput: postInput,
         postMedia: postMedia,
+        postTime: firebase.firestore.Timestamp.fromDate(new Date()),
       })
       .then(() => {
         alert("Your post has been added👍");

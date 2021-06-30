@@ -16,7 +16,7 @@ const LinkedInPosts = () => {
   // const [threeDots, setThreeDots] = useState(false);
 
   const [{ user, toggleTheme }] = useStateValue();
-  const getUserData = db.collection("users").doc(user.uid);
+  // const getUserData = db.collection("users").doc(user.uid);
 
   useEffect(() => {
     db.collection("posts").onSnapshot((snapshot) =>
@@ -38,6 +38,9 @@ const LinkedInPosts = () => {
         //     const threeDots = `${(<BsThreeDots />)}`;
         //   }
         // });
+        const postDate = data.postTime.toDate();
+        // const date = postDate.toDate().toDateString();
+        console.log(postDate);
         return (
           <>
             <div
@@ -64,7 +67,7 @@ const LinkedInPosts = () => {
                         : data.occupation}
                     </small>
                     <small className="status py-1 d-flex align-items-center">
-                      Just Now <span className="px-1">.</span>{" "}
+                      {postDate} <span className="px-1">.</span>{" "}
                       <BiWorld size="17" />
                     </small>
                   </div>
