@@ -14,7 +14,16 @@ const UserDetails = ({ userName, userImage, userOccupation }) => {
           src="https://images.template.net/wp-content/uploads/2014/11/Natural-Facebook-Cover-Photo.jpg"
           alt="cover"
         />
-        {userImage && <img className="profile" src={userImage} alt="profile" />}
+        {userImage && (
+          <img
+            className="profile"
+            src={userImage}
+            alt="profile"
+            style={{
+              border: toggleTheme ? "2px solid #585858" : "2px solid #ccc",
+            }}
+          />
+        )}
 
         <div className="userInfo">
           <h4 className="userName">{userName}</h4>
