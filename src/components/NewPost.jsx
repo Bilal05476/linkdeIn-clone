@@ -7,7 +7,7 @@ import { useStateValue } from "../StateProvider";
 import PostModal from "./PostModal";
 import { useState } from "react";
 
-const NewPost = ({ userImage }) => {
+const NewPost = ({ userImage, userName, userOccupation }) => {
   const [{ toggleTheme }] = useStateValue();
   const [open, setOpen] = useState(false);
 
@@ -22,7 +22,13 @@ const NewPost = ({ userImage }) => {
         )}
         <input onClick={handleOpen} placeholder="Start a post" />
       </div>
-      <PostModal open={open} setOpen={setOpen} />
+      <PostModal
+        open={open}
+        setOpen={setOpen}
+        userName={userName}
+        userOccupation={userOccupation}
+        userImage={userImage}
+      />
       <div className={toggleTheme ? "postIconsLight" : "postIcons"}>
         <div className="photo">
           <HiPhotograph color="rgb(14, 118, 168)" size="1.3rem" />

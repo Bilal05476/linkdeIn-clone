@@ -9,23 +9,9 @@ import TopCourses from "./TopCourses";
 import UserDetails from "./UserDetails";
 import UserPage from "./UserPage";
 import { useStateValue } from "../StateProvider";
-import { useEffect, useState } from "react";
-import { db } from "../firebase";
 
-const FeedBoard = () => {
-  const [{ user, toggleTheme }] = useStateValue();
-  const getUserData = db.collection("users").doc(user.uid);
-  const [userName, setUserName] = useState("");
-  const [userOccupation, setUserOccupation] = useState("");
-  const [userImage, setUserImage] = useState(null);
-
-  useEffect(() => {
-    return getUserData.get().then((doc) => {
-      setUserName(doc.data().name);
-      setUserOccupation(doc.data().occupation);
-      setUserImage(doc.data().avatar);
-    });
-  }, [user, getUserData]);
+const FeedBoard = ({ userName, userImage, userOccupation }) => {
+  const [{ toggleTheme }] = useStateValue();
 
   return (
     <>
@@ -40,7 +26,11 @@ const FeedBoard = () => {
           <RecentSec />
         </div>
         <div className="centerSection" style={{ width: "50%" }}>
-          <NewPost userImage={userImage} />
+          <NewPost
+            userImage={userImage}
+            userName={userName}
+            userOccupation={userOccupation}
+          />
           <PostSec />
         </div>
         <div className="rightSection" style={{ width: "26%" }}>

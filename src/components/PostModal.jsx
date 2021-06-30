@@ -105,25 +105,21 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function PostModal({ open, setOpen }) {
+export default function PostModal({
+  open,
+  setOpen,
+  userName,
+  userImage,
+  userOccupation,
+}) {
   const [{ user, toggleTheme }] = useStateValue();
-  const classes = useStyles();
   const getUserData = db.collection("users").doc(user.uid);
+  const classes = useStyles();
   const setUserPost = db.collection("posts");
-  const [userImage, setUserImage] = useState(null);
-  const [userOccupation, setUserOccupation] = useState("");
   const [postInput, setPostInput] = useState("");
   const [postMedia, setPostMedia] = useState("");
-  const [userName, setUserName] = useState("");
   const [userNewPost, setUserNewPost] = useState([]);
 
-  useEffect(() => {
-    return getUserData.get().then((doc) => {
-      setUserImage(doc.data().avatar);
-      setUserName(doc.data().name);
-      setUserOccupation(doc.data().occupation);
-    });
-  }, [user, getUserData]);
   const handleClose = () => {
     setOpen(false);
   };

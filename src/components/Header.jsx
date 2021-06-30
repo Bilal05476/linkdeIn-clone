@@ -13,7 +13,7 @@ import "./header.css";
 import { RiArrowDownSFill } from "react-icons/ri";
 import UserPopover from "./UserPopover";
 
-const Header = () => {
+const Header = ({ userName, userImage, userOccupation }) => {
   const [{ toggleTheme }, dispatch] = useStateValue();
 
   const onToggleTheme = () => {
@@ -56,7 +56,11 @@ const Header = () => {
             <IoNotifications size="1.5rem" />
             <p style={{ fontSize: ".7rem" }}>Notifications</p>
           </div>
-          <UserPopover />
+          <UserPopover
+            userName={userName}
+            userOccupation={userOccupation}
+            userImage={userImage}
+          />
           <div className="vertical"></div>
           <div className="icon">
             <HiDotsCircleHorizontal size="1.5rem" />
