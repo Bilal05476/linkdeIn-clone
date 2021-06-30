@@ -265,15 +265,41 @@ const JoinNow = ({ isFlipped, setIsFlipped }) => {
           </small>
 
           {!joinCity || !joinCountry || !joinOccupation || !joinImage ? (
-            " "
+            <>
+              {toggleForm && (
+                <p
+                  style={{
+                    background: toggleTheme ? "#ccc" : "#585858",
+                  }}
+                  className="disabledBtn"
+                >
+                  Agree & Join
+                </p>
+              )}
+            </>
           ) : (
-            <button type="submit" className="joinNowButton">
-              Agree & Join
-            </button>
+            <>
+              {toggleForm && (
+                <button type="submit" className=" joinNowButton">
+                  Agree & Join
+                </button>
+              )}
+            </>
           )}
         </form>
         {!joinEmail || !joinName || !joinPass ? (
-          ""
+          <>
+            {!toggleForm && (
+              <p
+                style={{
+                  background: toggleTheme ? "#ccc" : "#585858",
+                }}
+                className="disabledBtn"
+              >
+                Next
+              </p>
+            )}
+          </>
         ) : (
           <>
             {!toggleForm && (

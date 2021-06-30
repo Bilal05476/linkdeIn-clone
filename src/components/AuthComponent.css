@@ -149,3 +149,7 @@
 .city > input {
   width: 100% !important;
 }
+.prevJoinBtn {
+  display: flex;
+  justify-content: space-between;
+}
