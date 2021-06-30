@@ -6,7 +6,6 @@ import reportWebVitals from "./reportWebVitals";
 import reducer, { initialState } from "./reducer";
 import { StateProvider } from "./StateProvider";
 import { BrowserRouter as Router } from "react-router-dom";
-// import Image from "./Image";
 
 ReactDOM.render(
   <StateProvider initialState={initialState} reducer={reducer}>
