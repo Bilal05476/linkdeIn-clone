@@ -147,7 +147,7 @@ export default function PostModal({ open, setOpen }) {
         postTime: firebase.firestore.Timestamp.fromDate(new Date()),
       })
       .then(() => {
-        alert("Your post has been added👍");
+        console.log("Your post has been added👍");
       })
       .catch((error) => {
         alert(error.message);
