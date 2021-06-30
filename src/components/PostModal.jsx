@@ -297,16 +297,15 @@ export default function PostModal({ open, setOpen }) {
                 </p>
               </div>
               <div className={classes.modalRightFooter}>
-                {postInput && (
+                {!postMedia || !postInput ? (
+                  <p className={`${classes.postDisabledBtn} mb-0`}>Post</p>
+                ) : (
                   <button
                     onClick={onHandleSubmit}
                     className={classes.postSubmitBtn}
                   >
                     Post
                   </button>
-                )}
-                {!postInput && (
-                  <p className={`${classes.postDisabledBtn} mb-0`}>Post</p>
                 )}
               </div>
             </div>

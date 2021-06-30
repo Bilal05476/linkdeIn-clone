@@ -10,6 +10,7 @@ import { BiWorld } from "react-icons/bi";
 import { useStateValue } from "../StateProvider";
 import { db } from "../firebase";
 import { useEffect, useState } from "react";
+import moment from "moment";
 
 const LinkedInPosts = () => {
   const [linkedInPosts, setLinkedInPost] = useState([]);
@@ -33,7 +34,7 @@ const LinkedInPosts = () => {
         const { data } = linkedInPost;
 
         console.log("data", data);
-        const postDate = data.postTime.toDate().toString();
+        const postDate = moment(data.postTime.toDate().toString()).fromNow();
 
         return (
           <>
