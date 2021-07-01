@@ -8,7 +8,6 @@ const ViewProfile = () => {
     <>
       <div className={toggleTheme ? "viewProfilePageLight" : "viewProfilePage"}>
         <div className="mt-5">ViewProfile</div>
-        <NavLink to="/">Feed</NavLink>
       </div>
     </>
   );

@@ -12,6 +12,7 @@ import { IoMenuOutline } from "react-icons/io5";
 import "./header.css";
 import { RiArrowDownSFill } from "react-icons/ri";
 import UserPopover from "./UserPopover";
+import { NavLink } from "react-router-dom";
 
 const Header = ({ userName, userImage, userOccupation }) => {
   const [{ toggleTheme }, dispatch] = useStateValue();
@@ -36,10 +37,18 @@ const Header = ({ userName, userImage, userOccupation }) => {
           />
         </div>
         <div className="headerIcons">
-          <div className="icon">
-            <FaHome size="1.5rem" />
-            <p style={{ fontSize: ".7rem" }}>Home</p>
-          </div>
+          <NavLink
+            to="/"
+            style={{
+              color: toggleTheme ? "#424242" : "#fff",
+              textDecoration: "none",
+            }}
+          >
+            <div className="icon">
+              <FaHome size="1.5rem" />
+              <p style={{ fontSize: ".7rem" }}>Home</p>
+            </div>
+          </NavLink>
           <div className="icon">
             <HiUsers size="1.5rem" />
             <p style={{ fontSize: ".7rem" }}>My Network</p>
