@@ -5,6 +5,7 @@ import { useState } from "react";
 import { RiArrowDownSFill } from "react-icons/ri";
 import { useStateValue } from "../StateProvider";
 import { auth } from "../firebase";
+import { NavLink } from "react-router-dom";
 
 const UserPopover = ({ userName, userImage, userOccupation }) => {
   const [{ toggleTheme }, dispatch] = useStateValue();
@@ -81,7 +82,10 @@ const UserPopover = ({ userName, userImage, userOccupation }) => {
                 </p>
               </div>
             </div>
-            <button className="viewProfile">View Profile</button>
+
+            <NavLink to={`/${userName}`}>
+              <button className="viewProfile">View Profile</button>
+            </NavLink>
           </div>
           <hr className="m-0" />
           <div className="userPopBody">

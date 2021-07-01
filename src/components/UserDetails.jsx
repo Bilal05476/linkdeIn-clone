@@ -20,7 +20,7 @@ const UserDetails = ({ userName, userImage, userOccupation }) => {
             src={userImage}
             alt="profile"
             style={{
-              border: toggleTheme ? "2px solid #585858" : "2px solid #ccc",
+              border: toggleTheme ? "4px solid #585858" : "4px solid #ccc",
             }}
           />
         )}

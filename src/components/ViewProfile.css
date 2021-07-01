@@ -1,0 +1,19 @@
+.viewProfilePage {
+  display: flex;
+  padding: 100px;
+  padding-top: 90px;
+  padding-bottom: 60px;
+  background: #212121;
+  transition: var(--AppTransition--);
+  color: #fff !important;
+}
+
+.viewProfilePageLight {
+  display: flex;
+  padding: 100px;
+  padding-top: 90px;
+  padding-bottom: 60px;
+  background: rgb(241, 241, 241);
+  color: #424242 !important;
+  transition: var(--AppTransition--);
+}
