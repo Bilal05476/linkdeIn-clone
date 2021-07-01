@@ -4,7 +4,7 @@ import Modal from "@material-ui/core/Modal";
 import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";
 import { db, storage } from "../firebase";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { GrClose } from "react-icons/gr";
 import { useStateValue } from "../StateProvider";
 import { HiPhotograph } from "react-icons/hi";

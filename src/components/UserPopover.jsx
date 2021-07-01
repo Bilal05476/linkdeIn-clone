@@ -4,7 +4,7 @@ import Popover from "@material-ui/core/Popover";
 import { useState } from "react";
 import { RiArrowDownSFill } from "react-icons/ri";
 import { useStateValue } from "../StateProvider";
-import { auth, db } from "../firebase";
+import { auth } from "../firebase";
 
 const UserPopover = ({ userName, userImage, userOccupation }) => {
   const [{ toggleTheme }, dispatch] = useStateValue();
