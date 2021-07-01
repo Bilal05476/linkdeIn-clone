@@ -1,0 +1,13 @@
+.ViewProUserDetails {
+  height: 700px;
+  border-radius: var(--AppBorderRadius--);
+  border: 0.5px solid var(--AppDarkBorder--) !important;
+  background: #424242;
+  color: #fff;
+}
+.ViewProUserDetailsLight {
+  background: #fff;
+  height: 700px;
+  border-radius: var(--AppBorderRadius--);
+  border: 0.5px solid #ccc !important;
+}

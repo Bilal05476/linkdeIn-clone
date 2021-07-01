@@ -52,7 +52,11 @@ function App() {
               userOccupation={userOccupation}
               userImage={userImage}
             />
-            <ViewProfile />
+            <ViewProfile
+              userName={userName}
+              userOccupation={userOccupation}
+              userImage={userImage}
+            />
           </Route>
         </Switch>
       </div>
