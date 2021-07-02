@@ -1,0 +1,27 @@
+.editAndPro {
+  height: auto;
+  border-radius: var(--AppBorderRadius--);
+  border: 0.5px solid var(--AppDarkBorder--) !important;
+  background: #424242;
+  color: #fff;
+  padding: 20px;
+}
+.editAndProLight {
+  background: #fff;
+  height: auto;
+  padding: 20px;
+  border-radius: var(--AppBorderRadius--);
+  border: 0.5px solid #ccc !important;
+}
+.editUserProfile,
+.addUserProfile {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  text-decoration: none !important;
+}
+.editUserProfile p:hover,
+.addUserProfile p:hover {
+  border-bottom: 0.5px solid var(--darkMainColor--);
+}

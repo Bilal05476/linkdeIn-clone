@@ -1,10 +1,11 @@
 import "./ViewProfile.css";
 import { useStateValue } from "../StateProvider";
 import ViewProUserDetails from "./ViewProUserDetails";
-import AddFeedSec from "./AddFeedSec";
-import TopCourses from "./TopCourses";
+import PeopleAlsoViewed from "./PeopleAlsoViewed";
 import ServicesPage from "./ServicesPage";
 import CopyrightSec from "./CopyrightSec";
+import PeopleYouMayKnow from "./PeopleYouMayKnow";
+import EditAndProDetails from "./EditAndProDetails";
 
 const ViewProfile = ({
   userName,
@@ -30,9 +31,10 @@ const ViewProfile = ({
           />
         </div>
         <div className="rightSection" style={{ width: "26%" }}>
-          <AddFeedSec />
-          <TopCourses />
+          <EditAndProDetails />
           <ServicesPage userName={userName} userImage={userImage} />
+          <PeopleAlsoViewed />
+          <PeopleYouMayKnow />
           <CopyrightSec />
         </div>
       </div>

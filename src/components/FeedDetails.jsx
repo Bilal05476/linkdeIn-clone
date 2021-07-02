@@ -1,8 +1,7 @@
-import { FiPlus } from "react-icons/fi";
 import "./AddFeedSec.css";
 import { useStateValue } from "../StateProvider";
 
-const FeedDetails = ({ img, title, company }) => {
+const FeedDetails = ({ img, title, company, button }) => {
   const [{ toggleTheme }] = useStateValue();
   return (
     <div style={{ fontSize: "0.7rem" }} className="d-flex my-3">
@@ -15,8 +14,7 @@ const FeedDetails = ({ img, title, company }) => {
           {company}{" "}
         </p>
         <button className={toggleTheme ? "followBtnLight" : "followBtn"}>
-          <FiPlus className="mr-1" />
-          Follow
+          {button}
         </button>
       </div>
     </div>
