@@ -28,4 +28,45 @@
 }
 .proUserDetails {
   padding: 10px 25px;
+  width: 70%;
+}
+.userPageDetails {
+  display: flex;
+  flex-direction: column;
+}
+.userPageDetails .userPageInfo,
+.userPageDetails .userProfession {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.userPageDetails .userPageInfo img,
+.userPageDetails .userProfession img {
+  width: 40px;
+  height: 40px;
+  border-radius: 20%;
+  display: block;
+  margin-right: 10px;
+}
+
+.userPageDetails .userPageInfo h4,
+.userPageDetails .userProfession h4 {
+  font-size: 0.9rem;
+}
+.profileAnalytics small {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--darkMainColor--);
+}
+.profileBtn {
+  margin: 10px auto;
+}
+.profileBtn button {
+  margin-right: 10px;
+  border-radius: 20px;
+  border: 1px solid var(--AppDarkBorder--);
+  background: transparent;
+  padding: 5px 10px;
+  color: #fff;
+  outline: none !important;
 }
