@@ -32,7 +32,10 @@ const ViewProUserDetails = ({
       <div className="proUserDetails">
         <h4>{userName}</h4>
         <p className="m-0">{userOccupation}</p>
-        <small className="m-0">
+        <small
+          className="m-0"
+          style={{ color: toggleTheme ? "rgb(139, 139, 139)" : "#ccc" }}
+        >
           {userCity}, {userCountry}
         </small>
       </div>
