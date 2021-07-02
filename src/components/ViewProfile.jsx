@@ -1,6 +1,10 @@
 import "./ViewProfile.css";
 import { useStateValue } from "../StateProvider";
 import ViewProUserDetails from "./ViewProUserDetails";
+import AddFeedSec from "./AddFeedSec";
+import TopCourses from "./TopCourses";
+import ServicesPage from "./ServicesPage";
+import CopyrightSec from "./CopyrightSec";
 
 const ViewProfile = ({
   userName,
@@ -13,7 +17,10 @@ const ViewProfile = ({
   return (
     <>
       <div className={toggleTheme ? "viewProfilePageLight" : "viewProfilePage"}>
-        <div className="leftSection" style={{ width: "70%" }}>
+        <div
+          className="leftSection"
+          style={{ width: "70%", marginRight: "20px" }}
+        >
           <ViewProUserDetails
             userName={userName}
             userOccupation={userOccupation}
@@ -22,7 +29,12 @@ const ViewProfile = ({
             userCountry={userCountry}
           />
         </div>
-        <div className="rightSection" style={{ width: "30%" }}></div>
+        <div className="rightSection" style={{ width: "26%" }}>
+          <AddFeedSec />
+          <TopCourses />
+          <ServicesPage userName={userName} userImage={userImage} />
+          <CopyrightSec />
+        </div>
       </div>
     </>
   );
