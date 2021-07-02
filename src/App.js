@@ -11,6 +11,8 @@ function App() {
   const [{ user }] = useStateValue();
   const [userName, setUserName] = useState("");
   const [userOccupation, setUserOccupation] = useState("");
+  const [userCountry, setUserCountry] = useState("");
+  const [userCity, setUserCity] = useState("");
   const [userImage, setUserImage] = useState(null);
 
   if (user) {
@@ -19,11 +21,10 @@ function App() {
       setUserName(doc.data().name);
       setUserOccupation(doc.data().occupation);
       setUserImage(doc.data().avatar);
+      setUserCountry(doc.data().country);
+      setUserCity(doc.data().city);
     });
   }
-  // useEffect(() => {
-  //   return
-  // }, [user]);
   return (
     <>
       <div className="largeScreen">
@@ -56,6 +57,8 @@ function App() {
               userName={userName}
               userOccupation={userOccupation}
               userImage={userImage}
+              userCity={userCity}
+              userCountry={userCountry}
             />
           </Route>
         </Switch>
