@@ -62,7 +62,7 @@ const ViewProUserDetails = ({
           <div className="userProfession d-flex">
             <img
               className=""
-              src="https://dynamic.brandcrowd.com/asset/logo/9971bc9b-9d51-4b42-beca-b3ffe882efcd/logo?v=637102751107770000"
+              src="https://www.pngkey.com/png/detail/849-8495070_unicef-logo-world-health-organization-logo-png.png"
               alt="profile"
             />
             <h4 className="">Company Name</h4>
