@@ -67,7 +67,8 @@ const UserPopover = ({ userName, userImage, userOccupation }) => {
         anchorEl={anchorEl}
         onClose={handleClose}
       >
-        <div className={toggleTheme ? "userPopoverLight" : "userPopover"}>
+        Hello World
+        {/* <div className={toggleTheme ? "userPopoverLight" : "userPopover"}>
           <div className="userPopHeader">
             <div className="userPopInfos">
               {userImage && (
@@ -125,7 +126,7 @@ const UserPopover = ({ userName, userImage, userOccupation }) => {
               Sign Out
             </small>
           </div>
-        </div>
+        </div> */}
       </Popover>
     </>
   );
