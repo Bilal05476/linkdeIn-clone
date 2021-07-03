@@ -131,35 +131,28 @@ export default function PostModal({
     await mediaRef.put(media);
     setPostMedia(await mediaRef.getDownloadURL());
   };
-  const onHandleSubmit = (e) => {
+  const onHandleSubmit = async (e) => {
     e.preventDefault();
-    setUserPost
-      .add({
-        name: userName,
-        avatar: userImage,
-        occupation: userOccupation,
-        postInput: postInput,
-        postMedia: postMedia,
-        postTime: firebase.firestore.Timestamp.fromDate(new Date()),
-      })
-      .then(() => {
-        console.log("Your post has been added👍");
-      })
-      .catch((error) => {
-        alert(error.message);
-      });
-
+    await setUserPost.add({
+      name: userName,
+      avatar: userImage,
+      occupation: userOccupation,
+      postInput: postInput,
+      postMedia: postMedia,
+      postTime: firebase.firestore.Timestamp.fromDate(new Date()),
+    });
     userNewPost.push({ postInput, postMedia });
-    return getUserData
+    await getUserData
       .update({
         posts: userNewPost,
       })
       .then(() => {
+        console.log("Your post has been added👍");
         setPostInput("");
         setPostMedia("");
       })
       .catch((error) => {
-        // The document probably doesn't exist.
+        alert(error.message);
         alert(`Error! ${error}`);
       });
   };
