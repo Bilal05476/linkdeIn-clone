@@ -6,6 +6,7 @@ import ServicesPage from "./ServicesPage";
 import CopyrightSec from "./CopyrightSec";
 import PeopleYouMayKnow from "./PeopleYouMayKnow";
 import EditAndProDetails from "./EditAndProDetails";
+import ViewProUserAbout from "./ViewProUserAbout";
 
 const ViewProfile = ({
   userName,
@@ -29,6 +30,7 @@ const ViewProfile = ({
             userCity={userCity}
             userCountry={userCountry}
           />
+          <ViewProUserAbout />
         </div>
         <div className="rightSection" style={{ width: "26%" }}>
           <EditAndProDetails />
