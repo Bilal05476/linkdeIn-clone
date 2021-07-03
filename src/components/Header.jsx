@@ -10,6 +10,7 @@ import { FaSearch } from "react-icons/fa";
 import { useStateValue } from "../StateProvider";
 import { IoMenuOutline } from "react-icons/io5";
 import "./header.css";
+
 import { RiArrowDownSFill } from "react-icons/ri";
 import UserPopover from "./UserPopover";
 import { NavLink } from "react-router-dom";

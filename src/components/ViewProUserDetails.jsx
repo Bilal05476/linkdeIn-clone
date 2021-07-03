@@ -45,9 +45,21 @@ const ViewProUserDetails = ({
             <small>1,559 followers 500+ connections</small>
           </div>
           <div className="profileBtn">
-            <button>Open to</button>
-            <button>Add section</button>
-            <button>More</button>
+            <button
+              style={{
+                color: "#fff",
+                background: "rgb(19, 180, 255)",
+                border: "1px solid rgb(19, 180, 255)",
+              }}
+            >
+              Open to
+            </button>
+            <button style={{ color: toggleTheme ? "#424242" : "#ccc" }}>
+              Add section
+            </button>
+            <button style={{ color: toggleTheme ? "#424242" : "#ccc" }}>
+              More
+            </button>
           </div>
         </div>
         <div className="userPageDetails">

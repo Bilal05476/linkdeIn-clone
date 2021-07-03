@@ -10,6 +10,7 @@
   width: 100%;
 }
 .userPopoverTab {
+  width: 90% !important;
   margin-top: 40px;
 }
 .userPopHeader,
