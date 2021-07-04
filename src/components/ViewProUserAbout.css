@@ -22,7 +22,6 @@
 .viewUserAbout h5,
 .viewUserAboutLight h5 {
   font-weight: 400;
-  margin-bottom: 20px;
 }
 .aboutTextArea {
   outline: none !important;
@@ -33,4 +32,20 @@
   padding-left: 20px;
   padding-right: 20px;
   overflow-y: auto;
+}
+.aboutTextBtn {
+  background: var(--darkMainColor--);
+  border: none;
+  outline: none !important;
+  border-radius: 20px;
+  color: #fff;
+  padding: 5px 20px;
+  margin-bottom: 20px;
+  margin-left: 20px;
+}
+.aboutHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
 }
