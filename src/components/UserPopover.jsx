@@ -5,12 +5,13 @@ import { useState } from "react";
 import { RiArrowDownSFill } from "react-icons/ri";
 import { useStateValue } from "../StateProvider";
 import { auth } from "../firebase";
-import { NavLink } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 
 const UserPopover = ({ userName, userImage, userOccupation }) => {
   const [{ toggleTheme }, dispatch] = useStateValue();
   const [anchorEl, setAnchorEl] = useState(null);
 
+  const history = useHistory();
   const handleClose = () => {
     setAnchorEl(null);
   };
@@ -29,6 +30,7 @@ const UserPopover = ({ userName, userImage, userOccupation }) => {
       .catch((error) => {
         alert(error);
       });
+    history.push("/");
   };
 
   const handleClick = (event) => {
