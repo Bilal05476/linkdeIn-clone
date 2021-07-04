@@ -12,6 +12,7 @@ const JoinNow = ({ isFlipped, setIsFlipped }) => {
   const [joinCity, setJoinCity] = useState("");
   const [joinOccupation, setJoinOccupation] = useState("");
   const [joinImage, setJoinImage] = useState(null);
+  const [joinAbout, setJoinAbout] = useState("");
   const [posts, setPosts] = useState([]);
 
   const [joinError, setJoinError] = useState("");
@@ -52,6 +53,7 @@ const JoinNow = ({ isFlipped, setIsFlipped }) => {
           occupation: joinOccupation,
           avatar: joinImage,
           posts: posts,
+          about: joinAbout,
         });
       })
       .catch((error) => {
@@ -71,6 +73,7 @@ const JoinNow = ({ isFlipped, setIsFlipped }) => {
     setJoinOccupation("");
     setJoinImage(null);
     setPosts([]);
+    setJoinAbout("");
 
     console.log(user);
   };
@@ -91,6 +94,7 @@ const JoinNow = ({ isFlipped, setIsFlipped }) => {
           name: result.user.displayName,
           avatar: result.user.photoURL,
           posts: posts,
+          about: joinAbout,
         });
       })
       .catch((error) => {
