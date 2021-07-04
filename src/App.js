@@ -13,6 +13,7 @@ function App() {
   const [userOccupation, setUserOccupation] = useState("");
   const [userCountry, setUserCountry] = useState("");
   const [userCity, setUserCity] = useState("");
+  const [userAbout, setUserAbout] = useState("");
   const [userImage, setUserImage] = useState(null);
 
   if (user) {
@@ -23,6 +24,7 @@ function App() {
       setUserImage(doc.data().avatar);
       setUserCountry(doc.data().country);
       setUserCity(doc.data().city);
+      setUserAbout(doc.data().about);
     });
   }
   return (
@@ -59,6 +61,7 @@ function App() {
               userImage={userImage}
               userCity={userCity}
               userCountry={userCountry}
+              userAbout={userAbout}
             />
           </Route>
         </Switch>

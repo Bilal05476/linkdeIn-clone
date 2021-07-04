@@ -14,6 +14,7 @@ const ViewProfile = ({
   userImage,
   userCountry,
   userCity,
+  userAbout,
 }) => {
   const [{ toggleTheme }] = useStateValue();
   return (
@@ -30,7 +31,7 @@ const ViewProfile = ({
             userCity={userCity}
             userCountry={userCountry}
           />
-          <ViewProUserAbout />
+          <ViewProUserAbout userAbout={userAbout} />
         </div>
         <div className="rightSection" style={{ width: "26%" }}>
           <EditAndProDetails />

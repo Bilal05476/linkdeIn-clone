@@ -24,3 +24,13 @@
   font-weight: 400;
   margin-bottom: 20px;
 }
+.aboutTextArea {
+  outline: none !important;
+  background: transparent;
+  border: none;
+  width: 100%;
+  padding: 5px;
+  padding-left: 20px;
+  padding-right: 20px;
+  overflow-y: auto;
+}
