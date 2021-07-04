@@ -2,6 +2,7 @@ import { MdLabel } from "react-icons/md";
 import "./UserDetails.css";
 import { BsFillSquareFill } from "react-icons/bs";
 import { useStateValue } from "../StateProvider";
+import { NavLink } from "react-router-dom";
 
 const UserDetails = ({ userName, userImage, userOccupation }) => {
   const [{ toggleTheme }] = useStateValue();
@@ -26,7 +27,15 @@ const UserDetails = ({ userName, userImage, userOccupation }) => {
         )}
 
         <div className="userInfo">
-          <h4 className="userName">{userName}</h4>
+          <NavLink
+            to={`/${userName}`}
+            style={{
+              color: toggleTheme ? "#424242" : "#fff",
+              textDecoration: "none",
+            }}
+          >
+            <h4 className="userName">{userName}</h4>
+          </NavLink>
           <p className={toggleTheme ? "userAboutLight mb-0" : "userAbout mb-0"}>
             {!userOccupation
               ? "Full Stack Website Developer | JavaScript Developer | Pythoneer"

@@ -62,6 +62,7 @@ function App() {
               userCity={userCity}
               userCountry={userCountry}
               userAbout={userAbout}
+              setUserAbout={setUserAbout}
             />
           </Route>
         </Switch>
