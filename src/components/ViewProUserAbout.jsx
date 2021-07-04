@@ -9,10 +9,11 @@ const ViewProUserAbout = ({ userAbout, setUserAbout }) => {
   const [userUpdAbout, setUserUpdAbout] = useState("");
   const [toggleAboutText, setToggleAboutText] = useState(false);
   const [{ toggleTheme, user }] = useStateValue();
+  const [blankText, setBlankText] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (user) {
+    if (user && userUpdAbout !== "") {
       const getUserData = db.collection("users").doc(user.uid);
       await getUserData.update({
         about: userUpdAbout,
@@ -21,6 +22,9 @@ const ViewProUserAbout = ({ userAbout, setUserAbout }) => {
         setUserAbout(doc.data().about);
       });
       setUserUpdAbout("");
+      setBlankText("");
+    } else if (userUpdAbout === "") {
+      setBlankText("Type something please...");
     }
   };
 
@@ -42,8 +46,22 @@ const ViewProUserAbout = ({ userAbout, setUserAbout }) => {
           />
         )}
       </div>
+
       {toggleAboutText && (
         <>
+          {blankText && (
+            <div
+              style={{
+                background: "pink",
+                color: "crimson",
+                padding: "2px 15px",
+                border: "1px solid crimson",
+                borderRadius: "10px",
+              }}
+            >
+              {blankText}
+            </div>
+          )}
           <textarea
             className="aboutTextArea"
             style={{ color: toggleTheme ? "#424242" : "#fff" }}
@@ -52,7 +70,6 @@ const ViewProUserAbout = ({ userAbout, setUserAbout }) => {
             value={userUpdAbout}
             onChange={(e) => setUserUpdAbout(e.target.value)}
             placeholder="Update your about..."
-            required
           ></textarea>
           <button className="aboutTextBtn" onClick={handleSubmit}>
             Update

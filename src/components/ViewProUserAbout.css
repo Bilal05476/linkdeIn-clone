@@ -43,6 +43,9 @@
   margin-bottom: 20px;
   margin-left: 20px;
 }
+.aboutTextBtn:hover {
+  background: rgb(6, 63, 90);
+}
 .aboutHeader {
   display: flex;
   align-items: center;
