@@ -14,11 +14,11 @@ import moment from "moment";
 
 const LinkedInPosts = ({ sortingPost }) => {
   const [linkedInPosts, setLinkedInPost] = useState([]);
+  const getPostFromDatabase = db.collection("posts");
 
   const [{ toggleTheme }] = useStateValue();
-
   useEffect(() => {
-    db.collection("posts")
+    getPostFromDatabase
       .orderBy("postTime", `${sortingPost}`)
       .onSnapshot((snapshot) =>
         setLinkedInPost(
@@ -28,7 +28,11 @@ const LinkedInPosts = ({ sortingPost }) => {
           }))
         )
       );
-  }, [sortingPost]);
+  }, [getPostFromDatabase, sortingPost]);
+
+  const onDeletePost = (id) => {
+    getPostFromDatabase.doc(id).delete();
+  };
 
   return (
     <>
@@ -65,7 +69,7 @@ const LinkedInPosts = ({ sortingPost }) => {
                 </div>
               </div>
               <div className="headerRight">
-                <BsThreeDots />
+                <BsThreeDots onClick={() => onDeletePost(linkedInPost.id)} />
               </div>
             </div>
             <div className="postBody">

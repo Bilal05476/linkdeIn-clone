@@ -134,17 +134,17 @@ export default function PostModal({
   const onHandleSubmit = async (e) => {
     e.preventDefault();
     userNewPost.push({ postInput, postMedia });
-    await setUserPost.add({
-      name: userName,
-      avatar: userImage,
-      occupation: userOccupation,
-      postInput: postInput,
-      postMedia: postMedia,
-      postTime: firebase.firestore.Timestamp.fromDate(new Date()),
+    await getUserData.update({
+      posts: userNewPost,
     });
-    await getUserData
-      .update({
-        posts: userNewPost,
+    await setUserPost
+      .add({
+        name: userName,
+        avatar: userImage,
+        occupation: userOccupation,
+        postInput: postInput,
+        postMedia: postMedia,
+        postTime: firebase.firestore.Timestamp.fromDate(new Date()),
       })
       .then(() => {
         console.log("Your post has been added👍");
