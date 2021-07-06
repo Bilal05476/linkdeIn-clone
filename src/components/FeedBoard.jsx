@@ -31,7 +31,7 @@ const FeedBoard = ({ userName, userImage, userOccupation }) => {
             userName={userName}
             userOccupation={userOccupation}
           />
-          <PostSec />
+          <PostSec userImage={userImage} />
         </div>
         <div className="rightSection" style={{ width: "26%" }}>
           <AddFeedSec />

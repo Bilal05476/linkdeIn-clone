@@ -8,7 +8,7 @@ import LinkedInPosts from "./LinkedInPosts";
 import { useState } from "react";
 import Popover from "@material-ui/core/Popover";
 
-const PostSec = () => {
+const PostSec = ({ userImage }) => {
   const [{ toggleTheme }] = useStateValue();
   const [sortingPost, setSortingPost] = useState("desc");
   const [anchorEl, setAnchorEl] = useState(null);
@@ -73,7 +73,7 @@ const PostSec = () => {
         </Popover>
       </div>
       <div className="postSec">
-        <LinkedInPosts sortingPost={sortingPost} />
+        <LinkedInPosts sortingPost={sortingPost} userImage={userImage} />
         <PagePost />
       </div>
     </>
