@@ -6,15 +6,18 @@ import { BiCommentDetail } from "react-icons/bi";
 import { FiSend } from "react-icons/fi";
 import { VscLiveShare } from "react-icons/vsc";
 import { FaRegLightbulb } from "react-icons/fa";
+import { FaTimes } from "react-icons/fa";
 import { BiWorld } from "react-icons/bi";
 import { useStateValue } from "../StateProvider";
 import { db } from "../firebase";
 import { useEffect, useState } from "react";
 import moment from "moment";
+import "./PostDeleteModal.css";
 
 const LinkedInPosts = ({ sortingPost }) => {
   const [linkedInPosts, setLinkedInPost] = useState([]);
   const getPostFromDatabase = db.collection("posts");
+  const [deletePostId, setDeletePostId] = useState("");
 
   const [{ toggleTheme }] = useStateValue();
   useEffect(() => {
@@ -69,7 +72,60 @@ const LinkedInPosts = ({ sortingPost }) => {
                 </div>
               </div>
               <div className="headerRight">
-                <BsThreeDots onClick={() => onDeletePost(linkedInPost.id)} />
+                <BsThreeDots
+                  data-target="#deleteModal"
+                  data-toggle="modal"
+                  type="button"
+                  onClick={() => setDeletePostId(linkedInPost.id)}
+                />
+                {/* deleteModal */}
+                <div
+                  className="modal fade"
+                  id="deleteModal"
+                  tabindex="-1"
+                  role="dialog"
+                >
+                  <div className="modal-dialog" role="document">
+                    <div className="modal-content">
+                      <div className="modal-header">
+                        <button
+                          type="button"
+                          className="close"
+                          data-dismiss="modal"
+                          aria-label="Close"
+                        >
+                          <FaTimes />
+                        </button>
+                      </div>
+                      <div className="modal-body">
+                        <div className="alertImage">
+                          <FaTimes className="alertIcon" />
+                        </div>
+                        <p className="mb-0">
+                          Do you really want to delete this post? this process
+                          cannot be undone.
+                        </p>
+                        <div>
+                          <button
+                            type="button"
+                            className="btn btn-secondary mx-1 cancelBtn"
+                            data-dismiss="modal"
+                          >
+                            Cancel
+                          </button>
+                          <button
+                            onClick={() => onDeletePost(deletePostId)}
+                            type="button"
+                            className="mx-1 btn deleteBtn"
+                            data-dismiss="modal"
+                          >
+                            Delete
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
             <div className="postBody">

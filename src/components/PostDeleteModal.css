@@ -1,0 +1,44 @@
+.modal {
+  margin-top: 70px;
+}
+.modal .modal-header {
+  border-bottom: none;
+  background-color: #424242;
+}
+
+.modal .modal-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #424242;
+  padding-bottom: 50px;
+}
+.modal .modal-body .alertImage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid crimson;
+  padding: 5px;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+.modal .modal-body .alertImage .alertIcon {
+  color: crimson;
+  font-size: 5rem !important;
+}
+.modal .modal-body p {
+  font-size: 0.9rem;
+  text-align: center;
+  margin: 30px;
+  margin-bottom: 30px !important;
+}
+.modal .modal-body .deleteBtn,
+.modal .modal-body .cancelBtn {
+  outline: none !important;
+}
+.modal .modal-body .deleteBtn {
+  background-color: crimson !important;
+  color: #fff;
+}
