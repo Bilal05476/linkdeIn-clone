@@ -131,13 +131,13 @@ export default function PostModal({
     await mediaRef.put(media);
     setPostMedia(await mediaRef.getDownloadURL());
   };
-  const onHandleSubmit = async (e) => {
+  const onHandleSubmit = (e) => {
     e.preventDefault();
     userNewPost.push({ postInput, postMedia });
-    await getUserData.update({
+    getUserData.update({
       posts: userNewPost,
     });
-    await setUserPost
+    setUserPost
       .add({
         name: userName,
         avatar: userImage,

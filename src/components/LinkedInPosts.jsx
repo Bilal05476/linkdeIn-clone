@@ -28,7 +28,7 @@ const LinkedInPosts = ({ sortingPost }) => {
           }))
         )
       );
-  }, [getPostFromDatabase, sortingPost]);
+  }, [sortingPost]);
 
   const onDeletePost = (id) => {
     getPostFromDatabase.doc(id).delete();
