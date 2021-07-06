@@ -34,7 +34,7 @@ const UserDetails = ({ userName, userImage, userOccupation }) => {
               textDecoration: "none",
             }}
           >
-            <h4 className="userName">{userName}</h4>
+            <h4 className="userName ">{userName}</h4>
           </NavLink>
           <p className={toggleTheme ? "userAboutLight mb-0" : "userAbout mb-0"}>
             {!userOccupation

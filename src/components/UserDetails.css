@@ -31,9 +31,14 @@
   padding: 20px;
   padding-bottom: 5px;
   text-align: center;
+  padding-top: 10px;
 }
 .userInfo .userName {
   font-size: 0.9rem;
+}
+.userInfo .userName:hover {
+  font-size: 1rem;
+  color: var(--darkMainColor--);
 }
 .userInfo .userAbout {
   font-size: 0.7rem;

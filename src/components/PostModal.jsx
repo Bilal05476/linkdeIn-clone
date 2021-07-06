@@ -133,6 +133,7 @@ export default function PostModal({
   };
   const onHandleSubmit = async (e) => {
     e.preventDefault();
+    userNewPost.push({ postInput, postMedia });
     await setUserPost.add({
       name: userName,
       avatar: userImage,
@@ -141,7 +142,6 @@ export default function PostModal({
       postMedia: postMedia,
       postTime: firebase.firestore.Timestamp.fromDate(new Date()),
     });
-    userNewPost.push({ postInput, postMedia });
     await getUserData
       .update({
         posts: userNewPost,
@@ -155,6 +155,8 @@ export default function PostModal({
         alert(error.message);
         alert(`Error! ${error}`);
       });
+
+    setUserNewPost([]);
   };
 
   return (
