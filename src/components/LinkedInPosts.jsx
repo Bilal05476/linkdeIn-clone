@@ -12,14 +12,14 @@ import { db } from "../firebase";
 import { useEffect, useState } from "react";
 import moment from "moment";
 
-const LinkedInPosts = () => {
+const LinkedInPosts = ({ sortingPost }) => {
   const [linkedInPosts, setLinkedInPost] = useState([]);
 
   const [{ toggleTheme }] = useStateValue();
 
   useEffect(() => {
     db.collection("posts")
-      .orderBy("postTime", "desc")
+      .orderBy("postTime", `${sortingPost}`)
       .onSnapshot((snapshot) =>
         setLinkedInPost(
           snapshot.docs.map((doc) => ({
@@ -28,7 +28,7 @@ const LinkedInPosts = () => {
           }))
         )
       );
-  }, []);
+  }, [sortingPost]);
 
   return (
     <>

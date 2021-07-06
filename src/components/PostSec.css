@@ -8,12 +8,12 @@
 
 .sortSec .sortingLine {
   height: 1px;
-  width: 80%;
+  width: 70%;
   border: 0.025px solid var(--AppDarkBorder--) !important;
 }
 .sortSec .sortingLineLight {
   height: 1px;
-  width: 80%;
+  width: 70%;
   border: 0.025px solid #ccc !important;
 }
 .sortingText {
@@ -26,6 +26,10 @@
 .postSec {
   display: flex;
   flex-direction: column;
+}
+.sortingBtn:hover {
+  color: var(--darkMainColor--);
+  cursor: pointer;
 }
 /*pagePost*/
 .pagePost {
