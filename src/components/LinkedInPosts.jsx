@@ -18,14 +18,16 @@ const LinkedInPosts = () => {
   const [{ toggleTheme }] = useStateValue();
 
   useEffect(() => {
-    db.collection("posts").onSnapshot((snapshot) =>
-      setLinkedInPost(
-        snapshot.docs.map((doc) => ({
-          id: doc.id,
-          data: doc.data(),
-        }))
-      )
-    );
+    db.collection("posts")
+      .orderBy("postTime", "desc")
+      .onSnapshot((snapshot) =>
+        setLinkedInPost(
+          snapshot.docs.map((doc) => ({
+            id: doc.id,
+            data: doc.data(),
+          }))
+        )
+      );
   }, []);
 
   return (

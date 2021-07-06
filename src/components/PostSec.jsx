@@ -4,9 +4,11 @@ import PagePost from "./PagePost";
 // import LinkedInPost from "./LinkedInPost";
 import { useStateValue } from "../StateProvider";
 import LinkedInPosts from "./LinkedInPosts";
+import { useState } from "react";
 
 const PostSec = () => {
   const [{ toggleTheme }] = useStateValue();
+  const [sortingPost, setSortingPost] = useState("");
   return (
     <>
       <div className="sortSec">
