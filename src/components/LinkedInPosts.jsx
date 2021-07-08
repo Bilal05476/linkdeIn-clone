@@ -89,17 +89,32 @@ const LinkedInPosts = ({ sortingPost, userImage }) => {
                     >
                       <div className="modal-dialog" role="document">
                         <div className="modal-content">
-                          <div className="modal-header">
+                          <div
+                            className="modal-header"
+                            style={{
+                              background: toggleTheme ? "#fff" : "#424242",
+                            }}
+                          >
                             <button
                               type="button"
                               className="close"
                               data-dismiss="modal"
                               aria-label="Close"
+                              style={{
+                                outline: "none !important",
+                              }}
                             >
-                              <FaTimes />
+                              <FaTimes
+                                color={toggleTheme ? "#424242" : "#fff"}
+                              />
                             </button>
                           </div>
-                          <div className="modal-body">
+                          <div
+                            className="modal-body"
+                            style={{
+                              background: toggleTheme ? "#fff" : "#424242",
+                            }}
+                          >
                             <div className="alertImage">
                               <FaTimes className="alertIcon" />
                             </div>

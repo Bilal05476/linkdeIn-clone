@@ -3,7 +3,7 @@
 }
 .modal .modal-header {
   border-bottom: none;
-  background-color: #424242;
+  /* background-color: #424242; */
 }
 
 .modal .modal-body {
@@ -11,7 +11,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #424242;
+  /* background-color: #424242; */
   padding-bottom: 50px;
 }
 .modal .modal-body .alertImage {
