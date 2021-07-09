@@ -7,7 +7,7 @@ import { useStateValue } from "../StateProvider";
 import PostModal from "./PostModal";
 import { useState } from "react";
 
-const NewPost = ({ userImage, userName, userOccupation }) => {
+const NewPost = ({ userImage, userId, userName, userOccupation }) => {
   const [{ toggleTheme }] = useStateValue();
   const [open, setOpen] = useState(false);
 
@@ -28,6 +28,7 @@ const NewPost = ({ userImage, userName, userOccupation }) => {
         userName={userName}
         userOccupation={userOccupation}
         userImage={userImage}
+        userId={userId}
       />
       <div className={toggleTheme ? "postIconsLight" : "postIcons"}>
         <div className="photo">

@@ -10,6 +10,7 @@ import { Switch, Route } from "react-router-dom";
 function App() {
   const [{ user }] = useStateValue();
   const [userName, setUserName] = useState("");
+  const [userId, setUserId] = useState("");
   const [userOccupation, setUserOccupation] = useState("");
   const [userCountry, setUserCountry] = useState("");
   const [userCity, setUserCity] = useState("");
@@ -25,6 +26,7 @@ function App() {
       setUserCountry(doc.data().country);
       setUserCity(doc.data().city);
       setUserAbout(doc.data().about);
+      setUserId(user.uid);
     });
   }
   return (
@@ -45,6 +47,7 @@ function App() {
                   userName={userName}
                   userOccupation={userOccupation}
                   userImage={userImage}
+                  userId={userId}
                 />
               </>
             )}

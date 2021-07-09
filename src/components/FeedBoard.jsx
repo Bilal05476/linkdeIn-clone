@@ -10,7 +10,7 @@ import UserDetails from "./UserDetails";
 import UserPage from "./UserPage";
 import { useStateValue } from "../StateProvider";
 
-const FeedBoard = ({ userName, userImage, userOccupation }) => {
+const FeedBoard = ({ userName, userId, userImage, userOccupation }) => {
   const [{ toggleTheme }] = useStateValue();
 
   return (
@@ -30,6 +30,7 @@ const FeedBoard = ({ userName, userImage, userOccupation }) => {
             userImage={userImage}
             userName={userName}
             userOccupation={userOccupation}
+            userId={userId}
           />
           <PostSec userImage={userImage} />
         </div>

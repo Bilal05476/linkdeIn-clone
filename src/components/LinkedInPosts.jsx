@@ -19,7 +19,7 @@ const LinkedInPosts = ({ sortingPost, userImage }) => {
   const getPostFromDatabase = db.collection("posts");
   const [deletePostId, setDeletePostId] = useState("");
 
-  const [{ toggleTheme }] = useStateValue();
+  const [{ toggleTheme, user }] = useStateValue();
   useEffect(() => {
     getPostFromDatabase
       .orderBy("postTime", `${sortingPost}`)
@@ -36,6 +36,8 @@ const LinkedInPosts = ({ sortingPost, userImage }) => {
   const onDeletePost = (id) => {
     getPostFromDatabase.doc(id).delete();
   };
+
+  const userIdForDeletePost = user.uid.toString();
 
   return (
     <>
@@ -72,81 +74,77 @@ const LinkedInPosts = ({ sortingPost, userImage }) => {
                 </div>
               </div>
               <div className="headerRight">
-                {userImage === data.avatar ? (
-                  <>
-                    <BsThreeDots
-                      data-target="#deleteModal"
-                      data-toggle="modal"
-                      type="button"
-                      onClick={() => setDeletePostId(linkedInPost.id)}
-                    />
-                    {/* deleteModal */}
-                    <div
-                      className="modal fade"
-                      id="deleteModal"
-                      tabindex="-1"
-                      role="dialog"
-                    >
-                      <div className="modal-dialog" role="document">
-                        <div className="modal-content">
-                          <div
-                            className="modal-header"
-                            style={{
-                              background: toggleTheme ? "#fff" : "#424242",
-                            }}
+                {userIdForDeletePost === data.id ? (
+                  <BsThreeDots
+                    data-target="#deleteModal"
+                    data-toggle="modal"
+                    type="button"
+                    onClick={() => setDeletePostId(linkedInPost.id)}
+                  />
+                ) : (
+                  ""
+                )}
+                {/* deleteModal */}
+                <div
+                  className="modal fade"
+                  id="deleteModal"
+                  tabIndex="-1"
+                  role="dialog"
+                >
+                  <div className="modal-dialog" role="document">
+                    <div className="modal-content">
+                      <div
+                        className="modal-header"
+                        style={{
+                          background: toggleTheme ? "#fff" : "#424242",
+                        }}
+                      >
+                        <button
+                          type="button"
+                          className="close"
+                          data-dismiss="modal"
+                          aria-label="Close"
+                          style={{
+                            outline: "none !important",
+                          }}
+                        >
+                          <FaTimes color={toggleTheme ? "#424242" : "#fff"} />
+                        </button>
+                      </div>
+                      <div
+                        className="modal-body"
+                        style={{
+                          background: toggleTheme ? "#fff" : "#424242",
+                        }}
+                      >
+                        <div className="alertImage">
+                          <FaTimes className="alertIcon" />
+                        </div>
+                        <p className="mb-0">
+                          Do you really want to delete this post? this process
+                          cannot be undone.
+                        </p>
+                        <div>
+                          <button
+                            type="button"
+                            className="btn btn-secondary mx-1 cancelBtn"
+                            data-dismiss="modal"
                           >
-                            <button
-                              type="button"
-                              className="close"
-                              data-dismiss="modal"
-                              aria-label="Close"
-                              style={{
-                                outline: "none !important",
-                              }}
-                            >
-                              <FaTimes
-                                color={toggleTheme ? "#424242" : "#fff"}
-                              />
-                            </button>
-                          </div>
-                          <div
-                            className="modal-body"
-                            style={{
-                              background: toggleTheme ? "#fff" : "#424242",
-                            }}
+                            Cancel
+                          </button>
+                          <button
+                            onClick={() => onDeletePost(deletePostId)}
+                            type="button"
+                            className="mx-1 btn deleteBtn"
+                            data-dismiss="modal"
                           >
-                            <div className="alertImage">
-                              <FaTimes className="alertIcon" />
-                            </div>
-                            <p className="mb-0">
-                              Do you really want to delete this post? this
-                              process cannot be undone.
-                            </p>
-                            <div>
-                              <button
-                                type="button"
-                                className="btn btn-secondary mx-1 cancelBtn"
-                                data-dismiss="modal"
-                              >
-                                Cancel
-                              </button>
-                              <button
-                                onClick={() => onDeletePost(deletePostId)}
-                                type="button"
-                                className="mx-1 btn deleteBtn"
-                                data-dismiss="modal"
-                              >
-                                Delete
-                              </button>
-                            </div>
-                          </div>
+                            Delete
+                          </button>
                         </div>
                       </div>
                     </div>
-                  </>
-                ) : (
-                  " "
-                )}
+                  </div>
+                </div>
               </div>
             </div>
             <div className="postBody">

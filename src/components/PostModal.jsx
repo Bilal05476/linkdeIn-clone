@@ -110,6 +110,7 @@ export default function PostModal({
   setOpen,
   userName,
   userImage,
+  userId,
   userOccupation,
 }) {
   const [{ user, toggleTheme }] = useStateValue();
@@ -140,6 +141,7 @@ export default function PostModal({
     setUserPost
       .add({
         name: userName,
+        id: userId,
         avatar: userImage,
         occupation: userOccupation,
         postInput: postInput,
