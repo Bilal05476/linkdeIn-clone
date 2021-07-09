@@ -99,7 +99,13 @@
 .pagePostLight .postFooter .actionsArea small {
   margin: auto 10px;
   font-size: 0.9rem;
+  cursor: pointer;
 }
+/* 
+.pagePost .postFooter .actionsArea small:hover,
+.pagePostLight .postFooter .actionsArea small:hover {
+  background: #ccc;
+} */
 
 .pagePost .postFooter .actionsArea .actionsIcons,
 .pagePostLight .postFooter .actionsArea .actionsIcons {

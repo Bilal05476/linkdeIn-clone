@@ -14,12 +14,12 @@ import { useEffect, useState } from "react";
 import moment from "moment";
 import "./PostDeleteModal.css";
 
-const LinkedInPosts = ({ sortingPost, userImage }) => {
+const LinkedInPosts = ({ sortingPost }) => {
   const [linkedInPosts, setLinkedInPost] = useState([]);
   const getPostFromDatabase = db.collection("posts");
   const [deletePostId, setDeletePostId] = useState("");
 
-  const [{ toggleTheme, user }] = useStateValue();
+  const [{ toggleTheme, user, postLike }, dispatch] = useStateValue();
   useEffect(() => {
     getPostFromDatabase
       .orderBy("postTime", `${sortingPost}`)
@@ -38,6 +38,12 @@ const LinkedInPosts = ({ sortingPost, userImage }) => {
   };
 
   const userIdForDeletePost = user.uid.toString();
+
+  const onLikePost = () => {
+    dispatch({
+      type: "LIKE_POST",
+    });
+  };
 
   return (
     <>
@@ -162,12 +168,13 @@ const LinkedInPosts = ({ sortingPost, userImage }) => {
                   style={{ marginLeft: "-2px" }}
                 />
                 <small className="ml-2">
-                  61 <span className="px-1">.</span> 14 comments
+                  {data.postLikeCount} <span className="px-1">.</span> 14
+                  comments
                 </small>
               </div>
               <hr />
               <div className="actionsArea">
-                <small>
+                <small onClick={onLikePost}>
                   <BiLike className="actionsIcons" />
                   Like
                 </small>
