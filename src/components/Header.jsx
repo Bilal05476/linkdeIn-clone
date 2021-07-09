@@ -17,11 +17,13 @@ import { NavLink } from "react-router-dom";
 
 const Header = ({ userName, userImage, userOccupation }) => {
   const [{ toggleTheme }, dispatch] = useStateValue();
+  localStorage.setItem("theme", JSON.stringify(toggleTheme));
 
-  const onToggleTheme = () => {
+  const onToggleTheme = async () => {
     dispatch({
       type: "DARK_THEME",
     });
+    await localStorage.setItem("theme", JSON.stringify(toggleTheme));
   };
 
   return (
