@@ -1,11 +1,9 @@
 import "./PostSec.css";
 import { BsThreeDots } from "react-icons/bs";
 import { BiLike } from "react-icons/bi";
-import { FcLike } from "react-icons/fc";
 import { BiCommentDetail } from "react-icons/bi";
 import { FiSend } from "react-icons/fi";
 import { VscLiveShare } from "react-icons/vsc";
-import { FaRegLightbulb } from "react-icons/fa";
 import { FaTimes } from "react-icons/fa";
 import { BiWorld } from "react-icons/bi";
 import { useStateValue } from "../StateProvider";
@@ -46,7 +44,7 @@ const LinkedInPosts = ({ sortingPost }) => {
         const { data } = linkedInPost;
         const incrementLike = firebase.firestore.FieldValue.increment(+1);
         const onLikePost = (id) => {
-          const getPostData = db.collection("posts").doc(id);
+          const getPostData = getPostFromDatabase.doc(id);
           getPostData.update({
             postLikeCount: incrementLike,
           });
