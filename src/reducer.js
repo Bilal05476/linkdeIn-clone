@@ -16,11 +16,11 @@ const reducer = (state, action) => {
         ...state,
         toggleTheme: !state.toggleTheme,
       };
-    case "LIKE_POST":
-      return {
-        ...state,
-        postLike: state.postLike + 1,
-      };
+    // case "LIKE_POST":
+    //   return {
+    //     ...state,
+    //     postLike: state.postLike + 1,
+    //   };
     default:
       return state;
   }

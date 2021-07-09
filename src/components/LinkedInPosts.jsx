@@ -13,13 +13,14 @@ import { db } from "../firebase";
 import { useEffect, useState } from "react";
 import moment from "moment";
 import "./PostDeleteModal.css";
+import firebase from "firebase";
 
 const LinkedInPosts = ({ sortingPost }) => {
   const [linkedInPosts, setLinkedInPost] = useState([]);
   const getPostFromDatabase = db.collection("posts");
   const [deletePostId, setDeletePostId] = useState("");
 
-  const [{ toggleTheme, user, postLike }, dispatch] = useStateValue();
+  const [{ toggleTheme, user }] = useStateValue();
   useEffect(() => {
     getPostFromDatabase
       .orderBy("postTime", `${sortingPost}`)
@@ -39,16 +40,17 @@ const LinkedInPosts = ({ sortingPost }) => {
 
   const userIdForDeletePost = user.uid.toString();
 
-  const onLikePost = () => {
-    dispatch({
-      type: "LIKE_POST",
-    });
-  };
-
   return (
     <>
       {linkedInPosts.map((linkedInPost, ind) => {
         const { data } = linkedInPost;
+        const incrementLike = firebase.firestore.FieldValue.increment(+1);
+        const onLikePost = (id) => {
+          const getPostData = db.collection("posts").doc(id);
+          getPostData.update({
+            postLikeCount: incrementLike,
+          });
+        };
 
         const postDate = moment(data.postTime.toDate().toString()).fromNow();
 
@@ -174,7 +176,7 @@ const LinkedInPosts = ({ sortingPost }) => {
               </div>
               <hr />
               <div className="actionsArea">
-                <small onClick={onLikePost}>
+                <small onClick={() => onLikePost(linkedInPost.id)}>
                   <BiLike className="actionsIcons" />
                   Like
                 </small>
