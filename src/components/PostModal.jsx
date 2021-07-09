@@ -119,6 +119,7 @@ export default function PostModal({
   const setUserPost = db.collection("posts");
   const [postInput, setPostInput] = useState("");
   const [postMedia, setPostMedia] = useState("");
+  const [likeCount, setLikeCount] = useState(0);
   const [userNewPost, setUserNewPost] = useState([]);
 
   const handleClose = () => {
@@ -143,6 +144,7 @@ export default function PostModal({
         name: userName,
         id: userId,
         avatar: userImage,
+        postLikeCount: likeCount,
         occupation: userOccupation,
         postInput: postInput,
         postMedia: postMedia,
@@ -152,6 +154,7 @@ export default function PostModal({
         console.log("Your post has been added👍");
         setPostInput("");
         setPostMedia("");
+        setLikeCount(0);
       })
       .catch((error) => {
         alert(error.message);

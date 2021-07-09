@@ -164,13 +164,8 @@ const LinkedInPosts = ({ sortingPost }) => {
             <div className="postFooter">
               <div className="reactionsIcons">
                 <BiLike color="rgb(14, 118, 168)" />{" "}
-                <FcLike style={{ marginLeft: "-2px" }} />{" "}
-                <FaRegLightbulb
-                  color="goldenrod"
-                  style={{ marginLeft: "-2px" }}
-                />
-                <small className="ml-2">
-                  {data.postLikeCount} <span className="px-1">.</span> 14
+                <small className="ml-1">
+                  {data.postLikeCount} <span className="px-1">.</span> 0
                   comments
                 </small>
               </div>
