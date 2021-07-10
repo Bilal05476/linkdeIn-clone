@@ -58,9 +58,9 @@
 }
 .signOutBtn:hover {
   background: crimson;
-  text-align: center;
-  padding-left: 0px;
-  transition: 0.5s;
+  /* text-align: center; */
+  padding-left: 20px;
+  transition: 0.9s;
 }
 .signOutBtn .signOut {
   cursor: pointer;
