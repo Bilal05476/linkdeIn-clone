@@ -36,6 +36,7 @@ const LinkedInPosts = ({ sortingPost }) => {
     getPostFromDatabase.doc(id).delete();
   };
 
+  //allow user to delete only his posts
   const userIdForDeletePost = user.uid.toString();
 
   return (
