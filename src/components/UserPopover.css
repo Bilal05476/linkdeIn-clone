@@ -57,10 +57,11 @@
   background-color: rgba(18, 166, 224, 0.178);
 }
 .signOutBtn:hover {
-  background: crimson;
+  background: rgba(220, 20, 60, 0.74);
   /* text-align: center; */
+  color: #fff;
   padding-left: 20px;
-  transition: 0.9s;
+  transition: 0.5s;
 }
 .signOutBtn .signOut {
   cursor: pointer;
