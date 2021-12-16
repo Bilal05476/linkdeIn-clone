@@ -21,6 +21,8 @@ const LinkedInPosts = ({ sortingPost }) => {
   const [linkedInPosts, setLinkedInPost] = useState([]);
   const getPostFromDatabase = db.collection("posts");
   const [deletePostId, setDeletePostId] = useState("");
+  const [reactionPostId, setReactionPostId] = useState("");
+  const [anchorEl, setAnchorEl] = useState(null);
 
   const [{ toggleTheme, user }] = useStateValue();
   useEffect(() => {
@@ -42,49 +44,45 @@ const LinkedInPosts = ({ sortingPost }) => {
   //allow user to delete only his posts
   const userIdForDeletePost = user.uid.toString();
 
-  // Reaction Popover functions & state
-  const [anchorEl, setAnchorEl] = useState(null);
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
-  const open = Boolean(anchorEl);
-  const id = open ? "simple-popover" : undefined;
-
   return (
     <>
       {linkedInPosts.map((linkedInPost, ind) => {
         const { data } = linkedInPost;
         const incrementReaction = firebase.firestore.FieldValue.increment(+1);
+        // Reaction Popover functions & state
+        const handleClick = (event) => {
+          setAnchorEl(event.currentTarget);
+          setReactionPostId(linkedInPost.id);
+        };
+        const handleClose = () => {
+          setAnchorEl(null);
+        };
+        const open = Boolean(anchorEl);
+        const id = open ? "simple-popover" : undefined;
+
         const onLikePost = (id) => {
-          console.log(id)
-          // const getPostData = getPostFromDatabase.doc(id);
-          // getPostData.update({
-          //   postLikeCount: incrementReaction,
-          // });
+          const getPostData = getPostFromDatabase.doc(id);
+          getPostData.update({
+            postLikeCount: incrementReaction,
+          });
         };
         const onLovePost = (id) => {
-          console.log(id)
-          // const getPostData = getPostFromDatabase.doc(id);
-          // getPostData.update({
-          //   postLoveCount: incrementReaction,
-          // });
+          const getPostData = getPostFromDatabase.doc(id);
+          getPostData.update({
+            postLoveCount: incrementReaction,
+          });
         };
         const onSupportPost = (id) => {
-          console.log(id)
-          // const getPostData = getPostFromDatabase.doc(id);
-          // getPostData.update({
-          //   postSupCount: incrementReaction,
-          // });
+          const getPostData = getPostFromDatabase.doc(id);
+          getPostData.update({
+            postSupCount: incrementReaction,
+          });
         };
         const onInsightPost = (id) => {
-          console.log(id)
-          // const getPostData = getPostFromDatabase.doc(id);
-          // getPostData.update({
-          //   postInsCount: incrementReaction,
-          // });
+          const getPostData = getPostFromDatabase.doc(id);
+          getPostData.update({
+            postInsCount: incrementReaction,
+          });
         };
 
         const postDate = moment(data.postTime.toDate().toString()).fromNow();
@@ -223,6 +221,7 @@ const LinkedInPosts = ({ sortingPost }) => {
                     style={{ marginLeft: "-4px" }}
                   />
                 )}
+                {postReactionCount == 0 && <BiLike className="actionsIcons" />}
                 <small className="ml-1">
                   {postReactionCount} <span className="px-1">.</span> 0 comments
                 </small>
@@ -254,7 +253,7 @@ const LinkedInPosts = ({ sortingPost }) => {
                   >
                     <BiLike
                       color="rgb(18, 145, 204)"
-                      onClick={() => onLikePost(linkedInPost.id)}
+                      onClick={() => onLikePost(reactionPostId)}
                       style={{
                         marginLeft: "3px",
                         fontSize: "2rem",
@@ -263,7 +262,7 @@ const LinkedInPosts = ({ sortingPost }) => {
                     />
                     <AiFillHeart
                       color="rgb(202, 17, 64)"
-                      onClick={() => onLovePost(linkedInPost.id)}
+                      onClick={() => onLovePost(reactionPostId)}
                       style={{
                         marginLeft: "3px",
                         fontSize: "2rem",
@@ -272,7 +271,7 @@ const LinkedInPosts = ({ sortingPost }) => {
                     />
                     <RiHeartsFill
                       color="rgb(35, 214, 18)"
-                      onClick={() => onSupportPost(linkedInPost.id)}
+                      onClick={() => onSupportPost(reactionPostId)}
                       style={{
                         marginLeft: "3px",
                         fontSize: "2rem",
@@ -281,7 +280,7 @@ const LinkedInPosts = ({ sortingPost }) => {
                     />
                     <CgInsights
                       color="rgb(226, 230, 22)"
-                      onClick={() => onInsightPost(linkedInPost.id)}
+                      onClick={() => onInsightPost(reactionPostId)}
                       style={{
                         marginLeft: "3px",
                         fontSize: "2rem",
