@@ -6,6 +6,9 @@ import { FiSend } from "react-icons/fi";
 import { VscLiveShare } from "react-icons/vsc";
 import { FaTimes } from "react-icons/fa";
 import { BiWorld } from "react-icons/bi";
+import { CgInsights } from "react-icons/cg";
+import { AiFillHeart } from "react-icons/ai";
+import { RiHeartsFill } from "react-icons/ri";
 import { useStateValue } from "../StateProvider";
 import { db } from "../firebase";
 import { useEffect, useState } from "react";
@@ -52,6 +55,12 @@ const LinkedInPosts = ({ sortingPost }) => {
         };
 
         const postDate = moment(data.postTime.toDate().toString()).fromNow();
+
+        const postReactionCount =
+          data.postLikeCount +
+          data.postLoveCount +
+          data.postInsCount +
+          data.postSupCount;
 
         return (
           <div key={ind} className={toggleTheme ? "pagePostLight" : "pagePost"}>
@@ -162,9 +171,27 @@ const LinkedInPosts = ({ sortingPost }) => {
             </div>
             <div className="postFooter">
               <div className="reactionsIcons">
-                <BiLike color="rgb(14, 118, 168)" />{" "}
+                {data.postLikeCount > 0 && <BiLike color="rgb(18, 145, 204)" />}
+                {data.postLoveCount > 0 && (
+                  <AiFillHeart
+                    color="rgb(202, 17, 64)"
+                    style={{ marginLeft: "-4px" }}
+                  />
+                )}
+                {data.postSupCount > 0 && (
+                  <RiHeartsFill
+                    color="rgb(35, 214, 18)"
+                    style={{ marginLeft: "-4px" }}
+                  />
+                )}
+                {data.postInsCount > 0 && (
+                  <CgInsights
+                    color="rgb(226, 230, 22)"
+                    style={{ marginLeft: "-4px" }}
+                  />
+                )}
                 <small className="ml-1">
-                  {data.postLikeCount} <span className="px-1">.</span> 0
+                  {postReactionCount} <span className="px-1">.</span> 0
                   comments
                 </small>
               </div>
