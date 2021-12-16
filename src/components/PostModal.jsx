@@ -120,6 +120,9 @@ export default function PostModal({
   const [postInput, setPostInput] = useState("");
   const [postMedia, setPostMedia] = useState("");
   const [likeCount, setLikeCount] = useState(0);
+  const [loveCount, setLoveCount] = useState(0);
+  const [supCount, setSupCount] = useState(0);
+  const [insCount, setInsCount] = useState(0);
   const [userNewPost, setUserNewPost] = useState([]);
 
   const handleClose = () => {
@@ -145,6 +148,9 @@ export default function PostModal({
         id: userId,
         avatar: userImage,
         postLikeCount: likeCount,
+        postLoveCount: loveCount,
+        postSupCount: supCount,
+        postInsCount: insCount,
         occupation: userOccupation,
         postInput: postInput,
         postMedia: postMedia,
@@ -155,6 +161,9 @@ export default function PostModal({
         setPostInput("");
         setPostMedia("");
         setLikeCount(0);
+        setLoveCount(0);
+        setSupCount(0);
+        setInsCount(0);
       })
       .catch((error) => {
         alert(error.message);

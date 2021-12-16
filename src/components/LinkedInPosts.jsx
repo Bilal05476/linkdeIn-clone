@@ -15,6 +15,7 @@ import { useEffect, useState } from "react";
 import moment from "moment";
 import "./PostDeleteModal.css";
 import firebase from "firebase";
+import Popover from "@material-ui/core/Popover";
 
 const LinkedInPosts = ({ sortingPost }) => {
   const [linkedInPosts, setLinkedInPost] = useState([]);
@@ -38,20 +39,52 @@ const LinkedInPosts = ({ sortingPost }) => {
   const onDeletePost = (id) => {
     getPostFromDatabase.doc(id).delete();
   };
-
   //allow user to delete only his posts
   const userIdForDeletePost = user.uid.toString();
+
+  // Reaction Popover functions & state
+  const [anchorEl, setAnchorEl] = useState(null);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+  const open = Boolean(anchorEl);
+  const id = open ? "simple-popover" : undefined;
 
   return (
     <>
       {linkedInPosts.map((linkedInPost, ind) => {
         const { data } = linkedInPost;
-        const incrementLike = firebase.firestore.FieldValue.increment(+1);
+        const incrementReaction = firebase.firestore.FieldValue.increment(+1);
         const onLikePost = (id) => {
-          const getPostData = getPostFromDatabase.doc(id);
-          getPostData.update({
-            postLikeCount: incrementLike,
-          });
+          console.log(id)
+          // const getPostData = getPostFromDatabase.doc(id);
+          // getPostData.update({
+          //   postLikeCount: incrementReaction,
+          // });
+        };
+        const onLovePost = (id) => {
+          console.log(id)
+          // const getPostData = getPostFromDatabase.doc(id);
+          // getPostData.update({
+          //   postLoveCount: incrementReaction,
+          // });
+        };
+        const onSupportPost = (id) => {
+          console.log(id)
+          // const getPostData = getPostFromDatabase.doc(id);
+          // getPostData.update({
+          //   postSupCount: incrementReaction,
+          // });
+        };
+        const onInsightPost = (id) => {
+          console.log(id)
+          // const getPostData = getPostFromDatabase.doc(id);
+          // getPostData.update({
+          //   postInsCount: incrementReaction,
+          // });
         };
 
         const postDate = moment(data.postTime.toDate().toString()).fromNow();
@@ -191,13 +224,74 @@ const LinkedInPosts = ({ sortingPost }) => {
                   />
                 )}
                 <small className="ml-1">
-                  {postReactionCount} <span className="px-1">.</span> 0
-                  comments
+                  {postReactionCount} <span className="px-1">.</span> 0 comments
                 </small>
               </div>
               <hr />
               <div className="actionsArea">
-                <small onClick={() => onLikePost(linkedInPost.id)}>
+                {/* Like Popover */}
+                <Popover
+                  id={id}
+                  open={open}
+                  anchorEl={anchorEl}
+                  onClose={handleClose}
+                  anchorOrigin={{
+                    vertical: "top",
+                    horizontal: "center",
+                  }}
+                  transformOrigin={{
+                    vertical: "top",
+                    horizontal: "left",
+                  }}
+                >
+                  <div
+                    style={{
+                      color: toggleTheme ? "#424242" : "#fff",
+                      background: toggleTheme ? "#fff" : "#424242",
+                      padding: "10px",
+                      borderRadius: "0px",
+                    }}
+                  >
+                    <BiLike
+                      color="rgb(18, 145, 204)"
+                      onClick={() => onLikePost(linkedInPost.id)}
+                      style={{
+                        marginLeft: "3px",
+                        fontSize: "2rem",
+                        cursor: "pointer",
+                      }}
+                    />
+                    <AiFillHeart
+                      color="rgb(202, 17, 64)"
+                      onClick={() => onLovePost(linkedInPost.id)}
+                      style={{
+                        marginLeft: "3px",
+                        fontSize: "2rem",
+                        cursor: "pointer",
+                      }}
+                    />
+                    <RiHeartsFill
+                      color="rgb(35, 214, 18)"
+                      onClick={() => onSupportPost(linkedInPost.id)}
+                      style={{
+                        marginLeft: "3px",
+                        fontSize: "2rem",
+                        cursor: "pointer",
+                      }}
+                    />
+                    <CgInsights
+                      color="rgb(226, 230, 22)"
+                      onClick={() => onInsightPost(linkedInPost.id)}
+                      style={{
+                        marginLeft: "3px",
+                        fontSize: "2rem",
+                        cursor: "pointer",
+                      }}
+                    />
+                  </div>
+                </Popover>
+
+                <small onClick={handleClick}>
                   <BiLike className="actionsIcons" />
                   Like
                 </small>
